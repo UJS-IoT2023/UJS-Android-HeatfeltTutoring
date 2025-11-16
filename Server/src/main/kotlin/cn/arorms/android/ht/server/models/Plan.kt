@@ -1,5 +1,6 @@
 package cn.arorms.android.ht.server.models
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.FetchType
@@ -17,6 +18,7 @@ data class Plan (
     var id: Long? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     @JoinColumn(name = "user_id")
     var user: User,
 
