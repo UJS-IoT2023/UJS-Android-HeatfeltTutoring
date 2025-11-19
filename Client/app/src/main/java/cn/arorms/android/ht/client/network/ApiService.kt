@@ -1,0 +1,213 @@
+package cn.arorms.android.ht.client.network
+
+import cn.arorms.android.ht.client.models.*
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.*
+import java.util.concurrent.TimeUnit
+
+interface ApiService {
+    
+    // ========== 认证相关接口 ==========
+    
+    // 用户注册
+    @POST("api/auth/register")
+    suspend fun register(@Body registerRequest: RegisterRequest): AuthResponse
+    
+    // 用户登录
+    @POST("api/auth/login")
+    suspend fun login(@Body loginRequest: LoginRequest): AuthResponse
+    
+    // 验证Token
+    @POST("api/auth/verify")
+    suspend fun verifyToken(@Header("Authorization") authHeader: String): Map<String, Any?>
+    
+    // ========== 计划管理接口 ==========
+    
+    // 获取用户的所有计划
+    @GET("api/plans/user/{userId}")
+    suspend fun getUserPlans(@Path("userId") userId: Long): List<Plan>
+    
+    // 获取所有计划
+    @GET("api/plans")
+    suspend fun getAllPlans(): List<Plan>
+    
+    // 根据ID获取计划
+    @GET("api/plans/{id}")
+    suspend fun getPlanById(@Path("id") id: Long): Plan
+    
+    // 根据完成状态获取计划
+    @GET("api/plans/status/{isCompleted}")
+    suspend fun getPlansByStatus(@Path("isCompleted") isCompleted: Boolean): List<Plan>
+    
+    // 创建新计划
+    @POST("api/plans")
+    suspend fun createPlan(@Body plan: Plan): Plan
+    
+    // 更新计划
+    @PUT("api/plans/{id}")
+    suspend fun updatePlan(@Path("id") id: Long, @Body plan: Plan): Plan
+    
+    // 删除计划
+    @DELETE("api/plans/{id}")
+    suspend fun deletePlan(@Path("id") id: Long)
+    
+    // ========== 预约管理接口 ==========
+    
+    // 获取所有预约
+    @GET("api/appointments")
+    suspend fun getAllAppointments(): List<Appointment>
+    
+    // 根据ID获取预约
+    @GET("api/appointments/{id}")
+    suspend fun getAppointmentById(@Path("id") id: Long): Appointment
+    
+    // 获取用户的预约
+    @GET("api/appointments/user/{userId}")
+    suspend fun getAppointmentsByUserId(@Path("userId") userId: Long): List<Appointment>
+    
+    // 获取教师的预约
+    @GET("api/appointments/teacher/{teacherId}")
+    suspend fun getAppointmentsByTeacherId(@Path("teacherId") teacherId: Long): List<Appointment>
+    
+    // 创建预约
+    @POST("api/appointments")
+    suspend fun createAppointment(@Body appointment: Appointment): Appointment
+    
+    // 更新预约
+    @PUT("api/appointments/{id}")
+    suspend fun updateAppointment(@Path("id") id: Long, @Body appointment: Appointment): Appointment
+    
+    // 删除预约
+    @DELETE("api/appointments/{id}")
+    suspend fun deleteAppointment(@Path("id") id: Long)
+    
+    // ========== 教师管理接口 ==========
+    
+    // 获取所有教师
+    @GET("api/teachers")
+    suspend fun getAllTeachers(): List<Teacher>
+    
+    // 根据ID获取教师
+    @GET("api/teachers/{id}")
+    suspend fun getTeacherById(@Path("id") id: Long): Teacher
+    
+    // 创建教师
+    @POST("api/teachers")
+    suspend fun createTeacher(@Body teacher: Teacher): Teacher
+    
+    // 更新教师
+    @PUT("api/teachers/{id}")
+    suspend fun updateTeacher(@Path("id") id: Long, @Body teacher: Teacher): Teacher
+    
+    // 删除教师
+    @DELETE("api/teachers/{id}")
+    suspend fun deleteTeacher(@Path("id") id: Long)
+    
+    // ========== 其他接口 ==========
+    
+    // 反馈管理接口
+    @GET("api/feedback")
+    suspend fun getAllFeedback(): List<Feedback>
+    
+    @GET("api/feedback/{id}")
+    suspend fun getFeedbackById(@Path("id") id: Long): Feedback
+    
+    @POST("api/feedback")
+    suspend fun createFeedback(@Body feedback: Feedback): Feedback
+    
+    @PUT("api/feedback/{id}")
+    suspend fun updateFeedback(@Path("id") id: Long, @Body feedback: Feedback): Feedback
+    
+    @DELETE("api/feedback/{id}")
+    suspend fun deleteFeedback(@Path("id") id: Long)
+    
+    // 订单管理接口
+    @GET("api/orders")
+    suspend fun getAllOrders(): List<Order>
+    
+    @GET("api/orders/{id}")
+    suspend fun getOrderById(@Path("id") id: Long): Order
+    
+    @POST("api/orders")
+    suspend fun createOrder(@Body order: Order): Order
+    
+    @PUT("api/orders/{id}")
+    suspend fun updateOrder(@Path("id") id: Long, @Body order: Order): Order
+    
+    @DELETE("api/orders/{id}")
+    suspend fun deleteOrder(@Path("id") id: Long)
+    
+    // 奖励管理接口
+    @GET("api/rewards")
+    suspend fun getAllRewards(): List<Reward>
+    
+    @GET("api/rewards/{id}")
+    suspend fun getRewardById(@Path("id") id: Long): Reward
+    
+    @POST("api/rewards")
+    suspend fun createReward(@Body reward: Reward): Reward
+    
+    @PUT("api/rewards/{id}")
+    suspend fun updateReward(@Path("id") id: Long, @Body reward: Reward): Reward
+    
+    @DELETE("api/rewards/{id}")
+    suspend fun deleteReward(@Path("id") id: Long)
+    
+    // 钱包管理接口
+    @GET("api/wallets")
+    suspend fun getAllWallets(): List<Wallet>
+    
+    @GET("api/wallets/{id}")
+    suspend fun getWalletById(@Path("id") id: Long): Wallet
+    
+    @POST("api/wallets")
+    suspend fun createWallet(@Body wallet: Wallet): Wallet
+    
+    @PUT("api/wallets/{id}")
+    suspend fun updateWallet(@Path("id") id: Long, @Body wallet: Wallet): Wallet
+    
+    @DELETE("api/wallets/{id}")
+    suspend fun deleteWallet(@Path("id") id: Long)
+}
+
+object RetrofitClient {
+    private const val BASE_URL = "http://172.20.10.2:8080/"
+    
+    private val loggingInterceptor = HttpLoggingInterceptor().apply {
+        level = HttpLoggingInterceptor.Level.BODY
+    }
+    
+    private val okHttpClient = OkHttpClient.Builder()
+        .addInterceptor(loggingInterceptor)
+        .addInterceptor { chain ->
+            val original = chain.request()
+            val requestBuilder = original.newBuilder()
+                .header("Content-Type", "application/json")
+                .method(original.method, original.body)
+            
+            // 添加认证token（如果有）
+            val token = AuthManager.getToken()
+            if (token.isNotEmpty()) {
+                requestBuilder.header("Authorization", "Bearer $token")
+            }
+            
+            val request = requestBuilder.build()
+            chain.proceed(request)
+        }
+        .connectTimeout(30, TimeUnit.SECONDS)
+        .readTimeout(30, TimeUnit.SECONDS)
+        .writeTimeout(30, TimeUnit.SECONDS)
+        .build()
+    
+    val instance: ApiService by lazy {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ApiService::class.java)
+    }
+}

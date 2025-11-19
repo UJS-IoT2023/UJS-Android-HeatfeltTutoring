@@ -36,7 +36,7 @@ class AuthController @Autowired constructor(
             // 创建用户对象
             val user = User(
                 phoneNumber = registerRequest.phoneNumber,
-                password = registerRequest.password, // 会在service层加密
+                password = registerRequest.password,
                 icon = registerRequest.icon,
                 address = registerRequest.address
             )

@@ -13,6 +13,9 @@ data class User(
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
+    
+    @Column(name = "user_name")
+    var userName: String? = null,
 
     @Column(name = "phone_number", nullable = false, unique = true, length = 20)
     var phoneNumber: String,
