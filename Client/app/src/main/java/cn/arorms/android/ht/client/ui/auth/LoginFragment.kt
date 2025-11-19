@@ -71,6 +71,8 @@ class LoginFragment : Fragment() {
                 AuthManager.saveToken(response.token)
                 AuthManager.saveUserId(response.userId)
                 AuthManager.savePhoneNumber(response.phoneNumber)
+                AuthManager.saveUsername(response.username ?: response.phoneNumber)
+                AuthManager.saveUserIcon(response.icon ?: "")
                 
                 Toast.makeText(requireContext(), "登录成功", Toast.LENGTH_SHORT).show()
                 
