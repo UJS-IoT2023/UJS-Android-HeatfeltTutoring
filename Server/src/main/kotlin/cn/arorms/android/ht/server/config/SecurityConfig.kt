@@ -51,6 +51,7 @@ class SecurityConfig {
                         "/uploads/**",
                         "/api/teachers",
                         "/api/teachers/**",
+                        "/api/users/upload/**"  // 允许文件上传端点匿名访问
 //                        "/api/plans/**"
                     ).permitAll()
                     .anyRequest().authenticated()
