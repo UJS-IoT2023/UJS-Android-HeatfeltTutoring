@@ -1,5 +1,6 @@
 package cn.arorms.android.ht.server.controller
 
+import cn.arorms.android.ht.server.dto.SelectTeacherRequest
 import cn.arorms.android.ht.server.models.Teacher
 import cn.arorms.android.ht.server.service.TeacherService
 import org.springframework.beans.factory.annotation.Autowired
@@ -14,7 +15,7 @@ class TeacherController @Autowired constructor(
 ) {
 
     // Get all teachers
-    @GetMapping
+    @GetMapping("/list")
     fun getAllTeachers(): ResponseEntity<List<Teacher>> {
         val teachers = teacherService.getAllTeachers()
         return ResponseEntity.ok(teachers)
@@ -61,4 +62,14 @@ class TeacherController @Autowired constructor(
             return ResponseEntity.notFound().build()
         }
     }
+    @GetMapping
+    fun selectTeacher(@ModelAttribute form: SelectTeacherRequest): ResponseEntity<Any> {
+        try {
+            val selectTeacher = teacherService.selectTeacher(form)
+            return ResponseEntity.ok(selectTeacher)
+        } catch (e: RuntimeException) {
+            return ResponseEntity.notFound().build()
+        }
+    }
+
 }

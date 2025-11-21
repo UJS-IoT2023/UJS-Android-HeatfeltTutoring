@@ -29,5 +29,8 @@ data class Teacher(
     var educationalBackground: String,
     
     @Column(name = "taught_grades")
-    var taughtGrades: String
+    var taughtGrades: String,
+
+    @Column(name = "taught_courses")
+    var taughtCourses: String
 )

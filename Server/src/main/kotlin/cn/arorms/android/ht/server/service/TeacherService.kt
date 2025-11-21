@@ -1,5 +1,6 @@
 package cn.arorms.android.ht.server.service
 
+import cn.arorms.android.ht.server.dto.SelectTeacherRequest
 import cn.arorms.android.ht.server.models.Teacher
 import cn.arorms.android.ht.server.repository.TeacherRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -52,5 +53,11 @@ class TeacherService @Autowired constructor(
     // 检查教师是否存在
     fun existsById(id: Long): Boolean {
         return teacherRepository.existsById(id)
+    }
+
+    fun selectTeacher(form: SelectTeacherRequest): Any {
+        val course = form.course
+        val grade = form.grade
+       return teacherRepository.findTeachersByCourseAndGrade(course, grade)
     }
 }
