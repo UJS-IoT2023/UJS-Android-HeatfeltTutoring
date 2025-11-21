@@ -110,6 +110,7 @@
         android:layout_height="wrap_content"
         android:text="已有账号？登录"
         android:textAppearance="?attr/textAppearanceTitleMedium"
+        android:textColor="@color/black"
         app:backgroundTint="@android:color/transparent"
         app:cornerRadius="8dp"
         app:strokeColor="?attr/colorPrimary"

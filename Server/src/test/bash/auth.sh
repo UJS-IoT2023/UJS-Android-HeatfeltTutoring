@@ -2,8 +2,8 @@
 curl -X POST http://localhost:8080/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{
-    "phoneNumber": "13800138000",
-    "password": "password123"
+    "phoneNumber": "13915830566",
+    "password": "123"
   }'
 
 

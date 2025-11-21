@@ -27,11 +27,10 @@ class LoginActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        
-        // 初始化AuthManager
+
         AuthManager.initialize(this)
         
-        // 检查是否已登录
+        // Go to the main activity if login before
 //        if (AuthManager.isLoggedIn()) {
 //            navigateToMain()
 //            return

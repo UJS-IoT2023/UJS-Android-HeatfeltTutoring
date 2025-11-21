@@ -12,4 +12,18 @@
         android:label="学习计划"
         tools:layout="@layout/fragment_plans" />
 
+    <!-- 教师管理 -->
+    <fragment
+        android:id="@+id/teachersFragment"
+        android:name="cn.arorms.android.ht.client.ui.teachers.TeachersFragment"
+        android:label="教师列表"
+        tools:layout="@layout/fragment_teachers" />
+
+    <!-- 预约管理 -->
+    <fragment
+        android:id="@+id/appointmentsFragment"
+        android:name="cn.arorms.android.ht.client.ui.appointments.AppointmentsFragment"
+        android:label="预约管理"
+        tools:layout="@layout/fragment_appointments" />
+
 </navigation>
