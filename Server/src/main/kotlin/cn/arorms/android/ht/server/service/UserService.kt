@@ -28,13 +28,13 @@ class UserService @Autowired constructor(
     }
 
     fun registerUser(user: User): User {
-        if (userRepository.findByPhoneNumber(user.phoneNumber) != null) {
-            throw RuntimeException("手机号已被注册")
+        if (userRepository.findByEmail(user.email) != null) {
+            throw RuntimeException("邮箱已被注册")
         }
 
         // Generate random username
-        val randomUsername = usernameGenerator.generateUniqueUsername()
-        user.username = randomUsername
+//        val randomUsername = usernameGenerator.generateUniqueUsername()
+//        user.username = randomUsername
 
         val encryptedPassword = passwordEncoder.encode(user.password)
         user.password = encryptedPassword
@@ -62,7 +62,7 @@ class UserService @Autowired constructor(
         }
 
         user.phoneNumber = userDetails.phoneNumber
-        user.icon = userDetails.icon
+        user.avatarUrl = userDetails.avatarUrl
         user.address = userDetails.address
 
         return userRepository.save(user)
@@ -78,6 +78,10 @@ class UserService @Autowired constructor(
         return userRepository.existsById(id)
     }
 
+    fun existsByEmail(email: String): Boolean {
+        return userRepository.existsByEmail(email)
+    }
+    
     fun existsByPhoneNumber(phoneNumber: String): Boolean {
         return userRepository.findByPhoneNumber(phoneNumber) != null
     }

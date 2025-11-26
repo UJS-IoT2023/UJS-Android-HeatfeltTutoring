@@ -21,7 +21,7 @@ class JwtUtil(
         return Jwts.builder()
             .subject(user.id.toString())
             .claim("phoneNumber", user.phoneNumber)
-            .claim("icon", user.icon)
+            .claim("icon", user.avatarUrl)
             .claim("address", user.address)
             .issuedAt(Date())
             .expiration(Date(System.currentTimeMillis() + jwtProperties.expiration))

@@ -1,30 +1,62 @@
 package cn.arorms.android.ht.server.models
 
+import cn.arorms.android.ht.server.enums.Role
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.JoinColumn
+import jakarta.persistence.OneToOne
 import jakarta.persistence.Table
 import java.time.LocalDateTime
 
 @Entity @Table(name = "users")
 data class User(
 
+    // ===== Auth information =====
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
-    
-    @Column(name = "username")
-    var username: String? = null,
 
-    @Column(name = "phone_number", nullable = false, unique = true, length = 20)
-    var phoneNumber: String,
+    @Column(name = "username", unique = true)
+    var username: String,
 
-    @Column(nullable = false, length = 100)
+    @Column(unique = true)
+    var email: String,
+
     var password: String,
+    
+    // ===== Extended info =====
+    var role: Role? = Role.STUDENT,
+    
+    @Column(name = "wechat_openid")
+    var wechatOpenid: String? = null,
 
-    var icon: String? = null,
+    @Column(name = "qq_openid")
+    var qqOpenid: String? = null,
 
+    @OneToOne @JoinColumn(name = "teacher_profile_id")
+    var teacherProfile: TeacherProfile? = null,
+
+    @OneToOne @JoinColumn(name = "wallet_id")
+    var wallet: Wallet? = null,
+    
+    // ===== Profile information =====
+    @Column(name = "phone_number", unique = true, length = 20)
+    var phoneNumber: String? = null,
+
+    @Column(name = "avatar_url")
+    var avatarUrl: String? = null,
+
+    @Column(name = "real_name")
+    var realName: String? = null,
+
+    @Column(name = "wechat_id", unique = true)
+    var wechatId: String? = null,
+    
+    @Column(name =  "qq_id", unique = true)
+    var qqId: String? = null,
+    
     var address: String? = null,
 
     @Column(name = "created_at", nullable = false)
