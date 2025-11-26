@@ -20,12 +20,11 @@ class AuthController @Autowired constructor(
 
     // Register
     @PostMapping("/register")
-    fun register(@RequestBody registerRequest: RegisterRequest): ResponseEntity<AuthResponse> {
+    fun register(@RequestBody registerRequest: RegisterRequest): ResponseEntity<LoginResponse> {
         try {
-            // 检查手机号是否已存在
-            if (userService.existsByPhoneNumber(registerRequest.phoneNumber)) {
+            if (userService.existsByEmail(registerRequest.email)) {
                 return ResponseEntity(
-                    AuthResponse(
+                    LoginResponse(
                         message = "手机号已被注册"
                     ),
                     HttpStatus.BAD_REQUEST
@@ -33,9 +32,9 @@ class AuthController @Autowired constructor(
             }
 
             val user = User(
-                phoneNumber = registerRequest.phoneNumber,
+                email = registerRequest.email,
+                username = registerRequest.username,
                 password = registerRequest.password,
-                address = registerRequest.address
             )
 
             val savedUser = userService.registerUser(user)
@@ -43,19 +42,16 @@ class AuthController @Autowired constructor(
             val token = jwtUtil.generateToken(savedUser)
 
             return ResponseEntity(
-                AuthResponse(
+                LoginResponse(
                     token = token,
                     userId = savedUser.id!!,
-                    phoneNumber = savedUser.phoneNumber,
-                    icon = savedUser.icon,
-                    address = savedUser.address,
                     message = "注册成功"
                 ),
                 HttpStatus.OK
             )
         } catch (e: Exception) {
             return ResponseEntity(
-                AuthResponse(
+                LoginResponse(
                     message = "注册失败: ${e.message}"
                 ),
                 HttpStatus.INTERNAL_SERVER_ERROR
@@ -65,14 +61,14 @@ class AuthController @Autowired constructor(
 
     // Login
     @PostMapping("/login")
-    fun login(@RequestBody loginRequest: LoginRequest): ResponseEntity<AuthResponse> {
+    fun login(@RequestBody loginRequest: LoginRequest): ResponseEntity<LoginResponse> {
         try {
             // 验证用户凭据
-            val user = userService.authenticateUser(loginRequest.phoneNumber, loginRequest.password)
+            val user = userService.authenticateUser(loginRequest.username, loginRequest.password)
             
             if (user == null) {
                 return ResponseEntity(
-                    AuthResponse(
+                    LoginResponse(
                         message = "手机号或密码错误"
                     ),
                     HttpStatus.UNAUTHORIZED
@@ -82,20 +78,17 @@ class AuthController @Autowired constructor(
             val token = jwtUtil.generateToken(user)
 
             return ResponseEntity(
-                AuthResponse(
+                LoginResponse(
                     token = token,
                     userId = user.id!!,
                     username = user.username,
-                    phoneNumber = user.phoneNumber,
-                    icon = user.icon,
-                    address = user.address,
                     message = "登录成功"
                 ),
                 HttpStatus.OK
             )
         } catch (e: Exception) {
             return ResponseEntity(
-                AuthResponse(
+                LoginResponse(
                     message = "登录失败: ${e.message}"
                 ),
                 HttpStatus.INTERNAL_SERVER_ERROR

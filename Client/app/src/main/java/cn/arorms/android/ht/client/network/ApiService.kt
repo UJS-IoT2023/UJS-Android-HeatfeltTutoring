@@ -1,5 +1,8 @@
 package cn.arorms.android.ht.client.network
 
+import cn.arorms.android.ht.client.dto.AuthResponse
+import cn.arorms.android.ht.client.dto.LoginRequest
+import cn.arorms.android.ht.client.dto.RegisterRequest
 import cn.arorms.android.ht.client.models.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

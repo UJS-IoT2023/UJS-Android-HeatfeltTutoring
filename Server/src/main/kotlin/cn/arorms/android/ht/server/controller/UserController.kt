@@ -64,17 +64,18 @@ class UserController @Autowired constructor(
             
             // 创建更新对象，只更新icon字段
             // 注意：password设为空字符串，这样updateUser方法不会重新加密密码
-            val updatedUser = User(
-                id = user.id,
-                username = user.username,
-                phoneNumber = user.phoneNumber,
-                password = "", // 空字符串，避免重新加密密码
-                icon = url, // 更新为上传后的URL
-                address = user.address,
-                createdAt = user.createdAt
-            )
-            
-            userService.updateUser(id, updatedUser)
+//            val updatedUser = User(
+//                id = user.id,
+//                username = user.username,
+//                phoneNumber = user.phoneNumber,
+//                password = "", // 空字符串，避免重新加密密码
+//                avatarUrl = url, // 更新为上传后的URL
+//                address = user.address,
+//                createdAt = user.createdAt
+//            )
+
+            user.avatarUrl = url
+            userService.updateUser(id, user)
             ResponseEntity(
                 mapOf(
                     "success" to true,
