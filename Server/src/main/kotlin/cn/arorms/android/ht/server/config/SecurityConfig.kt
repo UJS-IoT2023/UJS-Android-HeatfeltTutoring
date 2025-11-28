@@ -49,8 +49,7 @@ class SecurityConfig {
                     .requestMatchers(
                         "/api/auth/**",
                         "/uploads/**",
-                        "/api/teachers",
-                        "/api/teachers/**",
+                        "/api/users/**",
                         "/api/users/upload/**"  // 允许文件上传端点匿名访问
 //                        "/api/plans/**"
                     ).permitAll()

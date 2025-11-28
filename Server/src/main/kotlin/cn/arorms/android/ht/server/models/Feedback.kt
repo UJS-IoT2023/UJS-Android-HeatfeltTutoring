@@ -21,8 +21,8 @@ data class Feedback (
     var user: User,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "teacher_id")
-    var teacher: Teacher,
+    @JoinColumn(name = "teacher_user_id")
+    var teacherUser: User,
 
     var content: String,
 

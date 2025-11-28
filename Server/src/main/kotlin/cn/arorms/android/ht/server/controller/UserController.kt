@@ -1,5 +1,6 @@
 package cn.arorms.android.ht.server.controller
 
+import cn.arorms.android.ht.server.dto.SelectUserRequest
 import cn.arorms.android.ht.server.models.User
 import cn.arorms.android.ht.server.service.UserService
 import cn.arorms.android.ht.server.util.AliOssUtil
@@ -16,18 +17,15 @@ class UserController @Autowired constructor(
     private val aliOssUtil: AliOssUtil,
     private val userService: UserService
 ) {
-
     /**
-     * 文件上传
-     * @param file 上传的文件（form表单中的字段名必须是"file"）
+     * User avatar upload
+     * TODO: Redirect the avatar upload api
+     * @param file 上传的文件
      * @param id 用户ID
      * @return 文件访问URL
      */
-    @PostMapping("/upload/{id}")
-    fun upload(
-        file: MultipartFile,
-        @PathVariable id: Long
-    ): ResponseEntity<Map<String, Any>> {
+    @PostMapping("/upload-avatar/{id}")
+    fun uploadAvatar(file: MultipartFile, @PathVariable id: Long): ResponseEntity<Map<String, Any>> {
         return try {
             // 检查文件是否为空
             if (file.isEmpty) {
@@ -61,18 +59,6 @@ class UserController @Autowired constructor(
             // 存储到数据库 - 更新用户的icon字段
             val user = userService.getUserById(id)
                 .orElseThrow { RuntimeException("用户不存在，id: $id") }
-            
-            // 创建更新对象，只更新icon字段
-            // 注意：password设为空字符串，这样updateUser方法不会重新加密密码
-//            val updatedUser = User(
-//                id = user.id,
-//                username = user.username,
-//                phoneNumber = user.phoneNumber,
-//                password = "", // 空字符串，避免重新加密密码
-//                avatarUrl = url, // 更新为上传后的URL
-//                address = user.address,
-//                createdAt = user.createdAt
-//            )
 
             user.avatarUrl = url
             userService.updateUser(id, user)
@@ -94,6 +80,23 @@ class UserController @Autowired constructor(
                 HttpStatus.INTERNAL_SERVER_ERROR
             )
         }
+    }
+    
+    // Get users and support search
+    @GetMapping
+    fun getUsers(): ResponseEntity<List<User>> {
+        return ResponseEntity(userService.getUsers(), HttpStatus.OK)
+    }
+    
+    @PostMapping
+    fun getUsers(@RequestBody selectUserRequest: SelectUserRequest? = null): ResponseEntity<List<User>> {
+        return ResponseEntity(userService.getUsers(selectUserRequest), HttpStatus.OK)
+    }
+    
+    @GetMapping("/teachers")
+    fun getTeachers(): ResponseEntity<List<User>> {
+        val teachers = userService.getTeacherUsers()
+        return ResponseEntity(teachers, HttpStatus.OK)
     }
 }
 

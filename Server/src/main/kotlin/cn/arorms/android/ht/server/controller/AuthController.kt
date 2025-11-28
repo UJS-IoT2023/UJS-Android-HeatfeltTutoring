@@ -153,12 +153,12 @@ class AuthController @Autowired constructor(
     fun login(@RequestBody loginRequest: LoginRequest): ResponseEntity<LoginResponse> {
         try {
             // 验证用户凭据
-            val user = userService.authenticateUser(loginRequest.username, loginRequest.password)
+            val user = userService.authenticateUser(loginRequest.email, loginRequest.password)
             
             if (user == null) {
                 return ResponseEntity(
                     LoginResponse(
-                        message = "手机号或密码错误"
+                        message = "邮箱或密码错误"
                     ),
                     HttpStatus.UNAUTHORIZED
                 )

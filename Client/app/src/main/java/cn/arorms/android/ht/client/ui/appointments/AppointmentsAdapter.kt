@@ -33,7 +33,7 @@ class AppointmentsAdapter : ListAdapter<Appointment, AppointmentsAdapter.Appoint
                 
                 appointmentDate.text = "预约时间: $formattedDate"
                 appointmentSubject.text = "科目: ${appointment.subject}"
-                appointmentUser.text = "学生: ${appointment.user.name}"
+                appointmentUser.text = "学生: ${appointment.user.username}"
                 appointmentTeacher.text = "教师: ${appointment.teacher.name}"
                 
                 // 设置图标

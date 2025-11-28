@@ -26,29 +26,24 @@ class FeedbackService @Autowired constructor(
         return feedbackRepository.findByUserId(userId)
     }
 
-    // Get feedbacks by teacher ID
-    fun getFeedbacksByTeacherId(teacherId: Long): List<Feedback> {
-        return feedbackRepository.findByTeacherId(teacherId)
-    }
-
     // Create new feedback
     fun createFeedback(feedback: Feedback): Feedback {
         return feedbackRepository.save(feedback)
     }
 
     // Update feedback
-    fun updateFeedback(id: Long, feedbackDetails: Feedback): Feedback {
-        val feedback = feedbackRepository.findById(id)
-            .orElseThrow { RuntimeException("Feedback not found with id: $id") }
-
-        feedback.user = feedbackDetails.user
-        feedback.teacher = feedbackDetails.teacher
-        feedback.content = feedbackDetails.content
-        feedback.createdAt = feedbackDetails.createdAt
-        feedback.subject = feedbackDetails.subject
-
-        return feedbackRepository.save(feedback)
-    }
+//    fun updateFeedback(id: Long, feedbackDetails: Feedback): Feedback {
+//        val feedback = feedbackRepository.findById(id)
+//            .orElseThrow { RuntimeException("Feedback not found with id: $id") }
+//
+//        feedback.user = feedbackDetails.user
+//        feedback.teacher = feedbackDetails.teacher
+//        feedback.content = feedbackDetails.content
+//        feedback.createdAt = feedbackDetails.createdAt
+//        feedback.subject = feedbackDetails.subject
+//
+//        return feedbackRepository.save(feedback)
+//    }
 
     // Delete feedback
     fun deleteFeedback(id: Long) {

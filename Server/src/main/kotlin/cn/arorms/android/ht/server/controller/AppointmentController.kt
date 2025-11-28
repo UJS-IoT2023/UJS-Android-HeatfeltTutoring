@@ -38,13 +38,6 @@ class AppointmentController @Autowired constructor(
         return ResponseEntity(appointments, HttpStatus.OK)
     }
 
-    // Get appointments by teacher ID
-    @GetMapping("/teacher/{teacherId}")
-    fun getAppointmentsByTeacherId(@PathVariable teacherId: Long): ResponseEntity<List<Appointment>> {
-        val appointments = appointmentService.getAppointmentsByTeacherId(teacherId)
-        return ResponseEntity(appointments, HttpStatus.OK)
-    }
-
     // Create new appointment
     @PostMapping
     fun createAppointment(@RequestBody appointment: Appointment): ResponseEntity<Appointment> {

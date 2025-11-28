@@ -3,6 +3,8 @@ package cn.arorms.android.ht.server.models
 import cn.arorms.android.ht.server.enums.Role
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
+import jakarta.persistence.EnumType
+import jakarta.persistence.Enumerated
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
@@ -27,6 +29,7 @@ data class User(
     var password: String,
     
     // ===== Extended info =====
+    @Enumerated(EnumType.STRING)
     var role: Role? = Role.STUDENT,
     
     @Column(name = "wechat_openid")

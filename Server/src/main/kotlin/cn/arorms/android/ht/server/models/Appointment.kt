@@ -26,8 +26,8 @@ data class Appointment(
     @ManyToOne
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JsonIgnore
-    @JoinColumn(name = "teacher_id")
-    var teacher: Teacher,
+    @JoinColumn(name = "teacher_user_id")
+    var teacherUser: User,
 
     var subject: String,
 

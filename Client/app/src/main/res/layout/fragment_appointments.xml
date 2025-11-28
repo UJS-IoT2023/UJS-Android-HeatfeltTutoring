@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.swiperefreshlayout.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -64,7 +64,7 @@
 
         </LinearLayout>
 
-    </com.google.android.material.swiperefreshlayout.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <!-- 添加预约按钮 -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton

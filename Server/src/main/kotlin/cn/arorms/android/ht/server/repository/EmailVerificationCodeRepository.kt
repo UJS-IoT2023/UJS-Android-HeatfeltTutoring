@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
 import java.time.LocalDateTime
 
+// TODO: Redis
 @Repository
 interface EmailVerificationCodeRepository : JpaRepository<EmailVerificationCode, Long> {
     

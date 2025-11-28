@@ -15,6 +15,8 @@ import cn.arorms.android.ht.client.network.AuthManager
 import cn.arorms.android.ht.client.network.RetrofitClient
 import kotlinx.coroutines.launch
 
+//private val FragmentRegisterBinding.etUsername: Any
+
 class RegisterFragment : Fragment() {
     
     private var _binding: FragmentRegisterBinding? = null
@@ -48,11 +50,12 @@ class RegisterFragment : Fragment() {
     }
     
     private fun register() {
-        val phoneNumber = binding.etPhoneNumber.text.toString().trim()
+        val email = binding.etEmail.text.toString().trim()
+        val username = binding.etUsername.text.toString().trim()
         val password = binding.etPassword.text.toString().trim()
         val confirmPassword = binding.etConfirmPassword.text.toString().trim()
         
-        if (phoneNumber.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+        if (password.isEmpty() || confirmPassword.isEmpty()) {
             Toast.makeText(requireContext(), "请填写所有字段", Toast.LENGTH_SHORT).show()
             return
         }
@@ -67,13 +70,13 @@ class RegisterFragment : Fragment() {
         
         lifecycleScope.launch {
             try {
-                val registerRequest = RegisterRequest(phoneNumber, password)
+                val registerRequest = RegisterRequest(username, email, password)
                 val response = apiService.register(registerRequest)
                 
                 // 保存token和用户信息
                 AuthManager.saveToken(response.token)
                 AuthManager.saveUserId(response.userId)
-                AuthManager.savePhoneNumber(response.phoneNumber)
+//                AuthManager.savePhoneNumber(response.phoneNumber)
                 
                 Toast.makeText(requireContext(), "注册成功", Toast.LENGTH_SHORT).show()
                 

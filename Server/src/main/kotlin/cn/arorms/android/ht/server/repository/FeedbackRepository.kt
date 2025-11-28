@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository
 @Repository
 interface FeedbackRepository : JpaRepository<Feedback, Long> {
     fun findByUserId(userId: Long): List<Feedback>
-    fun findByTeacherId(teacherId: Long): List<Feedback>
 }
