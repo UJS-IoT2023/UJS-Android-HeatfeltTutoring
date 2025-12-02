@@ -1,6 +1,6 @@
 package cn.arorms.android.ht.server.controller
 
-import cn.arorms.android.ht.server.models.Appointment
+import cn.arorms.android.ht.server.pojo.entity.Appointment
 import cn.arorms.android.ht.server.service.AppointmentService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus

@@ -34,7 +34,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.etPhoneNumber.setText("13800138000")
+        binding.etEmail.setText("1272369577@qq.com")
         binding.etPassword.setText("password123")
 
         setupClickListeners()
@@ -51,11 +51,11 @@ class LoginFragment : Fragment() {
     }
 
     private fun login() {
-        val phoneNumber = binding.etPhoneNumber.text.toString().trim()
+        val email = binding.etEmail.text.toString().trim()
         val password = binding.etPassword.text.toString().trim()
 
-        if (phoneNumber.isEmpty() || password.isEmpty()) {
-            Toast.makeText(requireContext(), "请输入手机号和密码", Toast.LENGTH_SHORT).show()
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(requireContext(), "Please enter the email and the password", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -64,7 +64,7 @@ class LoginFragment : Fragment() {
 
         lifecycleScope.launch {
             try {
-                val loginRequest = LoginRequest(phoneNumber, password)
+                val loginRequest = LoginRequest(email, password)
                 val response = apiService.login(loginRequest)
 
                 // 保存token和用户信息

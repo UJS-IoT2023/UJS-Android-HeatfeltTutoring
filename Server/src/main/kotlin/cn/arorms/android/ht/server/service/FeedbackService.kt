@@ -1,6 +1,6 @@
 package cn.arorms.android.ht.server.service
 
-import cn.arorms.android.ht.server.models.Feedback
+import cn.arorms.android.ht.server.pojo.entity.Feedback
 import cn.arorms.android.ht.server.repository.FeedbackRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service

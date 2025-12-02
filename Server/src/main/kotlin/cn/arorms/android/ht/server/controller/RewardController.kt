@@ -1,6 +1,6 @@
 package cn.arorms.android.ht.server.controller
 
-import cn.arorms.android.ht.server.models.Reward
+import cn.arorms.android.ht.server.pojo.entity.Reward
 import cn.arorms.android.ht.server.service.RewardService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus

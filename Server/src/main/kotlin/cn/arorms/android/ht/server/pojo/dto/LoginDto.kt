@@ -1,9 +1,10 @@
-package cn.arorms.android.ht.server.dto
+package cn.arorms.android.ht.server.pojo.dto
+
+import cn.arorms.android.ht.server.pojo.enums.LoginType
 
 data class LoginRequest(
-    // TODO: Login with username
-//    val username: String,
-    val email: String,
+    val loginType: LoginType,
+    val identifier: String,
     val password: String
 )
 

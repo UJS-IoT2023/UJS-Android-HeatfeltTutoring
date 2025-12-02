@@ -1,6 +1,6 @@
 package cn.arorms.android.ht.server.service
 
-import cn.arorms.android.ht.server.models.Appointment
+import cn.arorms.android.ht.server.pojo.entity.Appointment
 import cn.arorms.android.ht.server.repository.AppointmentRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service

@@ -1,7 +1,7 @@
 package cn.arorms.android.ht.server.util
 
 import cn.arorms.android.ht.server.config.JwtProperties
-import cn.arorms.android.ht.server.models.User
+import cn.arorms.android.ht.server.pojo.entity.User
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.security.Keys
 import org.springframework.stereotype.Component

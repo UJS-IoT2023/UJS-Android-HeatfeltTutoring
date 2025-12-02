@@ -1,4 +1,4 @@
-package cn.arorms.android.ht.server.enums
+package cn.arorms.android.ht.server.pojo.enums
 
 enum class Role {
     STUDENT,

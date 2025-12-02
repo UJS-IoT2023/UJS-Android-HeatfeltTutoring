@@ -1,4 +1,4 @@
-package cn.arorms.android.ht.server.dto
+package cn.arorms.android.ht.server.pojo.dto
 
 data class SendVerificationCodeRequest(
     val email: String

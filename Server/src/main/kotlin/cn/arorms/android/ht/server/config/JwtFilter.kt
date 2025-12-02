@@ -10,7 +10,6 @@ import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource
 import org.springframework.web.filter.OncePerRequestFilter
 
-// 移除 @Component 注解，由 SecurityConfig 管理 Bean 创建
 class JwtFilter(
     private val jwtUtil: JwtUtil,
     private val userService: UserService

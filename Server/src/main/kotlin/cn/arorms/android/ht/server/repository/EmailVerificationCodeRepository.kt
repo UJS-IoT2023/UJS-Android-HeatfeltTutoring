@@ -1,12 +1,11 @@
 package cn.arorms.android.ht.server.repository
 
-import cn.arorms.android.ht.server.models.EmailVerificationCode
+import cn.arorms.android.ht.server.pojo.entity.EmailVerificationCode
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Modifying
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
-import java.time.LocalDateTime
 
 // TODO: Redis
 @Repository

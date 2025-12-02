@@ -1,7 +1,12 @@
 package cn.arorms.android.ht.server.controller
 
-import cn.arorms.android.ht.server.dto.*
-import cn.arorms.android.ht.server.models.User
+import cn.arorms.android.ht.server.pojo.dto.LoginRequest
+import cn.arorms.android.ht.server.pojo.dto.LoginResponse
+import cn.arorms.android.ht.server.pojo.dto.RegisterRequest
+import cn.arorms.android.ht.server.pojo.dto.SendVerificationCodeRequest
+import cn.arorms.android.ht.server.pojo.dto.VerifyEmailRequest
+import cn.arorms.android.ht.server.pojo.entity.User
+import cn.arorms.android.ht.server.pojo.enums.LoginType
 import cn.arorms.android.ht.server.service.EmailService
 import cn.arorms.android.ht.server.service.UserService
 import cn.arorms.android.ht.server.service.VerificationCodeService
@@ -22,7 +27,7 @@ class AuthController @Autowired constructor(
     private val usernameGenerator: UsernameGenerator
 ) {
 
-    // 发送验证码
+    // Send verification code
     @PostMapping("/send-verification-code")
     fun sendVerificationCode(@RequestBody request: SendVerificationCodeRequest): ResponseEntity<Map<String, String>> {
         try {
@@ -67,7 +72,7 @@ class AuthController @Autowired constructor(
         }
     }
 
-    // 验证邮箱
+    // Verify the email code
     @PostMapping("/verify-email")
     fun verifyEmail(@RequestBody request: VerifyEmailRequest): ResponseEntity<Map<String, String>> {
         try {
@@ -152,14 +157,15 @@ class AuthController @Autowired constructor(
     @PostMapping("/login")
     fun login(@RequestBody loginRequest: LoginRequest): ResponseEntity<LoginResponse> {
         try {
-            // 验证用户凭据
-            val user = userService.authenticateUser(loginRequest.email, loginRequest.password)
+            val user = when(loginRequest.loginType) {
+                LoginType.USERNAME -> userService.authenticateUserByUsername(loginRequest.identifier, loginRequest.password)
+                LoginType.EMAIL -> userService.authenticateUserByEmail(loginRequest.identifier, loginRequest.password)
+                LoginType.WECHAT -> userService.authenticateUserByWechat(loginRequest.identifier, loginRequest.password)
+            }
             
             if (user == null) {
                 return ResponseEntity(
-                    LoginResponse(
-                        message = "邮箱或密码错误"
-                    ),
+                    LoginResponse(message = "Error identifier or password."),
                     HttpStatus.UNAUTHORIZED
                 )
             }

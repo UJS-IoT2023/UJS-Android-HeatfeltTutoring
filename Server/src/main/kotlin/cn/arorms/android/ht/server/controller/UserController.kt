@@ -1,12 +1,11 @@
 package cn.arorms.android.ht.server.controller
 
-import cn.arorms.android.ht.server.dto.SelectUserRequest
-import cn.arorms.android.ht.server.models.User
+import cn.arorms.android.ht.server.pojo.dto.SelectUserRequest
+import cn.arorms.android.ht.server.pojo.entity.User
 import cn.arorms.android.ht.server.service.UserService
 import cn.arorms.android.ht.server.util.AliOssUtil
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
-import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartFile

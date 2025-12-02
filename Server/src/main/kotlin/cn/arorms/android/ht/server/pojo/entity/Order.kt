@@ -1,4 +1,4 @@
-package cn.arorms.android.ht.server.models
+package cn.arorms.android.ht.server.pojo.entity
 
 import jakarta.persistence.Entity
 import jakarta.persistence.FetchType

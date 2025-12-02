@@ -48,12 +48,15 @@ class SecurityConfig {
                 authz
                     .requestMatchers(
                         "/api/auth/**",
-                        "/uploads/**",
                         "/api/users/**",
-                        "/api/users/upload/**"  // 允许文件上传端点匿名访问
-//                        "/api/plans/**"
+                        "/api/plans/**"
                     ).permitAll()
                     .anyRequest().authenticated()
+            }
+            .oauth2Login { oauth2 ->  // 添加OAuth2登录配置
+                oauth2
+                    .loginPage("/login")  // 自定义登录页面
+                    .defaultSuccessUrl("/api/userinfo")  // 登录成功后的跳转地址
             }
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter::class.java)
 

@@ -1,6 +1,6 @@
-package cn.arorms.android.ht.server.models
+package cn.arorms.android.ht.server.pojo.entity
 
-import cn.arorms.android.ht.server.enums.Role
+import cn.arorms.android.ht.server.pojo.enums.Role
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.EnumType
@@ -11,6 +11,7 @@ import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.OneToOne
 import jakarta.persistence.Table
+import org.springframework.data.jpa.repository.EntityGraph
 import java.time.LocalDateTime
 
 @Entity @Table(name = "users")
@@ -64,4 +65,10 @@ data class User(
 
     @Column(name = "created_at", nullable = false)
     var createdAt: LocalDateTime = LocalDateTime.now()
-)
+) {
+    companion object {
+        @EntityGraph(attributePaths = ["id", "username"])
+        @JvmStatic
+        fun basicProjection() = this
+    }
+}

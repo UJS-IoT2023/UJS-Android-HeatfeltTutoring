@@ -1,6 +1,6 @@
-package cn.arorms.android.ht.server.dto
+package cn.arorms.android.ht.server.pojo.dto
 
-import cn.arorms.android.ht.server.enums.Role
+import cn.arorms.android.ht.server.pojo.enums.Role
 
 data class SelectUserRequest(
     val userId: Long? = null,

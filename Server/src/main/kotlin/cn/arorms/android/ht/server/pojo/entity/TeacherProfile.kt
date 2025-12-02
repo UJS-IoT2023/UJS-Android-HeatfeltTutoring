@@ -1,4 +1,4 @@
-package cn.arorms.android.ht.server.models
+package cn.arorms.android.ht.server.pojo.entity
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
@@ -13,11 +13,18 @@ data class TeacherProfile (
     var id: Long? = null,
 
     @Column(name = "educational_background")
-    var educationalBackground: String,
+    var educationalBackground: String? = null,
 
     @Column(name = "taught_grades")
-    var taughtGrades: String,
+    var taughtGrades: String? = null,
+    
+    // TODO: Taught subjects tag table
+//    @OneToMany(mappedBy = "teacherProfile")
+//    @JoinColumn(name = "taught_subject_tag_id")
+//    var taughtSubjects: MutableSet<TaughtSubjectTag>,
+    @Column(name = "taught_subjects")
+    var taughtSubjects: String? = null,
 
     @Column(name = "taught_courses")
-    var taughtCourses: String
+    var taughtCourses: String? = null,
 )

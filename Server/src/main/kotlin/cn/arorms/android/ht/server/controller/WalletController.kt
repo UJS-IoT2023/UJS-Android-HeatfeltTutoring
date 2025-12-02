@@ -1,6 +1,6 @@
 package cn.arorms.android.ht.server.controller
 
-import cn.arorms.android.ht.server.models.Wallet
+import cn.arorms.android.ht.server.pojo.entity.Wallet
 import cn.arorms.android.ht.server.service.WalletService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus

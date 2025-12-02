@@ -1,15 +1,11 @@
 package cn.arorms.android.ht.server
 
-import cn.arorms.android.ht.server.models.EmailVerificationCode
-import cn.arorms.android.ht.server.repository.EmailVerificationCodeRepository
 import cn.arorms.android.ht.server.service.EmailService
 import cn.arorms.android.ht.server.service.VerificationCodeService
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.TestPropertySource
-import java.time.LocalDateTime
 
 @SpringBootTest
 @TestPropertySource(locations = ["classpath:application.properties"])

@@ -1,6 +1,6 @@
 package cn.arorms.android.ht.server.service
 
-import cn.arorms.android.ht.server.models.Order
+import cn.arorms.android.ht.server.pojo.entity.Order
 import cn.arorms.android.ht.server.repository.OrderRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
