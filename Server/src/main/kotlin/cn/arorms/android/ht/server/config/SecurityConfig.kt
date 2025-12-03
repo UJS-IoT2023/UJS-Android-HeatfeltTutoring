@@ -1,7 +1,7 @@
 package cn.arorms.android.ht.server.config
 
-import cn.arorms.android.ht.server.util.JwtUtil
 import cn.arorms.android.ht.server.service.UserService
+import cn.arorms.android.ht.server.util.JwtUtil
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AuthenticationManager
@@ -37,7 +37,10 @@ class SecurityConfig {
     }
 
     @Bean
-    fun securityFilterChain(http: HttpSecurity, jwtFilter: JwtFilter): SecurityFilterChain {
+    fun securityFilterChain(
+        http: HttpSecurity, 
+        jwtFilter: JwtFilter,
+    ): SecurityFilterChain {
         http
             .cors { cors -> cors.configurationSource(corsConfigurationSource()) }
             .csrf { csrf -> csrf.disable() }
@@ -48,11 +51,10 @@ class SecurityConfig {
                 authz
                     .requestMatchers(
                         "/api/auth/**",
-                        "/uploads/**",
-                        "/api/teachers",
-                        "/api/teachers/**",
-                        "/api/users/upload/**"  // 允许文件上传端点匿名访问
-//                        "/api/plans/**"
+                        "/api/users",
+                        "/api/users/**",
+                        "/api/plans/**",
+                        "/login",
                     ).permitAll()
                     .anyRequest().authenticated()
             }

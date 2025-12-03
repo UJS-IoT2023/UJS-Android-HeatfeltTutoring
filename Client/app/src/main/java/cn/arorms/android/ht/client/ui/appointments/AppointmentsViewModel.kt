@@ -2,7 +2,7 @@ package cn.arorms.android.ht.client.ui.appointments
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import cn.arorms.android.ht.client.models.Appointment
+import cn.arorms.android.ht.client.pojo.models.Appointment
 import cn.arorms.android.ht.client.repository.AppointmentRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

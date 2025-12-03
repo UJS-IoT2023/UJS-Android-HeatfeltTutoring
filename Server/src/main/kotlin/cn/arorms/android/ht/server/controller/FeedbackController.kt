@@ -1,6 +1,6 @@
 package cn.arorms.android.ht.server.controller
 
-import cn.arorms.android.ht.server.models.Feedback
+import cn.arorms.android.ht.server.pojo.entity.Feedback
 import cn.arorms.android.ht.server.service.FeedbackService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -38,13 +38,6 @@ class FeedbackController @Autowired constructor(
         return ResponseEntity(feedbacks, HttpStatus.OK)
     }
 
-    // Get feedbacks by teacher ID
-    @GetMapping("/teacher/{teacherId}")
-    fun getFeedbacksByTeacherId(@PathVariable teacherId: Long): ResponseEntity<List<Feedback>> {
-        val feedbacks = feedbackService.getFeedbacksByTeacherId(teacherId)
-        return ResponseEntity(feedbacks, HttpStatus.OK)
-    }
-
     // Create new feedback
     @PostMapping
     fun createFeedback(@RequestBody feedback: Feedback): ResponseEntity<Feedback> {
@@ -53,24 +46,24 @@ class FeedbackController @Autowired constructor(
     }
 
     // Update feedback
-    @PutMapping("/{id}")
-    fun updateFeedback(@PathVariable id: Long, @RequestBody feedbackDetails: Feedback): ResponseEntity<Feedback> {
-        try {
-            val updatedFeedback = feedbackService.updateFeedback(id, feedbackDetails)
-            return ResponseEntity(updatedFeedback, HttpStatus.OK)
-        } catch (e: RuntimeException) {
-            return ResponseEntity(HttpStatus.NOT_FOUND)
-        }
-    }
+//    @PutMapping("/{id}")
+//    fun updateFeedback(@PathVariable id: Long, @RequestBody feedbackDetails: Feedback): ResponseEntity<Feedback> {
+//        try {
+//            val updatedFeedback = feedbackService.updateFeedback(id, feedbackDetails)
+//            return ResponseEntity(updatedFeedback, HttpStatus.OK)
+//        } catch (e: RuntimeException) {
+//            return ResponseEntity(HttpStatus.NOT_FOUND)
+//        }
+//    }
 
     // Delete feedback
-    @DeleteMapping("/{id}")
-    fun deleteFeedback(@PathVariable id: Long): ResponseEntity<Void> {
-        try {
-            feedbackService.deleteFeedback(id)
-            return ResponseEntity(HttpStatus.NO_CONTENT)
-        } catch (e: RuntimeException) {
-            return ResponseEntity(HttpStatus.NOT_FOUND)
-        }
-    }
+//    @DeleteMapping("/{id}")
+//    fun deleteFeedback(@PathVariable id: Long): ResponseEntity<Void> {
+//        try {
+//            feedbackService.deleteFeedback(id)
+//            return ResponseEntity(HttpStatus.NO_CONTENT)
+//        } catch (e: RuntimeException) {
+//            return ResponseEntity(HttpStatus.NOT_FOUND)
+//        }
+//    }
 }

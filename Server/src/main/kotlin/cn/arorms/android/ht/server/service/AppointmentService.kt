@@ -1,6 +1,6 @@
 package cn.arorms.android.ht.server.service
 
-import cn.arorms.android.ht.server.models.Appointment
+import cn.arorms.android.ht.server.pojo.entity.Appointment
 import cn.arorms.android.ht.server.repository.AppointmentRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -26,11 +26,6 @@ class AppointmentService @Autowired constructor(
         return appointmentRepository.findByUserId(userId)
     }
 
-    // Get appointments by teacher ID
-    fun getAppointmentsByTeacherId(teacherId: Long): List<Appointment> {
-        return appointmentRepository.findByTeacherId(teacherId)
-    }
-
     // Create new appointment
     fun createAppointment(appointment: Appointment): Appointment {
         return appointmentRepository.save(appointment)
@@ -42,7 +37,7 @@ class AppointmentService @Autowired constructor(
             .orElseThrow { RuntimeException("Appointment not found with id: $id") }
 
         appointment.user = appointmentDetails.user
-        appointment.teacher = appointmentDetails.teacher
+        appointment.teacherUser = appointmentDetails.teacherUser
         appointment.subject = appointmentDetails.subject
         appointment.appointmentDate = appointmentDetails.appointmentDate
 

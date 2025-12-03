@@ -1,6 +1,6 @@
 package cn.arorms.android.ht.server.controller
 
-import cn.arorms.android.ht.server.models.Appointment
+import cn.arorms.android.ht.server.pojo.entity.Appointment
 import cn.arorms.android.ht.server.service.AppointmentService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*
 class AppointmentController @Autowired constructor(
     private val appointmentService: AppointmentService
 ) {
-
     // Get all appointments
     @GetMapping
     fun getAllAppointments(): ResponseEntity<List<Appointment>> {
@@ -35,13 +34,6 @@ class AppointmentController @Autowired constructor(
     @GetMapping("/user/{userId}")
     fun getAppointmentsByUserId(@PathVariable userId: Long): ResponseEntity<List<Appointment>> {
         val appointments = appointmentService.getAppointmentsByUserId(userId)
-        return ResponseEntity(appointments, HttpStatus.OK)
-    }
-
-    // Get appointments by teacher ID
-    @GetMapping("/teacher/{teacherId}")
-    fun getAppointmentsByTeacherId(@PathVariable teacherId: Long): ResponseEntity<List<Appointment>> {
-        val appointments = appointmentService.getAppointmentsByTeacherId(teacherId)
         return ResponseEntity(appointments, HttpStatus.OK)
     }
 

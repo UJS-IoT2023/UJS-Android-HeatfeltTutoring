@@ -29,16 +29,16 @@ class AppointmentsFragment : Fragment() {
         return binding.root
     }
     
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        
-        setupRecyclerView()
-        setupObservers()
-        setupClickListeners()
-        
-        // 加载预约列表
-        viewModel.loadAppointments()
-    }
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//        setupRecyclerView()
+//        setupObservers()
+//        setupClickListeners()
+//
+//        // 加载预约列表
+//        viewModel.loadAppointments()
+//    }
     
     private fun setupRecyclerView() {
         appointmentsAdapter = AppointmentsAdapter()
@@ -74,17 +74,17 @@ class AppointmentsFragment : Fragment() {
         }
     }
     
-    private fun setupClickListeners() {
-        binding.swipeRefreshLayout.setOnRefreshListener {
-            viewModel.loadAppointments()
-            binding.swipeRefreshLayout.isRefreshing = false
-        }
-        
-        binding.fabAddAppointment.setOnClickListener {
-            // 这里可以添加创建新预约的功能
-            showCreateAppointmentDialog()
-        }
-    }
+//    private fun setupClickListeners() {
+//        binding.swipeRefreshLayout.setOnRefreshListener {
+//            viewModel.loadAppointments()
+//            binding.swipeRefreshLayout.isRefreshing = false
+//        }
+//
+//        binding.fabAddAppointment.setOnClickListener {
+//            // 这里可以添加创建新预约的功能
+//            showCreateAppointmentDialog()
+//        }
+//    }
     
     private fun showErrorDialog(message: String) {
         android.app.AlertDialog.Builder(requireContext())

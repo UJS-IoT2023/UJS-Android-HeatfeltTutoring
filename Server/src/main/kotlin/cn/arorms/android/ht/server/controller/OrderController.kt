@@ -1,6 +1,6 @@
 package cn.arorms.android.ht.server.controller
 
-import cn.arorms.android.ht.server.models.Order
+import cn.arorms.android.ht.server.pojo.entity.Order
 import cn.arorms.android.ht.server.service.OrderService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus

@@ -1,6 +1,6 @@
 package cn.arorms.android.ht.server.service
 
-import cn.arorms.android.ht.server.models.Plan
+import cn.arorms.android.ht.server.pojo.entity.Plan
 import cn.arorms.android.ht.server.repository.PlanRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service

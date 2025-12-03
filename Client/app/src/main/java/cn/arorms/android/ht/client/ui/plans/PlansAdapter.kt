@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import cn.arorms.android.ht.client.databinding.ItemPlanBinding
-import cn.arorms.android.ht.client.models.Plan
+import cn.arorms.android.ht.client.pojo.models.Plan
 
 class PlansAdapter(
     private val onPlanChecked: (Plan, Boolean) -> Unit,

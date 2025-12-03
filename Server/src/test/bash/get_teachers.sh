@@ -1,1 +1,1 @@
-curl --url "http://localhost:8080/api/teachers/1" | jq
+curl -X GET http://localhost:8080/api/users/teachers | jq

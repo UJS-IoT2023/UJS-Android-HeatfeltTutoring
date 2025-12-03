@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import cn.arorms.android.ht.client.R
 import cn.arorms.android.ht.client.databinding.ItemAppointmentBinding
-import cn.arorms.android.ht.client.models.Appointment
+import cn.arorms.android.ht.client.pojo.models.Appointment
 import java.time.format.DateTimeFormatter
 
 class AppointmentsAdapter : ListAdapter<Appointment, AppointmentsAdapter.AppointmentViewHolder>(AppointmentDiffCallback) {
@@ -31,10 +31,10 @@ class AppointmentsAdapter : ListAdapter<Appointment, AppointmentsAdapter.Appoint
                 val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
                 val formattedDate = appointment.appointmentDate.format(formatter)
                 
-                appointmentDate.text = "预约时间: $formattedDate"
-                appointmentSubject.text = "科目: ${appointment.subject}"
-                appointmentUser.text = "学生: ${appointment.user.name}"
-                appointmentTeacher.text = "教师: ${appointment.teacher.name}"
+//                appointmentDate.text = "预约时间: $formattedDate"
+//                appointmentSubject.text = "科目: ${appointment.subject}"
+//                appointmentUser.text = "学生: ${appointment.user.username}"
+//                appointmentTeacher.text = "教师: ${appointment.teacher.name}"
                 
                 // 设置图标
                 appointmentIcon.setImageResource(R.drawable.outline_calendar_clock_24)

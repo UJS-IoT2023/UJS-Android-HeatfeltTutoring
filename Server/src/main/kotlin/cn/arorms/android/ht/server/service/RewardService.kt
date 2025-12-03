@@ -1,6 +1,6 @@
 package cn.arorms.android.ht.server.service
 
-import cn.arorms.android.ht.server.models.Reward
+import cn.arorms.android.ht.server.pojo.entity.Reward
 import cn.arorms.android.ht.server.repository.RewardRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service

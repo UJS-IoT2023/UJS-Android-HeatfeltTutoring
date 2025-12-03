@@ -2,7 +2,7 @@ package cn.arorms.android.ht.client.ui.teachers
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import cn.arorms.android.ht.client.models.Teacher
+import cn.arorms.android.ht.client.pojo.models.TeacherSummary
 import cn.arorms.android.ht.client.repository.TeacherRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,8 +12,8 @@ import kotlinx.coroutines.launch
 class TeachersViewModel : ViewModel() {
     private val repository = TeacherRepository()
     
-    private val _teachers = MutableStateFlow<List<Teacher>>(emptyList())
-    val teachers: StateFlow<List<Teacher>> = _teachers.asStateFlow()
+    private val _teachers = MutableStateFlow<List<TeacherSummary>>(emptyList())
+    val teachers: StateFlow<List<TeacherSummary>> = _teachers.asStateFlow()
     
     private val _loading = MutableStateFlow(false)
     val loading: StateFlow<Boolean> = _loading.asStateFlow()
