@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import cn.arorms.android.ht.client.R
 import cn.arorms.android.ht.client.databinding.ItemTeacherBinding
-import cn.arorms.android.ht.client.models.Teacher
+import cn.arorms.android.ht.client.pojo.models.TeacherSummary
 
-class TeachersAdapter : ListAdapter<Teacher, TeachersAdapter.TeacherViewHolder>(TeacherDiffCallback) {
+class TeachersAdapter : ListAdapter<TeacherSummary, TeachersAdapter.TeacherViewHolder>(TeacherDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeacherViewHolder {
         val binding = ItemTeacherBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -24,16 +24,17 @@ class TeachersAdapter : ListAdapter<Teacher, TeachersAdapter.TeacherViewHolder>(
     inner class TeacherViewHolder(private val binding: ItemTeacherBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(teacher: Teacher) {
+        fun bind(teacher: TeacherSummary) {
             binding.apply {
-                teacherName.text = teacher.name
+                teacherName.text = teacher.realName
                 teacherPhone.text = "电话: ${teacher.phoneNumber}"
                 teacherGender.text = "性别: ${teacher.sex}"
                 teacherAddress.text = "地址: ${teacher.address}"
                 teacherEducation.text = "学历: ${teacher.educationalBackground}"
                 teacherGrades.text = "授课年级: ${teacher.taughtGrades}"
+                teacherTaughtSubjects.text = "教授科目: ${teacher.taughtSubjects}"
                 
-                if (teacher.icon.isNullOrEmpty()) {
+                if (teacher.avatarUrl.isNullOrEmpty()) {
                     teacherIcon.setImageResource(R.drawable.baseline_person_24)
                 } else (
                     teacherIcon.setImageResource(R.drawable.ic_menu_gallery)
@@ -43,12 +44,12 @@ class TeachersAdapter : ListAdapter<Teacher, TeachersAdapter.TeacherViewHolder>(
     }
 
     companion object {
-        private val TeacherDiffCallback = object : DiffUtil.ItemCallback<Teacher>() {
-            override fun areItemsTheSame(oldItem: Teacher, newItem: Teacher): Boolean {
+        private val TeacherDiffCallback = object : DiffUtil.ItemCallback<TeacherSummary>() {
+            override fun areItemsTheSame(oldItem: TeacherSummary, newItem: TeacherSummary): Boolean {
                 return oldItem.id == newItem.id
             }
 
-            override fun areContentsTheSame(oldItem: Teacher, newItem: Teacher): Boolean {
+            override fun areContentsTheSame(oldItem: TeacherSummary, newItem: TeacherSummary): Boolean {
                 return oldItem == newItem
             }
         }

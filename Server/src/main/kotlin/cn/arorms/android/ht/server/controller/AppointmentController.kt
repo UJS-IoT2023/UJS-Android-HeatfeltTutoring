@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*
 class AppointmentController @Autowired constructor(
     private val appointmentService: AppointmentService
 ) {
-
     // Get all appointments
     @GetMapping
     fun getAllAppointments(): ResponseEntity<List<Appointment>> {

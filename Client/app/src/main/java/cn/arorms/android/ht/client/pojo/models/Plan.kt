@@ -1,4 +1,4 @@
-package cn.arorms.android.ht.client.models
+package cn.arorms.android.ht.client.pojo.models
 
 import java.time.LocalDateTime
 

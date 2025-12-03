@@ -229,4 +229,73 @@ class AuthController @Autowired constructor(
             )
         }
     }
+
+//    // OAuth2 登录成功回调
+//    @GetMapping("/oauth2/success")
+//    fun oauth2Success(@RequestParam("code") code: String? = null): ResponseEntity<LoginResponse> {
+//        try {
+//            // 注意：这个端点实际上不会被直接调用
+//            // Spring Security OAuth2 会在认证成功后重定向到这里
+//            // 在实际应用中，前端应该从重定向URL中获取token
+//            // 这里我们返回一个指示，告诉前端如何获取token
+//            
+//            return ResponseEntity(
+//                LoginResponse(
+//                    message = "微信登录成功，请使用获取的code调用/login/oauth2/token端点获取JWT token"
+//                ),
+//                HttpStatus.OK
+//            )
+//        } catch (e: Exception) {
+//            return ResponseEntity(
+//                LoginResponse(
+//                    message = "OAuth2登录处理失败: ${e.message}"
+//                ),
+//                HttpStatus.INTERNAL_SERVER_ERROR
+//            )
+//        }
+//    }
+//
+//    // 获取OAuth2登录的JWT token
+//    @PostMapping("/oauth2/token")
+//    fun getOAuth2Token(@RequestBody request: Map<String, String>): ResponseEntity<LoginResponse> {
+//        try {
+//            val wechatOpenid = request["wechatOpenid"]
+//            
+//            if (wechatOpenid.isNullOrEmpty()) {
+//                return ResponseEntity(
+//                    LoginResponse(message = "微信openid不能为空"),
+//                    HttpStatus.BAD_REQUEST
+//                )
+//            }
+//
+//            // 查找用户
+//            val user = userService.authenticateUserByWechat(wechatOpenid, "")
+//            
+//            if (user == null) {
+//                return ResponseEntity(
+//                    LoginResponse(message = "用户不存在，请先通过微信登录"),
+//                    HttpStatus.UNAUTHORIZED
+//                )
+//            }
+//
+//            val token = jwtUtil.generateToken(user)
+//
+//            return ResponseEntity(
+//                LoginResponse(
+//                    token = token,
+//                    userId = user.id!!,
+//                    username = user.username,
+//                    message = "Token获取成功"
+//                ),
+//                HttpStatus.OK
+//            )
+//        } catch (e: Exception) {
+//            return ResponseEntity(
+//                LoginResponse(
+//                    message = "获取Token失败: ${e.message}"
+//                ),
+//                HttpStatus.INTERNAL_SERVER_ERROR
+//            )
+//        }
+//    }
 }

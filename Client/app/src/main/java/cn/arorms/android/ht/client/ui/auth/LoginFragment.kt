@@ -9,10 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import cn.arorms.android.ht.client.R
 import cn.arorms.android.ht.client.databinding.FragmentLoginBinding
-import cn.arorms.android.ht.client.dto.LoginRequest
 import cn.arorms.android.ht.client.network.ApiService
 import cn.arorms.android.ht.client.network.AuthManager
 import cn.arorms.android.ht.client.network.RetrofitClient
+import cn.arorms.android.ht.client.pojo.dto.LoginRequest
+import cn.arorms.android.ht.client.pojo.dto.LoginType
 import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment() {
@@ -64,7 +65,7 @@ class LoginFragment : Fragment() {
 
         lifecycleScope.launch {
             try {
-                val loginRequest = LoginRequest(email, password)
+                val loginRequest = LoginRequest(LoginType.EMAIL, email, password)
                 val response = apiService.login(loginRequest)
 
                 // 保存token和用户信息

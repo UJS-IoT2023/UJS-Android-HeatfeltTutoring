@@ -1,4 +1,4 @@
-package cn.arorms.android.ht.client.models
+package cn.arorms.android.ht.client.pojo.models
 
 data class Feedback(
     val id: Long? = null,

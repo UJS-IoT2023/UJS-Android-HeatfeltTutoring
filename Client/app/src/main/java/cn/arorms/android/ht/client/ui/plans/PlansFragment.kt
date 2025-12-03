@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.arorms.android.ht.client.MainActivity
 import cn.arorms.android.ht.client.databinding.FragmentPlansBinding
+import cn.arorms.android.ht.client.pojo.models.Plan
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -116,7 +117,7 @@ class PlansFragment : Fragment() {
             .show()
     }
     
-    private fun showDeleteConfirmationDialog(plan: cn.arorms.android.ht.client.models.Plan) {
+    private fun showDeleteConfirmationDialog(plan: Plan) {
         android.app.AlertDialog.Builder(requireContext())
             .setTitle("删除计划")
             .setMessage("确定要删除计划 \"${plan.content}\" 吗？")

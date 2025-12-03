@@ -1,4 +1,4 @@
-package cn.arorms.android.ht.client.dto
+package cn.arorms.android.ht.client.pojo.dto
 
 data class AuthResponse(
     val token: String,

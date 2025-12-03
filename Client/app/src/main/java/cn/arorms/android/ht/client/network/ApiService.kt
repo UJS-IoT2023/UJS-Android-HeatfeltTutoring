@@ -1,14 +1,17 @@
 package cn.arorms.android.ht.client.network
 
-import cn.arorms.android.ht.client.dto.AuthResponse
-import cn.arorms.android.ht.client.dto.LoginRequest
-import cn.arorms.android.ht.client.dto.RegisterRequest
-import cn.arorms.android.ht.client.models.*
+import cn.arorms.android.ht.client.pojo.dto.AuthResponse
+import cn.arorms.android.ht.client.pojo.dto.LoginRequest
+import cn.arorms.android.ht.client.pojo.dto.RegisterRequest
+import cn.arorms.android.ht.client.pojo.models.*
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
+import java.time.LocalDateTime
 import java.util.concurrent.TimeUnit
 
 interface ApiService {
@@ -90,24 +93,25 @@ interface ApiService {
     // ========== 教师管理接口 ==========
     
     // 获取所有教师
-    @GET("api/teachers")
-    suspend fun getAllTeachers(): List<Teacher>
-    
-    // 根据ID获取教师
-    @GET("api/teachers/{id}")
-    suspend fun getTeacherById(@Path("id") id: Long): Teacher
-    
-    // 创建教师
-    @POST("api/teachers")
-    suspend fun createTeacher(@Body teacher: Teacher): Teacher
-    
-    // 更新教师
-    @PUT("api/teachers/{id}")
-    suspend fun updateTeacher(@Path("id") id: Long, @Body teacher: Teacher): Teacher
-    
-    // 删除教师
-    @DELETE("api/teachers/{id}")
-    suspend fun deleteTeacher(@Path("id") id: Long)
+    @GET("api/users/teachers")
+    suspend fun getAllTeachers(): List<TeacherSummary>
+
+    // All these method should be merged to general user api
+//    // 根据ID获取教师
+//    @GET("api/users/teachers/{id}")
+//    suspend fun getTeacherById(@Path("id") id: Long): TeacherSummary
+//
+//    // 创建教师
+//    @POST("api/users/teachers")
+//    suspend fun createTeacher(@Body teacher: TeacherSummary): TeacherSummary
+//
+//    // 更新教师
+//    @PUT("api/users/teachers/{id}")
+//    suspend fun updateTeacher(@Path("id") id: Long, @Body teacher: TeacherSummary): TeacherSummary
+//
+//    // 删除教师
+//    @DELETE("api/users/teachers/{id}")
+//    suspend fun deleteTeacher(@Path("id") id: Long)
     
     // ========== 其他接口 ==========
     
@@ -205,11 +209,17 @@ object RetrofitClient {
         .writeTimeout(30, TimeUnit.SECONDS)
         .build()
     
+    private val gson: Gson by lazy {
+        GsonBuilder()
+            .registerTypeAdapter(LocalDateTime::class.java, LocalDateTimeTypeAdapter())
+            .create()
+    }
+    
     val instance: ApiService by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiService::class.java)
     }

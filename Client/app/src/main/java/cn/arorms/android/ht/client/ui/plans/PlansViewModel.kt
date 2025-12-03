@@ -2,8 +2,8 @@ package cn.arorms.android.ht.client.ui.plans
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import cn.arorms.android.ht.client.models.Plan
 import cn.arorms.android.ht.client.network.AuthManager
+import cn.arorms.android.ht.client.pojo.models.Plan
 import cn.arorms.android.ht.client.repository.PlanRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

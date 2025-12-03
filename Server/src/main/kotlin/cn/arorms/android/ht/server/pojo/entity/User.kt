@@ -39,7 +39,8 @@ data class User(
     @Column(name = "qq_openid")
     var qqOpenid: String? = null,
 
-    @OneToOne @JoinColumn(name = "teacher_profile_id")
+    @OneToOne
+    @JoinColumn(name = "teacher_profile_id")
     var teacherProfile: TeacherProfile? = null,
 
     @OneToOne @JoinColumn(name = "wallet_id")
@@ -54,6 +55,8 @@ data class User(
 
     @Column(name = "real_name")
     var realName: String? = null,
+    
+    var sex: String? = null,
 
     @Column(name = "wechat_id", unique = true)
     var wechatId: String? = null,

@@ -1,8 +1,8 @@
 package cn.arorms.android.ht.client.repository
 
-import cn.arorms.android.ht.client.models.Plan
 import cn.arorms.android.ht.client.network.ApiService
 import cn.arorms.android.ht.client.network.RetrofitClient
+import cn.arorms.android.ht.client.pojo.models.Plan
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

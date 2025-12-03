@@ -7,12 +7,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import cn.arorms.android.ht.client.R
 import cn.arorms.android.ht.client.databinding.FragmentRegisterBinding
-import cn.arorms.android.ht.client.dto.RegisterRequest
 import cn.arorms.android.ht.client.network.ApiService
 import cn.arorms.android.ht.client.network.AuthManager
 import cn.arorms.android.ht.client.network.RetrofitClient
+import cn.arorms.android.ht.client.pojo.dto.RegisterRequest
 import kotlinx.coroutines.launch
 
 //private val FragmentRegisterBinding.etUsername: Any

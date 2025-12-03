@@ -1,7 +1,7 @@
 package cn.arorms.android.ht.server.config
 
-import cn.arorms.android.ht.server.util.JwtUtil
 import cn.arorms.android.ht.server.service.UserService
+import cn.arorms.android.ht.server.util.JwtUtil
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AuthenticationManager
@@ -37,7 +37,10 @@ class SecurityConfig {
     }
 
     @Bean
-    fun securityFilterChain(http: HttpSecurity, jwtFilter: JwtFilter): SecurityFilterChain {
+    fun securityFilterChain(
+        http: HttpSecurity, 
+        jwtFilter: JwtFilter,
+    ): SecurityFilterChain {
         http
             .cors { cors -> cors.configurationSource(corsConfigurationSource()) }
             .csrf { csrf -> csrf.disable() }
@@ -48,15 +51,12 @@ class SecurityConfig {
                 authz
                     .requestMatchers(
                         "/api/auth/**",
+                        "/api/users",
                         "/api/users/**",
-                        "/api/plans/**"
+                        "/api/plans/**",
+                        "/login",
                     ).permitAll()
                     .anyRequest().authenticated()
-            }
-            .oauth2Login { oauth2 ->  // 添加OAuth2登录配置
-                oauth2
-                    .loginPage("/login")  // 自定义登录页面
-                    .defaultSuccessUrl("/api/userinfo")  // 登录成功后的跳转地址
             }
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter::class.java)
 
