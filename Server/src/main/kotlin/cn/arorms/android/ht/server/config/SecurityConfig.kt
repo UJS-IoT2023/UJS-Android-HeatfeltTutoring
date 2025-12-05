@@ -49,14 +49,16 @@ class SecurityConfig {
             }
             .authorizeHttpRequests { authz ->
                 authz
-                    .requestMatchers(
-                        "/api/auth/**",
-                        "/api/users",
-                        "/api/users/**",
-                        "/api/plans/**",
-                        "/login",
-                    ).permitAll()
-                    .anyRequest().authenticated()
+//                    .requestMatchers(
+//                        "/avatars/**",
+//                        "/api/auth/**",
+//                        "/api/users",
+//                        "/api/users/**",
+//                        "/api/plans/**",
+//                        "/login",
+//                    ).permitAll()
+//                    .anyRequest().authenticated()
+                    .anyRequest().permitAll()
             }
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter::class.java)
 

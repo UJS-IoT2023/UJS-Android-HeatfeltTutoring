@@ -21,3 +21,4 @@ curl -X POST http://localhost:8080/api/auth/register \
     "email": "2519994926@qq.com",
     "password": "password123"
   }' | jq
+  
