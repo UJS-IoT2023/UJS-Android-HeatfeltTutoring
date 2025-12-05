@@ -2,6 +2,9 @@ package cn.arorms.android.ht.client.network
 
 import android.content.Context
 import android.content.SharedPreferences
+import cn.arorms.android.ht.client.pojo.models.User
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 object AuthManager {
     private const val PREFS_NAME = "auth_prefs"
@@ -10,8 +13,10 @@ object AuthManager {
     private const val KEY_PHONE_NUMBER = "phone_number"
     private const val KEY_USER_NAME = "username"
     private const val KEY_USER_ICON = "user_icon"
+    private const val KEY_USER_OBJECT = "user_object"
     
     private lateinit var sharedPreferences: SharedPreferences
+    private val gson = Gson()
     
     fun initialize(context: Context) {
         sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -55,6 +60,34 @@ object AuthManager {
 
     fun getUserIcon(): String {
         return sharedPreferences.getString(KEY_USER_ICON, "") ?: ""
+    }
+    
+    fun saveUser(user: User) {
+        val userJson = gson.toJson(user)
+        sharedPreferences.edit().putString(KEY_USER_OBJECT, userJson).apply()
+        
+        // 同时保存关键字段到单独的key，便于快速访问
+        saveUserId(user.id ?: -1L)
+        saveUsername(user.username)
+        savePhoneNumber(user.phoneNumber ?: "")
+        saveUserIcon(user.avatarUrl ?: "")
+    }
+    
+    fun getUser(): User? {
+        val userJson = sharedPreferences.getString(KEY_USER_OBJECT, null)
+        return if (userJson != null) {
+            try {
+                gson.fromJson(userJson, User::class.java)
+            } catch (e: Exception) {
+                null
+            }
+        } else {
+            null
+        }
+    }
+    
+    fun hasUserCache(): Boolean {
+        return sharedPreferences.getString(KEY_USER_OBJECT, null) != null
     }
 
     fun clear() {

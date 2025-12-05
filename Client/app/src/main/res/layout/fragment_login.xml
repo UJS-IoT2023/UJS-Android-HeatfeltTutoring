@@ -12,7 +12,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginBottom="32dp"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/app_icon"
         app:tint="?attr/colorPrimary" />
 
     <!-- 标题 -->

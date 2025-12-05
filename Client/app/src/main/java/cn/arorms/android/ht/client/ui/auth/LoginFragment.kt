@@ -35,7 +35,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.etEmail.setText("1272369577@qq.com")
+        binding.etEmail.setText("2519994926@qq.com")
         binding.etPassword.setText("password123")
 
         setupClickListeners()
@@ -68,14 +68,22 @@ class LoginFragment : Fragment() {
                 val loginRequest = LoginRequest(LoginType.EMAIL, email, password)
                 val response = apiService.login(loginRequest)
 
-                // 保存token和用户信息
+                // 保存token和用户ID
                 AuthManager.saveToken(response.token)
                 AuthManager.saveUserId(response.userId)
-//                AuthManager.savePhoneNumber(response.phoneNumber)
-//                AuthManager.saveUsername(response.username ?: response.phoneNumber)
-//                AuthManager.saveUserIcon(response.icon ?: "")
 
-                Toast.makeText(requireContext(), "登录成功", Toast.LENGTH_SHORT).show()
+                // 获取用户详细信息并保存到缓存
+                try {
+                    val user = apiService.getUserById(response.userId)
+                    AuthManager.saveUser(user)
+                    Toast.makeText(requireContext(), "登录成功", Toast.LENGTH_SHORT).show()
+                } catch (e: Exception) {
+                    // 如果获取用户详细信息失败，至少保存用户名
+                    response.username?.let { username ->
+                        AuthManager.saveUsername(username)
+                    }
+                    Toast.makeText(requireContext(), "登录成功，但获取用户详细信息失败", Toast.LENGTH_SHORT).show()
+                }
 
                 // 通过LoginActivity导航到主界面
                 (requireActivity() as LoginActivity).navigateToMain()

@@ -73,6 +73,10 @@ class UserService @Autowired constructor(
         return userRepository.findById(id)
     }
     
+    fun getReferenceById(userId: Long): User {
+        return userRepository.getReferenceById(userId)
+    }
+    
     // Register user
     fun registerUser(user: User): User {
         if (userRepository.findByEmail(user.email) != null) {

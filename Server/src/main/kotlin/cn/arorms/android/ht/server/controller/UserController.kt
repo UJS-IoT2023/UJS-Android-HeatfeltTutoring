@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartFile
+import java.util.Optional
 
 @RestController
 @RequestMapping("/api/users")
@@ -91,6 +92,15 @@ class UserController @Autowired constructor(
     @PostMapping
     fun getUsers(@RequestBody selectUserRequest: SelectUserRequest? = null): ResponseEntity<List<User>> {
         return ResponseEntity(userService.getUsers(selectUserRequest), HttpStatus.OK)
+    }
+
+    @GetMapping("/{id}")
+    fun getUserById(@PathVariable id: Long?): ResponseEntity<Optional<User>> {
+        return if (id != null) {
+            ResponseEntity(userService.getUserById(id), HttpStatus.OK)
+        } else {
+            ResponseEntity.badRequest().build()
+        }
     }
     
     @GetMapping("/teachers")

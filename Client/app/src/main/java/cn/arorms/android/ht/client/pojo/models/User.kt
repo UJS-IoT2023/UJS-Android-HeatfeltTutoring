@@ -10,10 +10,8 @@ data class User(
     var password: String,
 
     // ===== Extended info =====
-//    var role: Role? = Role.STUDENT,
     var wechatOpenid: String? = null,
     var qqOpenid: String? = null,
-//    var teacherProfile: TeacherProfile? = null,
     var wallet: Wallet? = null,
 
     // ===== Profile information =====

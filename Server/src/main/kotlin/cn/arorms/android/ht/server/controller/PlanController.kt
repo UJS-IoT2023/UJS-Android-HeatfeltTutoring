@@ -1,7 +1,9 @@
 package cn.arorms.android.ht.server.controller
 
+import cn.arorms.android.ht.server.pojo.dto.PlanDetail
 import cn.arorms.android.ht.server.pojo.entity.Plan
 import cn.arorms.android.ht.server.service.PlanService
+import cn.arorms.android.ht.server.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -10,7 +12,8 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/api/plans")
 class PlanController @Autowired constructor(
-    private val planService: PlanService
+    private val planService: PlanService,
+    private val userService: UserService
 ) {
 
     // Get all plans
@@ -47,16 +50,38 @@ class PlanController @Autowired constructor(
 
     // Create new plan
     @PostMapping
-    fun createPlan(@RequestBody plan: Plan): ResponseEntity<Plan> {
+    fun createPlan(@RequestBody createPlanRequest: PlanDetail): ResponseEntity<Plan> {
+        val user = userService.getReferenceById(createPlanRequest.userId)
+        user
+        val plan = Plan(
+            content = createPlanRequest.content,
+            deadline = createPlanRequest.deadline,
+            user = user,
+            isCompleted = false
+        )
         val createdPlan = planService.createPlan(plan)
         return ResponseEntity(createdPlan, HttpStatus.CREATED)
     }
-
+    
+    // Toggle plan completion status
+    @PutMapping("/toggle/{id}")
+    fun togglePlanCompletion(@PathVariable id: Long): ResponseEntity<Plan> {
+        return ResponseEntity(planService.togglePlanCompletion(id), HttpStatus.OK)
+    }
+    
+    
     // Update plan
     @PutMapping("/{id}")
-    fun updatePlan(@PathVariable id: Long, @RequestBody planDetails: Plan): ResponseEntity<Plan> {
+    fun updatePlan(@PathVariable id: Long, @RequestBody planDetail: PlanDetail): ResponseEntity<Plan> {
         try {
-            val updatedPlan = planService.updatePlan(id, planDetails)
+            val user = userService.getReferenceById(planDetail.userId)
+            val plan = Plan(
+                content = planDetail.content,
+                deadline = planDetail.deadline,
+                user = user,
+                isCompleted = planDetail.isCompleted
+            )
+            val updatedPlan = planService.updatePlan(id, plan)
             return ResponseEntity(updatedPlan, HttpStatus.OK)
         } catch (e: RuntimeException) {
             return ResponseEntity(HttpStatus.NOT_FOUND)

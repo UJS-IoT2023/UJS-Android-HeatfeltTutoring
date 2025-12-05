@@ -30,11 +30,11 @@ class LoginActivity : AppCompatActivity() {
 
         AuthManager.initialize(this)
         
-        // Go to the main activity if login before
-//        if (AuthManager.isLoggedIn()) {
-//            navigateToMain()
-//            return
-//        }
+        // 如果已登录且有用户缓存，直接跳转到主界面
+        if (AuthManager.isLoggedIn() && AuthManager.hasUserCache()) {
+            navigateToMain()
+            return
+        }
         
         setupFragment()
     }

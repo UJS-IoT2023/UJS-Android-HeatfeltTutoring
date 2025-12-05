@@ -56,7 +56,7 @@ data class User(
     @Column(name = "real_name")
     var realName: String? = null,
     
-    var sex: String? = null,
+    var gender: String? = null,
 
     @Column(name = "wechat_id", unique = true)
     var wechatId: String? = null,
