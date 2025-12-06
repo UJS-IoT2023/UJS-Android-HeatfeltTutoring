@@ -1,11 +1,12 @@
 package cn.arorms.android.ht.server.pojo.dto
 
+import cn.arorms.android.ht.server.pojo.enums.RegisterType
+
 data class RegisterRequest(
+    val registerType: RegisterType ?= RegisterType.EMAIL,
     val username: String,
     val email: String,
     val password: String,
-//    val verificationCode: String
-//    val address: String? = null
 )
 
 class RegisterResponse(

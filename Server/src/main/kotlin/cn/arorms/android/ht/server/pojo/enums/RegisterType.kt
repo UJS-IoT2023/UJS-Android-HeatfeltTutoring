@@ -1,7 +1,6 @@
 package cn.arorms.android.ht.server.pojo.enums
 
-enum class LoginType {
-    USERNAME,
+enum class RegisterType {
     EMAIL,
-    GOOGLE
+    GOOGLE,
 }

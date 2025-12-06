@@ -84,6 +84,34 @@
         app:backgroundTint="?attr/colorPrimary"
         app:cornerRadius="8dp" />
 
+    <!-- 分隔线 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="或"
+        android:textColor="?android:attr/textColorSecondary"
+        android:textSize="12sp" />
+
+    <!-- Google登录按钮 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGoogleLogin"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="使用Google登录"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+        app:backgroundTint="@android:color/white"
+        app:cornerRadius="8dp"
+        app:strokeColor="#dadce0"
+        app:strokeWidth="1dp"
+        app:icon="@drawable/baseline_person_24"
+        app:iconTint="#4285f4" />
+
     <!-- 注册按钮 -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRegister"

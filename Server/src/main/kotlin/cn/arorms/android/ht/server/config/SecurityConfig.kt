@@ -11,6 +11,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
+import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserService
+import org.springframework.security.oauth2.core.user.OAuth2User
 import org.springframework.security.web.SecurityFilterChain
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 import org.springframework.web.cors.CorsConfiguration
@@ -37,9 +41,20 @@ class SecurityConfig {
     }
 
     @Bean
+    fun oauth2UserService(): OAuth2UserService<OAuth2UserRequest, OAuth2User> {
+        return DefaultOAuth2UserService()
+    }
+
+    @Bean
+    fun oauth2SuccessHandler(userService: UserService, jwtUtil: JwtUtil): OAuth2SuccessHandler {
+        return OAuth2SuccessHandler(userService, jwtUtil)
+    }
+
+    @Bean
     fun securityFilterChain(
-        http: HttpSecurity, 
+        http: HttpSecurity,
         jwtFilter: JwtFilter,
+        oauth2SuccessHandler: OAuth2SuccessHandler
     ): SecurityFilterChain {
         http
             .cors { cors -> cors.configurationSource(corsConfigurationSource()) }
@@ -59,6 +74,13 @@ class SecurityConfig {
 //                    ).permitAll()
 //                    .anyRequest().authenticated()
                     .anyRequest().permitAll()
+            }
+            .oauth2Login { oauth2 ->
+                oauth2
+                    .userInfoEndpoint { userInfo ->
+                        userInfo.userService(oauth2UserService())
+                    }
+                    .successHandler(oauth2SuccessHandler)
             }
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter::class.java)
 

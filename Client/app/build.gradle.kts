@@ -57,7 +57,13 @@ dependencies {
     
     // 协程
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    
+
+    // Google Sign-In with Credential Manager
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation("androidx.credentials:credentials:1.2.0")
+    implementation("androidx.credentials:credentials-play-services-auth:1.2.0")
+    implementation("com.google.android.libraries.identity.googleid:googleid:1.1.0")
+
     // CardView
     implementation("androidx.cardview:cardview:1.0.0")
     

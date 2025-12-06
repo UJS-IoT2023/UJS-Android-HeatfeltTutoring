@@ -108,13 +108,8 @@ class UserService @Autowired constructor(
         }
     }
 
-    fun authenticateUserByWechat(wechatOpenid: String, password: String): User? {
-        val user = userRepository.findByWechatOpenid(wechatOpenid)
-        return if (user != null && passwordEncoder.matches(password, user.password)) {
-            user
-        } else {
-            null
-        }
+    fun authenticateUserByGoogle(googleId: String): User? {
+        return userRepository.findByEmail(googleId)
     }
     
     fun existsByEmail(email: String): Boolean {
