@@ -1,5 +1,8 @@
 package cn.arorms.android.ht.server.pojo.entity
 
+import cn.arorms.android.ht.server.pojo.dto.PlanDetail
+import cn.arorms.android.ht.server.service.UserService
+import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -14,12 +17,9 @@ import java.time.LocalDateTime
 data class Plan (
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
-
-    // TODO: fetch the foreign key object
     
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JsonIgnore
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "user_id")
     var user: User,
 

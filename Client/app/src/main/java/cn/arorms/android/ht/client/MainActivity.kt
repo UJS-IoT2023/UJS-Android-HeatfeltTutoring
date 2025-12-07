@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -15,6 +16,8 @@ import androidx.navigation.ui.setupWithNavController
 import cn.arorms.android.ht.client.databinding.ActivityMainBinding
 import cn.arorms.android.ht.client.network.AuthManager
 import cn.arorms.android.ht.client.ui.auth.LoginActivity
+import cn.arorms.android.ht.client.ui.user.UserFragment
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,7 +41,9 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.plansFragment,
                 R.id.teachersFragment,
-                R.id.appointmentsFragment
+                R.id.appointmentsFragment,
+                R.id.userFragment,
+                R.id.walletFragment
             ), binding.drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -65,12 +70,35 @@ class MainActivity : AppCompatActivity() {
                     binding.drawerLayout.closeDrawers()
                     true
                 }
+                R.id.nav_profile -> {
+                    val userId = AuthManager.getUserId()
+                    if (userId != 0L) {
+                        val bundle = Bundle().apply {
+                            putLong("userId", userId)
+                        }
+                        navController.navigate(R.id.userFragment, bundle)
+                        binding.drawerLayout.closeDrawers()
+                        true
+                    } else {
+                        false
+                    }
+                }
+                R.id.nav_wallet -> {
+                    navController.navigate(R.id.walletFragment)
+                    binding.drawerLayout.closeDrawers()
+                    true
+                }
                 R.id.nav_logout -> {
                     logout()
                     true
                 }
                 else -> false
             }
+        }
+        
+        // 如果已登录但没有用户缓存，尝试从服务器获取用户信息
+        if (AuthManager.isLoggedIn() && !AuthManager.hasUserCache()) {
+            fetchUserInfo()
         }
     }
 
@@ -107,22 +135,53 @@ class MainActivity : AppCompatActivity() {
     private fun updateNavigationHeader() {
         val headerView = binding.navView.getHeaderView(0)
         val userNameTextView = headerView.findViewById<TextView>(R.id.textViewUserName)
-        val userPhoneTextView = headerView.findViewById<TextView>(R.id.textViewUserPhone)
+        val userEmailTextView = headerView.findViewById<TextView>(R.id.textViewUserEmail)
         val userAvatarImageView = headerView.findViewById<ImageView>(R.id.imageViewUserAvatar)
 
-        val userName = AuthManager.getUsername()
-        val userPhone = AuthManager.getPhoneNumber()
-        val userIcon = AuthManager.getUserIcon()
-
-        userNameTextView.text = if (userName.isNotEmpty()) userName else "用户"
-
-        userPhoneTextView.text = if (userPhone.isNotEmpty()) userPhone else "未登录"
-
-        if (userIcon.isNotEmpty()) {
-            // TODO: 加载网络图片
+        // 优先从缓存的User对象获取信息
+        val cachedUser = AuthManager.getUser()
+        
+        if (cachedUser != null) {
+            // 使用缓存的完整用户信息
+            userNameTextView.text = cachedUser.username
+            userEmailTextView.text = cachedUser.email ?: "未设置联系方式"
+            
+            // TODO: 加载网络图片（从cachedUser.avatarUrl）
             userAvatarImageView.setImageResource(R.drawable.baseline_person_24)
         } else {
-            userAvatarImageView.setImageResource(R.drawable.baseline_person_24)
+            // 回退到单独的字段
+            val userName = AuthManager.getUsername()
+            val userPhone = AuthManager.getPhoneNumber()
+            val userIcon = AuthManager.getUserIcon()
+
+            userNameTextView.text = if (userName.isNotEmpty()) userName else "用户"
+            userEmailTextView.text = if (userPhone.isNotEmpty()) userPhone else "未登录"
+
+            if (userIcon.isNotEmpty()) {
+                // TODO: 加载网络图片
+                userAvatarImageView.setImageResource(R.drawable.baseline_person_24)
+            } else {
+                userAvatarImageView.setImageResource(R.drawable.baseline_person_24)
+            }
+        }
+    }
+    
+    private fun fetchUserInfo() {
+        val userId = AuthManager.getUserId()
+        if (userId == -1L) return
+        
+        // 使用协程异步获取用户信息
+        lifecycleScope.launch {
+            try {
+                val apiService = cn.arorms.android.ht.client.network.RetrofitClient.instance
+                val user = apiService.getUserById(userId)
+                AuthManager.saveUser(user)
+                // 更新导航栏显示
+                updateNavigationHeader()
+            } catch (e: Exception) {
+                // 获取失败，静默处理
+                e.printStackTrace()
+            }
         }
     }
 }

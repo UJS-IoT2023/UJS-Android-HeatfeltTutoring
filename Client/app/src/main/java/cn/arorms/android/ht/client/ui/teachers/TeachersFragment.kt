@@ -7,8 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import cn.arorms.android.ht.client.R
 import cn.arorms.android.ht.client.databinding.FragmentTeachersBinding
+import cn.arorms.android.ht.client.pojo.models.TeacherSummary
+import cn.arorms.android.ht.client.ui.user.UserFragment
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -41,8 +45,14 @@ class TeachersFragment : Fragment() {
     }
     
     private fun setupRecyclerView() {
-        teachersAdapter = TeachersAdapter()
-        
+        teachersAdapter = TeachersAdapter { teacher ->
+            // Navigate to user profile when teacher is clicked
+            val bundle = Bundle().apply {
+                putLong("userId", teacher.id ?: 0)
+            }
+            findNavController().navigate(R.id.userFragment, bundle)
+        }
+
         binding.teachersRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = teachersAdapter

@@ -7,7 +7,9 @@ import cn.arorms.android.ht.client.pojo.models.*
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
+import okhttp3.Response as OkHttpResponse
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
@@ -29,16 +31,16 @@ interface ApiService {
     // 验证Token
     @POST("api/auth/verify")
     suspend fun verifyToken(@Header("Authorization") authHeader: String): Map<String, Any?>
+
+    // ========== Plans ==========
     
-    // ========== 计划管理接口 ==========
-    
-    // 获取用户的所有计划
+    // Get all plans by user id
     @GET("api/plans/user/{userId}")
     suspend fun getUserPlans(@Path("userId") userId: Long): List<Plan>
-    
-    // 获取所有计划
-    @GET("api/plans")
-    suspend fun getAllPlans(): List<Plan>
+
+//    // 获取所有计划
+//    @GET("api/plans")
+//    suspend fun getAllPlans(): List<Plan>
     
     // 根据ID获取计划
     @GET("api/plans/{id}")
@@ -56,9 +58,13 @@ interface ApiService {
     @PUT("api/plans/{id}")
     suspend fun updatePlan(@Path("id") id: Long, @Body plan: Plan): Plan
     
+    // 切换计划完成状态
+    @PUT("api/plans/toggle/{id}")
+    suspend fun togglePlanCompletion(@Path("id") id: Long): Plan
+    
     // 删除计划
     @DELETE("api/plans/{id}")
-    suspend fun deletePlan(@Path("id") id: Long)
+    suspend fun deletePlan(@Path("id") id: Long): Response<Unit>
     
     // ========== 预约管理接口 ==========
     
@@ -90,47 +96,40 @@ interface ApiService {
     @DELETE("api/appointments/{id}")
     suspend fun deleteAppointment(@Path("id") id: Long)
     
-    // ========== 教师管理接口 ==========
+    // ========== User ==========
     
-    // 获取所有教师
+    // Get all teacher users
     @GET("api/users/teachers")
     suspend fun getAllTeachers(): List<TeacherSummary>
 
-    // All these method should be merged to general user api
-//    // 根据ID获取教师
-//    @GET("api/users/teachers/{id}")
-//    suspend fun getTeacherById(@Path("id") id: Long): TeacherSummary
-//
-//    // 创建教师
-//    @POST("api/users/teachers")
-//    suspend fun createTeacher(@Body teacher: TeacherSummary): TeacherSummary
-//
-//    // 更新教师
-//    @PUT("api/users/teachers/{id}")
-//    suspend fun updateTeacher(@Path("id") id: Long, @Body teacher: TeacherSummary): TeacherSummary
-//
-//    // 删除教师
-//    @DELETE("api/users/teachers/{id}")
-//    suspend fun deleteTeacher(@Path("id") id: Long)
+    // Get user detail by id
+    @GET("api/users/{id}")
+    suspend fun getUserById(@Path("id") id: Long): User
+
+    // Update user
+    @PUT("api/users/{id}")
+    suspend fun updateUser(@Path("id") id: Long, @Body user: User): User
+
+    // ========== Comments ==========
+
+    // Get all comments
+    @GET("api/comments")
+    suspend fun getAllComments(): List<Comment>
+
+    // Get comment by id
+    @GET("api/comments/{id}")
+    suspend fun getCommentById(@Path("id") id: Long): Comment
+
+    // Get comments by user id
+    @GET("api/comments/user/{userId}")
+    suspend fun getCommentsByUserId(@Path("userId") userId: Long): List<Comment>
+
+    // Create comment
+    @POST("api/comments")
+    suspend fun createComment(@Body comment: Comment): Comment
     
     // ========== 其他接口 ==========
-    
-    // 反馈管理接口
-    @GET("api/feedback")
-    suspend fun getAllFeedback(): List<Feedback>
-    
-    @GET("api/feedback/{id}")
-    suspend fun getFeedbackById(@Path("id") id: Long): Feedback
-    
-    @POST("api/feedback")
-    suspend fun createFeedback(@Body feedback: Feedback): Feedback
-    
-    @PUT("api/feedback/{id}")
-    suspend fun updateFeedback(@Path("id") id: Long, @Body feedback: Feedback): Feedback
-    
-    @DELETE("api/feedback/{id}")
-    suspend fun deleteFeedback(@Path("id") id: Long)
-    
+
     // 订单管理接口
     @GET("api/orders")
     suspend fun getAllOrders(): List<Order>
@@ -181,6 +180,7 @@ interface ApiService {
 }
 
 object RetrofitClient {
+//    private const val BASE_URL = "http://172.20.10.2:8080/"
     private const val BASE_URL = "http://192.168.0.158:8080/"
     
     private val loggingInterceptor = HttpLoggingInterceptor().apply {

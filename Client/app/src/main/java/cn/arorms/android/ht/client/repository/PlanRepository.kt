@@ -5,6 +5,7 @@ import cn.arorms.android.ht.client.network.RetrofitClient
 import cn.arorms.android.ht.client.pojo.models.Plan
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import retrofit2.Response
 
 class PlanRepository {
     private val apiService: ApiService = RetrofitClient.instance
@@ -13,17 +14,6 @@ class PlanRepository {
         return try {
             withContext(Dispatchers.IO) {
                 val plans = apiService.getUserPlans(userId)
-                Result.success(plans)
-            }
-        } catch (e: Exception) {
-            Result.failure(e)
-        }
-    }
-    
-    suspend fun getAllPlans(): Result<List<Plan>> {
-        return try {
-            withContext(Dispatchers.IO) {
-                val plans = apiService.getAllPlans()
                 Result.success(plans)
             }
         } catch (e: Exception) {
@@ -75,11 +65,26 @@ class PlanRepository {
         }
     }
     
+    suspend fun togglePlanCompletion(id: Long): Result<Plan> {
+        return try {
+            withContext(Dispatchers.IO) {
+                val toggledPlan = apiService.togglePlanCompletion(id)
+                Result.success(toggledPlan)
+            }
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+    
     suspend fun deletePlan(id: Long): Result<Unit> {
         return try {
             withContext(Dispatchers.IO) {
-                apiService.deletePlan(id)
-                Result.success(Unit)
+                val response = apiService.deletePlan(id)
+                if (response.isSuccessful) {
+                    Result.success(Unit)
+                } else {
+                    Result.failure(Exception("删除失败，状态码: ${response.code()}"))
+                }
             }
         } catch (e: Exception) {
             Result.failure(e)

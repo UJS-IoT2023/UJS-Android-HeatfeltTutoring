@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository
 @Repository
 interface WalletRepository : JpaRepository<Wallet, Long> {
     fun findByUserId(userId: Long): Wallet?
-    fun findByPhoneNumber(phoneNumber: String): Wallet?
 }

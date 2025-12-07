@@ -10,4 +10,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <!-- Google Sign-In -->
+    <string name="default_web_client_id">1073137317089-0jve51dpfvg22jbms75qc19ef7qmafpk.apps.googleusercontent.com</string>
 </resources>

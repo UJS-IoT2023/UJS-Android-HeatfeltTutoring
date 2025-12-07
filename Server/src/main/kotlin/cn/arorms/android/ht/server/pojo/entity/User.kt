@@ -33,6 +33,9 @@ data class User(
     @Enumerated(EnumType.STRING)
     var role: Role? = Role.STUDENT,
     
+    @Column(name = "google_id")
+    var googleId: String? = null,
+    
     @Column(name = "wechat_openid")
     var wechatOpenid: String? = null,
 
@@ -56,7 +59,7 @@ data class User(
     @Column(name = "real_name")
     var realName: String? = null,
     
-    var sex: String? = null,
+    var gender: String? = null,
 
     @Column(name = "wechat_id", unique = true)
     var wechatId: String? = null,

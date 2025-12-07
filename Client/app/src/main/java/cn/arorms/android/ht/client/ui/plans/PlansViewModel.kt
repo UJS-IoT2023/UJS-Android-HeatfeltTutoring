@@ -85,19 +85,15 @@ class PlansViewModel : ViewModel() {
             _loading.value = true
             _error.value = null
             
-            val planToUpdate = _plans.value.find { it.id == planId }
-            if (planToUpdate != null) {
-                val updatedPlan = planToUpdate.copy(isCompleted = isCompleted)
-                val result = repository.updatePlan(planId, updatedPlan)
-                
-                result.onSuccess { 
-                    // 更新本地列表
-                    _plans.value = _plans.value.map { plan ->
-                        if (plan.id == planId) plan.copy(isCompleted = isCompleted) else plan
-                    }
-                }.onFailure { exception ->
-                    _error.value = "更新失败: ${exception.message}"
+            val result = repository.togglePlanCompletion(planId)
+            
+            result.onSuccess { updatedPlan ->
+                // 使用服务器返回的更新后的计划更新本地列表
+                _plans.value = _plans.value.map { plan ->
+                    if (plan.id == planId) updatedPlan else plan
                 }
+            }.onFailure { exception ->
+                _error.value = "更新失败: ${exception.message}"
             }
             
             _loading.value = false

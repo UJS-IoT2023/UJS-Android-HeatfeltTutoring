@@ -1,0 +1,7 @@
+Whitelabel Error Page
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Fri Dec 05 22:07:44 CST 2025
+There was an unexpected error (type=Not Found, status=404).
+
+http://localhost:8080/avatars/1_1764943415666.jpg

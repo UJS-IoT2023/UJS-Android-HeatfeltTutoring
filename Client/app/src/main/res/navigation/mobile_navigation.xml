@@ -26,4 +26,22 @@
         android:label="预约管理"
         tools:layout="@layout/fragment_appointments" />
 
+    <!-- 用户资料 -->
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="cn.arorms.android.ht.client.ui.user.UserFragment"
+        android:label="用户资料"
+        tools:layout="@layout/fragment_user">
+        <argument
+            android:name="userId"
+            app:argType="long" />
+    </fragment>
+
+    <!-- 钱包 -->
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="cn.arorms.android.ht.client.ui.wallet.WalletFragment"
+        android:label="钱包"
+        tools:layout="@layout/fragment_wallet" />
+
 </navigation>

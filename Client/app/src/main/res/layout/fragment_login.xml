@@ -12,7 +12,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginBottom="32dp"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/app_icon"
         app:tint="?attr/colorPrimary" />
 
     <!-- 标题 -->
@@ -41,8 +41,8 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="phone"
+            android:hint="电子邮箱"
+            android:inputType="text"
             android:maxLines="1" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -64,7 +64,7 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="密码"
             android:inputType="textPassword"
             android:maxLines="1" />
 
@@ -83,6 +83,34 @@
         android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
         app:backgroundTint="?attr/colorPrimary"
         app:cornerRadius="8dp" />
+
+    <!-- 分隔线 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="或"
+        android:textColor="?android:attr/textColorSecondary"
+        android:textSize="12sp" />
+
+    <!-- Google登录按钮 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGoogleLogin"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="使用Google登录"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+        app:backgroundTint="@android:color/white"
+        app:cornerRadius="8dp"
+        app:strokeColor="#dadce0"
+        app:strokeWidth="1dp"
+        app:icon="@drawable/baseline_person_24"
+        app:iconTint="#4285f4" />
 
     <!-- 注册按钮 -->
     <com.google.android.material.button.MaterialButton

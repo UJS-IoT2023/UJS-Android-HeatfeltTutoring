@@ -7,6 +7,7 @@ import cn.arorms.android.ht.server.pojo.dto.SendVerificationCodeRequest
 import cn.arorms.android.ht.server.pojo.dto.VerifyEmailRequest
 import cn.arorms.android.ht.server.pojo.entity.User
 import cn.arorms.android.ht.server.pojo.enums.LoginType
+import cn.arorms.android.ht.server.pojo.enums.RegisterType
 import cn.arorms.android.ht.server.service.EmailService
 import cn.arorms.android.ht.server.service.UserService
 import cn.arorms.android.ht.server.service.VerificationCodeService
@@ -112,7 +113,7 @@ class AuthController @Autowired constructor(
             }
 
             // 验证邮箱验证码
-            if (!verificationCodeService.isEmailVerified(registerRequest.email)) {
+            if (!verificationCodeService.isEmailVerified(registerRequest.email) && registerRequest.registerType == RegisterType.EMAIL) {
                 return ResponseEntity(
                     LoginResponse(
                         message = "请先完成邮箱验证"
@@ -160,7 +161,7 @@ class AuthController @Autowired constructor(
             val user = when(loginRequest.loginType) {
                 LoginType.USERNAME -> userService.authenticateUserByUsername(loginRequest.identifier, loginRequest.password)
                 LoginType.EMAIL -> userService.authenticateUserByEmail(loginRequest.identifier, loginRequest.password)
-                LoginType.WECHAT -> userService.authenticateUserByWechat(loginRequest.identifier, loginRequest.password)
+                LoginType.GOOGLE -> userService.authenticateUserByGoogle(loginRequest.identifier)
             }
             
             if (user == null) {
