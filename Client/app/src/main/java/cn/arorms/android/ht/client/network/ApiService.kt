@@ -105,25 +105,31 @@ interface ApiService {
     // Get user detail by id
     @GET("api/users/{id}")
     suspend fun getUserById(@Path("id") id: Long): User
+
+    // Update user
+    @PUT("api/users/{id}")
+    suspend fun updateUser(@Path("id") id: Long, @Body user: User): User
+
+    // ========== Comments ==========
+
+    // Get all comments
+    @GET("api/comments")
+    suspend fun getAllComments(): List<Comment>
+
+    // Get comment by id
+    @GET("api/comments/{id}")
+    suspend fun getCommentById(@Path("id") id: Long): Comment
+
+    // Get comments by user id
+    @GET("api/comments/user/{userId}")
+    suspend fun getCommentsByUserId(@Path("userId") userId: Long): List<Comment>
+
+    // Create comment
+    @POST("api/comments")
+    suspend fun createComment(@Body comment: Comment): Comment
     
     // ========== 其他接口 ==========
-    
-    // 反馈管理接口
-    @GET("api/feedback")
-    suspend fun getAllFeedback(): List<Feedback>
-    
-    @GET("api/feedback/{id}")
-    suspend fun getFeedbackById(@Path("id") id: Long): Feedback
-    
-    @POST("api/feedback")
-    suspend fun createFeedback(@Body feedback: Feedback): Feedback
-    
-    @PUT("api/feedback/{id}")
-    suspend fun updateFeedback(@Path("id") id: Long, @Body feedback: Feedback): Feedback
-    
-    @DELETE("api/feedback/{id}")
-    suspend fun deleteFeedback(@Path("id") id: Long)
-    
+
     // 订单管理接口
     @GET("api/orders")
     suspend fun getAllOrders(): List<Order>

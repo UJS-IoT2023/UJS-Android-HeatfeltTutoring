@@ -32,6 +32,32 @@ class UserService @Autowired constructor(
         return userRepository.save(user)
     }
 
+    fun updateUserProfile(id: Long, updateDto: cn.arorms.android.ht.server.pojo.dto.UserUpdateDto): User {
+        val user = userRepository.findById(id)
+            .orElseThrow { RuntimeException("User not found with id: $id") }
+
+        updateDto.username?.let { user.username = it }
+        updateDto.email?.let {
+            if (userRepository.findByEmail(it) != null && it != user.email) {
+                throw RuntimeException("邮箱已被其他用户使用")
+            }
+            user.email = it
+        }
+        updateDto.phoneNumber?.let { user.phoneNumber = it }
+        updateDto.realName?.let { user.realName = it }
+        updateDto.gender?.let { user.gender = it }
+        updateDto.wechatId?.let { user.wechatId = it }
+        updateDto.qqId?.let { user.qqId = it }
+        updateDto.address?.let { user.address = it }
+        updateDto.password?.let {
+            if (it.isNotBlank()) {
+                user.password = passwordEncoder.encode(it)
+            }
+        }
+
+        return userRepository.save(user)
+    }
+
     fun deleteUser(id: Long) {
         val user = userRepository.findById(id)
             .orElseThrow { RuntimeException("User not found with id: $id") }
@@ -72,6 +98,8 @@ class UserService @Autowired constructor(
     fun getUserById(id: Long): Optional<User> {
         return userRepository.findById(id)
     }
+
+
     
     fun getReferenceById(userId: Long): User {
         return userRepository.getReferenceById(userId)

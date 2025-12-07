@@ -1,6 +1,7 @@
 package cn.arorms.android.ht.server.service
 
 import cn.arorms.android.ht.server.pojo.entity.Wallet
+import cn.arorms.android.ht.server.repository.UserRepository
 import cn.arorms.android.ht.server.repository.WalletRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -8,31 +9,32 @@ import java.util.*
 
 @Service
 class WalletService @Autowired constructor(
-    private val walletRepository: WalletRepository
+    private val walletRepository: WalletRepository,
+    private val userRepository: UserRepository
 ) {
 
-    // Get all wallets
-    fun getAllWallets(): List<Wallet> {
-        return walletRepository.findAll()
-    }
-
-    // Get wallet by ID
-    fun getWalletById(id: Long): Optional<Wallet> {
-        return walletRepository.findById(id)
-    }
+//    // Get all wallets
+//    fun getAllWallets(): List<Wallet> {
+//        return walletRepository.findAll()
+//    }
+//
+//    // Get wallet by ID
+//    fun getWalletById(id: Long): Optional<Wallet> {
+//        return walletRepository.findById(id)
+//    }
 
     // Get wallet by user ID
     fun getWalletByUserId(userId: Long): Wallet? {
-        return walletRepository.findByUserId(userId)
-    }
-
-    // Get wallet by phone number
-    fun getWalletByPhoneNumber(phoneNumber: String): Wallet? {
-        return walletRepository.findByPhoneNumber(phoneNumber)
+        val wallet = walletRepository.findByUserId(userId)
+        if (wallet == null) {
+            createWallet(userId)
+        }
+        return wallet
     }
 
     // Create new wallet
-    fun createWallet(wallet: Wallet): Wallet {
+    fun createWallet(userId: Long): Wallet {
+        val wallet = Wallet(user = userRepository.getReferenceById(userId))
         return walletRepository.save(wallet)
     }
 
@@ -42,7 +44,6 @@ class WalletService @Autowired constructor(
             .orElseThrow { RuntimeException("Wallet not found with id: $id") }
 
         wallet.user = walletDetails.user
-        wallet.phoneNumber = walletDetails.phoneNumber
         wallet.balance = walletDetails.balance
         wallet.points = walletDetails.points
 

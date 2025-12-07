@@ -41,8 +41,8 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="phone"
+            android:hint="电子邮箱"
+            android:inputType="text"
             android:maxLines="1" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -64,7 +64,7 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="密码"
             android:inputType="textPassword"
             android:maxLines="1" />
 

@@ -12,25 +12,6 @@ import org.springframework.web.bind.annotation.*
 class WalletController @Autowired constructor(
     private val walletService: WalletService
 ) {
-
-    // Get all wallets
-    @GetMapping
-    fun getAllWallets(): ResponseEntity<List<Wallet>> {
-        val wallets = walletService.getAllWallets()
-        return ResponseEntity(wallets, HttpStatus.OK)
-    }
-
-    // Get wallet by ID
-    @GetMapping("/{id}")
-    fun getWalletById(@PathVariable id: Long): ResponseEntity<Wallet> {
-        val wallet = walletService.getWalletById(id)
-        return if (wallet.isPresent) {
-            ResponseEntity(wallet.get(), HttpStatus.OK)
-        } else {
-            ResponseEntity(HttpStatus.NOT_FOUND)
-        }
-    }
-
     // Get wallet by user ID
     @GetMapping("/user/{userId}")
     fun getWalletByUserId(@PathVariable userId: Long): ResponseEntity<Wallet> {
@@ -40,24 +21,6 @@ class WalletController @Autowired constructor(
         } else {
             ResponseEntity(HttpStatus.NOT_FOUND)
         }
-    }
-
-    // Get wallet by phone number
-    @GetMapping("/phone/{phoneNumber}")
-    fun getWalletByPhoneNumber(@PathVariable phoneNumber: String): ResponseEntity<Wallet> {
-        val wallet = walletService.getWalletByPhoneNumber(phoneNumber)
-        return if (wallet != null) {
-            ResponseEntity(wallet, HttpStatus.OK)
-        } else {
-            ResponseEntity(HttpStatus.NOT_FOUND)
-        }
-    }
-
-    // Create new wallet
-    @PostMapping
-    fun createWallet(@RequestBody wallet: Wallet): ResponseEntity<Wallet> {
-        val createdWallet = walletService.createWallet(wallet)
-        return ResponseEntity(createdWallet, HttpStatus.CREATED)
     }
 
     // Update wallet

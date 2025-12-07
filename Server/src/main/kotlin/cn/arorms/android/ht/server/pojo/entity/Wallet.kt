@@ -1,5 +1,6 @@
 package cn.arorms.android.ht.server.pojo.entity
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.FetchType
@@ -18,12 +19,10 @@ data class Wallet (
     
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnore
     var user: User,
     
-    @Column(name = "phone_number", nullable = false, unique = true)
-    var phoneNumber: String,
+    var balance: Double? = 0.0,
     
-    var balance: Double,
-    
-    var points: Double
+    var points: Double? = 0.0
 )

@@ -2,6 +2,7 @@ package cn.arorms.android.ht.server.config
 
 import cn.arorms.android.ht.server.service.UserService
 import cn.arorms.android.ht.server.util.JwtUtil
+import cn.arorms.android.ht.server.pojo.entity.User
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.security.core.Authentication

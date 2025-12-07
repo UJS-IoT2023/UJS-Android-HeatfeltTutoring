@@ -16,6 +16,7 @@ import androidx.navigation.ui.setupWithNavController
 import cn.arorms.android.ht.client.databinding.ActivityMainBinding
 import cn.arorms.android.ht.client.network.AuthManager
 import cn.arorms.android.ht.client.ui.auth.LoginActivity
+import cn.arorms.android.ht.client.ui.user.UserFragment
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -40,7 +41,9 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.plansFragment,
                 R.id.teachersFragment,
-                R.id.appointmentsFragment
+                R.id.appointmentsFragment,
+                R.id.userFragment,
+                R.id.walletFragment
             ), binding.drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -64,6 +67,24 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.nav_appointments -> {
                     navController.navigate(R.id.appointmentsFragment)
+                    binding.drawerLayout.closeDrawers()
+                    true
+                }
+                R.id.nav_profile -> {
+                    val userId = AuthManager.getUserId()
+                    if (userId != 0L) {
+                        val bundle = Bundle().apply {
+                            putLong("userId", userId)
+                        }
+                        navController.navigate(R.id.userFragment, bundle)
+                        binding.drawerLayout.closeDrawers()
+                        true
+                    } else {
+                        false
+                    }
+                }
+                R.id.nav_wallet -> {
+                    navController.navigate(R.id.walletFragment)
                     binding.drawerLayout.closeDrawers()
                     true
                 }
@@ -114,7 +135,7 @@ class MainActivity : AppCompatActivity() {
     private fun updateNavigationHeader() {
         val headerView = binding.navView.getHeaderView(0)
         val userNameTextView = headerView.findViewById<TextView>(R.id.textViewUserName)
-        val userPhoneTextView = headerView.findViewById<TextView>(R.id.textViewUserPhone)
+        val userEmailTextView = headerView.findViewById<TextView>(R.id.textViewUserEmail)
         val userAvatarImageView = headerView.findViewById<ImageView>(R.id.imageViewUserAvatar)
 
         // 优先从缓存的User对象获取信息
@@ -123,7 +144,7 @@ class MainActivity : AppCompatActivity() {
         if (cachedUser != null) {
             // 使用缓存的完整用户信息
             userNameTextView.text = cachedUser.username
-            userPhoneTextView.text = cachedUser.phoneNumber ?: cachedUser.email ?: "未设置联系方式"
+            userEmailTextView.text = cachedUser.email ?: "未设置联系方式"
             
             // TODO: 加载网络图片（从cachedUser.avatarUrl）
             userAvatarImageView.setImageResource(R.drawable.baseline_person_24)
@@ -134,7 +155,7 @@ class MainActivity : AppCompatActivity() {
             val userIcon = AuthManager.getUserIcon()
 
             userNameTextView.text = if (userName.isNotEmpty()) userName else "用户"
-            userPhoneTextView.text = if (userPhone.isNotEmpty()) userPhone else "未登录"
+            userEmailTextView.text = if (userPhone.isNotEmpty()) userPhone else "未登录"
 
             if (userIcon.isNotEmpty()) {
                 // TODO: 加载网络图片

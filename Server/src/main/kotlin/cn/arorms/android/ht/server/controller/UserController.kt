@@ -2,6 +2,7 @@ package cn.arorms.android.ht.server.controller
 
 import cn.arorms.android.ht.server.pojo.dto.SelectUserRequest
 import cn.arorms.android.ht.server.pojo.dto.TeacherSummary
+import cn.arorms.android.ht.server.pojo.dto.UserUpdateDto
 import cn.arorms.android.ht.server.pojo.entity.User
 import cn.arorms.android.ht.server.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
@@ -107,5 +108,17 @@ class UserController @Autowired constructor(
             teacherUser -> TeacherSummary(teacherUser)
         }
         return ResponseEntity(teacherSummaries, HttpStatus.OK)
+    }
+
+    @PutMapping("/{id}")
+    fun updateUser(@PathVariable id: Long, @RequestBody updateDto: UserUpdateDto): ResponseEntity<User> {
+        return try {
+            val updatedUser = userService.updateUserProfile(id, updateDto)
+            ResponseEntity(updatedUser, HttpStatus.OK)
+        } catch (e: RuntimeException) {
+            ResponseEntity.badRequest().build()
+        } catch (e: Exception) {
+            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
+        }
     }
 }

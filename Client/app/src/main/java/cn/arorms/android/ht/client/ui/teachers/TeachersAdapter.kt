@@ -9,7 +9,7 @@ import cn.arorms.android.ht.client.R
 import cn.arorms.android.ht.client.databinding.ItemTeacherBinding
 import cn.arorms.android.ht.client.pojo.models.TeacherSummary
 
-class TeachersAdapter : ListAdapter<TeacherSummary, TeachersAdapter.TeacherViewHolder>(TeacherDiffCallback) {
+class TeachersAdapter(private val onTeacherClick: (TeacherSummary) -> Unit) : ListAdapter<TeacherSummary, TeachersAdapter.TeacherViewHolder>(TeacherDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeacherViewHolder {
         val binding = ItemTeacherBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -18,13 +18,13 @@ class TeachersAdapter : ListAdapter<TeacherSummary, TeachersAdapter.TeacherViewH
 
     override fun onBindViewHolder(holder: TeacherViewHolder, position: Int) {
         val teacher = getItem(position)
-        holder.bind(teacher)
+        holder.bind(teacher, onTeacherClick)
     }
 
     inner class TeacherViewHolder(private val binding: ItemTeacherBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(teacher: TeacherSummary) {
+        fun bind(teacher: TeacherSummary, onTeacherClick: (TeacherSummary) -> Unit) {
             binding.apply {
                 teacherName.text = teacher.realName
                 teacherPhone.text = "电话: ${teacher.phoneNumber}"
@@ -33,12 +33,17 @@ class TeachersAdapter : ListAdapter<TeacherSummary, TeachersAdapter.TeacherViewH
                 teacherEducation.text = "学历: ${teacher.educationalBackground}"
                 teacherGrades.text = "授课年级: ${teacher.taughtGrades}"
                 teacherTaughtSubjects.text = "教授科目: ${teacher.taughtSubjects}"
-                
+
                 if (teacher.avatarUrl.isNullOrEmpty()) {
                     teacherIcon.setImageResource(R.drawable.baseline_person_24)
                 } else (
                     teacherIcon.setImageResource(R.drawable.ic_menu_gallery)
                 )
+
+                // Set click listener on the root view
+                root.setOnClickListener {
+                    onTeacherClick(teacher)
+                }
             }
         }
     }
