@@ -66,15 +66,4 @@
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <!-- 添加预约按钮 -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddAppointment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:src="@drawable/outline_clarify_24"
-        app:tint="@color/white"
-        app:backgroundTint="@color/purple_500" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

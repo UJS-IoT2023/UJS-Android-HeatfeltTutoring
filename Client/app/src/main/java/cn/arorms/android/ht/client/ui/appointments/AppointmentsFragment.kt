@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.arorms.android.ht.client.databinding.FragmentAppointmentsBinding
+import cn.arorms.android.ht.client.network.AuthManager
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -29,16 +30,15 @@ class AppointmentsFragment : Fragment() {
         return binding.root
     }
     
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        setupRecyclerView()
-//        setupObservers()
-//        setupClickListeners()
-//
-//        // 加载预约列表
-//        viewModel.loadAppointments()
-//    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setupRecyclerView()
+        setupObservers()
+
+        // 加载预约列表 - 根据用户角色加载相应的预约
+        loadUserAppointments()
+    }
     
     private fun setupRecyclerView() {
         appointmentsAdapter = AppointmentsAdapter()
@@ -103,11 +103,36 @@ class AppointmentsFragment : Fragment() {
             .show()
     }
     
+    private fun loadUserAppointments() {
+        val currentUser = AuthManager.getUser()
+        val userId = AuthManager.getUserId()
+
+        if (currentUser != null && userId != -1L) {
+            when (currentUser.role) {
+                "STUDENT" -> {
+                    // 学生加载自己的预约
+                    viewModel.loadAppointmentsByUserId(userId)
+                }
+                "TEACHER" -> {
+                    // 教师加载自己的预约（作为教师）
+                    viewModel.loadAppointmentsByTeacherId(userId)
+                }
+                else -> {
+                    // 默认加载用户预约
+                    viewModel.loadAppointmentsByUserId(userId)
+                }
+            }
+        } else {
+            // 如果没有用户信息，显示错误
+            showErrorDialog("无法获取用户信息，请重新登录")
+        }
+    }
+
     private fun updateEmptyState(isEmpty: Boolean) {
         binding.emptyState.visibility = if (isEmpty) View.VISIBLE else View.GONE
         binding.appointmentsRecyclerView.visibility = if (isEmpty) View.GONE else View.VISIBLE
     }
-    
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

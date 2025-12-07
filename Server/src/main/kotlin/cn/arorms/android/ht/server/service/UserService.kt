@@ -32,7 +32,7 @@ class UserService @Autowired constructor(
         return userRepository.save(user)
     }
 
-    fun updateUserProfile(id: Long, updateDto: cn.arorms.android.ht.server.pojo.dto.UserUpdateDto): User {
+    fun updateUserProfile(id: Long, updateDto: cn.arorms.android.ht.server.pojo.dto.UserDto): User {
         val user = userRepository.findById(id)
             .orElseThrow { RuntimeException("User not found with id: $id") }
 

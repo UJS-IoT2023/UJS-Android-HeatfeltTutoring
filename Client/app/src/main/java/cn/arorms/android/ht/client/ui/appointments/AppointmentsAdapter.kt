@@ -1,5 +1,6 @@
 package cn.arorms.android.ht.client.ui.appointments
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -25,16 +26,17 @@ class AppointmentsAdapter : ListAdapter<Appointment, AppointmentsAdapter.Appoint
     inner class AppointmentViewHolder(private val binding: ItemAppointmentBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+        @SuppressLint("SetTextI18n")
         fun bind(appointment: Appointment) {
             binding.apply {
                 // 格式化日期时间
                 val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
                 val formattedDate = appointment.appointmentDate.format(formatter)
                 
-//                appointmentDate.text = "预约时间: $formattedDate"
-//                appointmentSubject.text = "科目: ${appointment.subject}"
-//                appointmentUser.text = "学生: ${appointment.user.username}"
-//                appointmentTeacher.text = "教师: ${appointment.teacher.name}"
+                appointmentDate.text = "预约时间: $formattedDate"
+                appointmentSubject.text = "科目: ${appointment.subject}"
+                appointmentUser.text = "学生: ${appointment.userName}"
+                appointmentTeacher.text = "教师: ${appointment.teacherUsername}"
                 
                 // 设置图标
                 appointmentIcon.setImageResource(R.drawable.outline_calendar_clock_24)

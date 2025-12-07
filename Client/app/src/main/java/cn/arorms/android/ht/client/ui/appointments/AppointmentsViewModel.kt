@@ -2,6 +2,7 @@ package cn.arorms.android.ht.client.ui.appointments
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import cn.arorms.android.ht.client.network.AuthManager
 import cn.arorms.android.ht.client.pojo.models.Appointment
 import cn.arorms.android.ht.client.repository.AppointmentRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -26,7 +27,7 @@ class AppointmentsViewModel : ViewModel() {
             _loading.value = true
             _error.value = null
             
-            val result = repository.getAllAppointments()
+            val result = repository.getAppointmentsByUserId(AuthManager.getUserId())
             result.onSuccess { appointments ->
                 _appointments.value = appointments
             }.onFailure { exception ->

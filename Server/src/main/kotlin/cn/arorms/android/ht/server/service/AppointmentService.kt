@@ -1,5 +1,6 @@
 package cn.arorms.android.ht.server.service
 
+import cn.arorms.android.ht.server.pojo.dto.AppointmentDto
 import cn.arorms.android.ht.server.pojo.entity.Appointment
 import cn.arorms.android.ht.server.repository.AppointmentRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -8,8 +9,19 @@ import java.util.*
 
 @Service
 class AppointmentService @Autowired constructor(
-    private val appointmentRepository: AppointmentRepository
+    private val appointmentRepository: AppointmentRepository,
+    private val userService: UserService
 ) {
+    fun projection(appointmentDto: AppointmentDto): Appointment {
+        val user = userService.getReferenceById(appointmentDto.userId)
+        val teacherUser = userService.getReferenceById(appointmentDto.teacherUserId)
+        return Appointment(
+            user = user,
+            teacherUser = teacherUser,
+            subject = appointmentDto.subject,
+            appointmentDate = appointmentDto.appointmentDate,
+        )
+    }
 
     // Get all appointments
     fun getAllAppointments(): List<Appointment> {

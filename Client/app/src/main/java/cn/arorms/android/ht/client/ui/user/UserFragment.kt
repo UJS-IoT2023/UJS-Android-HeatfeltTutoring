@@ -1,5 +1,6 @@
 package cn.arorms.android.ht.client.ui.user
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
@@ -81,7 +82,10 @@ class UserFragment : Fragment() {
     private fun setupObservers() {
         lifecycleScope.launch {
             viewModel.user.collect { user ->
-                user?.let { updateUserProfile(it) }
+                user?.let {
+                    updateUserProfile(it)
+                    updateUIForProfileType()  // Update UI after user data is loaded
+                }
             }
         }
 
@@ -292,26 +296,10 @@ class UserFragment : Fragment() {
     private fun createAppointment(user: User, teacherUser: cn.arorms.android.ht.client.pojo.models.User, subject: String, dateTime: LocalDateTime) {
         lifecycleScope.launch {
             try {
-                // Create teacher summary from teacher user
-                val teacherSummary = TeacherSummary(
-                    id = teacherUser.id,
-                    username = teacherUser.username,
-                    email = teacherUser.email,
-                    phoneNumber = teacherUser.phoneNumber,
-                    avatarUrl = teacherUser.avatarUrl,
-                    realName = teacherUser.realName,
-                    sex = teacherUser.gender,
-                    address = teacherUser.address,
-                    createdAt = teacherUser.createdAt,
-                    educationalBackground = teacherUser.teacherProfile?.educationalBackground,
-                    taughtGrades = teacherUser.teacherProfile?.taughtGrades,
-                    taughtSubjects = teacherUser.teacherProfile?.taughtSubjects,
-                    taughtCourses = teacherUser.teacherProfile?.taughtCourses
-                )
 
                 val appointment = Appointment(
-                    user = user,
-                    teacher = teacherSummary,
+                    userId = user.id!!,
+                    teacherUserId = teacherUser.id!!,
                     subject = subject,
                     appointmentDate = dateTime
                 )
@@ -331,6 +319,7 @@ class UserFragment : Fragment() {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun setupKeyboardHandling() {
         // Handle "Done" action on comment EditText
         binding.commentEditText.setOnEditorActionListener { _, actionId, _ ->

@@ -69,8 +69,6 @@ interface ApiService {
     // ========== 预约管理接口 ==========
     
     // 获取所有预约
-    @GET("api/appointments")
-    suspend fun getAllAppointments(): List<Appointment>
     
     // 根据ID获取预约
     @GET("api/appointments/{id}")

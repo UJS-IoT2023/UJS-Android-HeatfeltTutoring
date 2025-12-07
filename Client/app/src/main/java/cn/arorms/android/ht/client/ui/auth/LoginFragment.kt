@@ -45,7 +45,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.etEmail.setText("2519994926@qq.com")
+        binding.etEmail.setText("1272369577@qq.com")
         binding.etPassword.setText("password123")
 
         setupGoogleSignIn()
