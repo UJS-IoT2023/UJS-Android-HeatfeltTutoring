@@ -1,0 +1,42 @@
+cacc@paradiso [02:10:31 PM] [~] 
+-> % wscat -c ws://localhost:8080/ws
+error: Unexpected server response: 400
+> %                                                                                                                cacc@paradiso [02:15:23 PM] [~] 
+-> % 
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+CONNECT
+accept-version:1.1,1.0
+heart-beat:10000,10000
+
+SUBSCRIBE
+id:sub-1
+destination:/user/1/queue/messages
+
+SUBSCRIBE
+id:sub-2
+destination:/user/2/queue/messages
+
+SEND
+destination:/app/chat.sendMessage
+content-type:application/json
+
+{"senderId":1,"receiverId":2,"content":"Hello User 2 from websocat!","messageType":"text"}
+
+SEND
+destination:/app/chat.sendMessage
+content-type:application/json
+
+{"senderId":2,"receiverId":1,"content":"Hello User 1! WebSocket works!","messageType":"text"}
+
+[2]  + 408659 suspended  websocat ws://localhost:8080/ws
+cacc@paradiso [02:53:51 PM] [~] 
+-> % websocat ws://localhost:8080/ws
+CONNECT
+accept-version:1.1,1.0
+heart-beat:10000,10000
+^@
+^@
+ERROR message:Illegal header\c ''. A header must be of the form <name>\c[<value>]. content-length:0  
+

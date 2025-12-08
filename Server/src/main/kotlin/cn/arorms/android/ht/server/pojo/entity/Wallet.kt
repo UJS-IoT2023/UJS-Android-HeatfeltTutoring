@@ -17,12 +17,11 @@ data class Wallet (
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
     
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
-    @JsonIgnore
     var user: User,
     
-    var balance: Double? = 0.0,
+    var balance: Double,
     
-    var points: Double? = 0.0
+    var points: Double
 )

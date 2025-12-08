@@ -44,4 +44,11 @@
         android:label="钱包"
         tools:layout="@layout/fragment_wallet" />
 
+    <!-- AI聊天 -->
+    <fragment
+        android:id="@+id/aiChatFragment"
+        android:name="cn.arorms.android.ht.client.ui.ai.AIChatFragment"
+        android:label="AI助手"
+        tools:layout="@layout/fragment_ai_chat" />
+
 </navigation>

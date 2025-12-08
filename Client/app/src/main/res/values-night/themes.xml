@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Theme.HeartfeltTutoringClient" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Material Design components -->
+
+        <item name="colorPrimary">@color/purple_muted_primary</item>
+        <item name="colorOnPrimary">@color/purple_muted_on_primary</item>
+        <item name="colorPrimaryContainer">@color/purple_muted_container</item>
+        <item name="colorOnPrimaryContainer">@color/purple_muted_on_container</item>
+
+        <item name="colorSecondary">@color/secondary_muted</item>
+        <item name="colorOnSecondary">@color/secondary_on_muted</item>
+        <item name="colorSecondaryContainer">@color/secondary_muted_container</item>
+        <item name="colorOnSecondaryContainer">@color/secondary_on_muted_container</item>
+
+        <item name="colorTertiary">@color/purple_muted_primary</item>
+        <item name="colorOnTertiary">@color/purple_muted_on_primary</item>
+
+        <item name="colorSurface">@color/surface_warm</item>
+        <item name="colorOnSurface">@color/on_surface_warm</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+
+        <item name="colorOutline">@color/on_surface_variant</item>
+
+        <item name="android:statusBarColor">@color/surface_warm</item>
+
+        <item name="android:windowLightStatusBar">false</item>
+
         <item name="materialButtonStyle">@style/Widget.Material3.Button</item>
-        <item name="textAppearanceButton">@style/TextAppearance.Material3.LabelLarge</item>
     </style>
+
+    <style name="Theme.HeartfeltTutoringClient.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.HeartfeltTutoringClient.AppBarOverlay" parent="ThemeOverlay.Material3.Dark.ActionBar" />
+    <style name="Theme.HeartfeltTutoringClient.PopupOverlay" parent="ThemeOverlay.Material3.Light" />
 </resources>

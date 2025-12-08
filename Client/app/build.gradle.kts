@@ -66,9 +66,13 @@ dependencies {
 
     // CardView
     implementation("androidx.cardview:cardview:1.0.0")
-    
+
     // SwipeRefreshLayout
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
+    // Markdown rendering
+    implementation("io.noties.markwon:core:4.6.2")
+    implementation("io.noties.markwon:linkify:4.6.2")
     
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

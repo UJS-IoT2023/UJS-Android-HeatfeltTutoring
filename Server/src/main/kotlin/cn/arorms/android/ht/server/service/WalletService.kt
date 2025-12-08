@@ -34,7 +34,11 @@ class WalletService @Autowired constructor(
 
     // Create new wallet
     fun createWallet(userId: Long): Wallet {
-        val wallet = Wallet(user = userRepository.getReferenceById(userId))
+        val wallet = Wallet(
+            user = userRepository.getReferenceById(userId),
+            balance = 0.0,
+            points = 0.0
+        )
         return walletRepository.save(wallet)
     }
 

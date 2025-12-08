@@ -18,12 +18,16 @@
             android:title="教师预约" />
         <item
             android:id="@+id/nav_profile"
-            android:icon="@drawable/baseline_person_24"
+            android:icon="@drawable/outline_folder_shared_24"
             android:title="个人资料" />
         <item
             android:id="@+id/nav_wallet"
             android:icon="@drawable/outline_account_balance_wallet_24"
             android:title="钱包" />
+        <item
+            android:id="@+id/nav_ai_chat"
+            android:icon="@drawable/outline_camera_24"
+            android:title="AI助手" />
     </group>
 
     <item android:title="账户管理">
