@@ -13,7 +13,8 @@ data class UserDto(
     val wechatId: String? = null,
     val qqId: String? = null,
     val address: String? = null,
-    val password: String? = null
+    val password: String? = null,
+    val teacherProfile: TeacherProfileDto? = null
 ) {
     constructor(user: User) : this(
         id = user.id,
@@ -26,6 +27,7 @@ data class UserDto(
         wechatId = user.wechatId,
         qqId = user.qqId,
         address = user.address,
-        password = user.password
+        password = user.password,
+        teacherProfile = user.teacherProfile?.let { TeacherProfileDto(it) }
     )
 }

@@ -1,7 +1,10 @@
 package cn.arorms.android.ht.server.pojo.entity
 
+import cn.arorms.android.ht.server.pojo.enums.Subject
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
+import jakarta.persistence.EnumType
+import jakarta.persistence.Enumerated
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
@@ -17,13 +20,10 @@ data class TeacherProfile (
 
     @Column(name = "taught_grades")
     var taughtGrades: String? = null,
-    
-    // TODO: Taught subjects tag table
-//    @OneToMany(mappedBy = "teacherProfile")
-//    @JoinColumn(name = "taught_subject_tag_id")
-//    var taughtSubjects: MutableSet<TaughtSubjectTag>,
-    @Column(name = "taught_subjects")
-    var taughtSubjects: String? = null,
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "taught_subject")
+    var taughtSubject: Subject? = null,
 
     @Column(name = "taught_courses")
     var taughtCourses: String? = null,

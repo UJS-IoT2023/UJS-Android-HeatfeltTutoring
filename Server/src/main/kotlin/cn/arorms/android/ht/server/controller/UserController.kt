@@ -1,7 +1,7 @@
 package cn.arorms.android.ht.server.controller
 
 import cn.arorms.android.ht.server.pojo.dto.SelectUserRequest
-import cn.arorms.android.ht.server.pojo.dto.TeacherSummary
+import cn.arorms.android.ht.server.pojo.dto.TeacherQueryRequest
 import cn.arorms.android.ht.server.pojo.dto.UserDto
 import cn.arorms.android.ht.server.pojo.entity.User
 import cn.arorms.android.ht.server.service.UserService
@@ -103,9 +103,17 @@ class UserController @Autowired constructor(
     }
     
     @GetMapping("/teachers")
-    fun getTeachers(): ResponseEntity<List<TeacherSummary>> {
+    fun getTeachers(): ResponseEntity<List<UserDto>> {
         val teacherSummaries = userService.getTeacherUsers().map {
-            teacherUser -> TeacherSummary(teacherUser)
+            teacherUser -> UserDto(teacherUser)
+        }
+        return ResponseEntity(teacherSummaries, HttpStatus.OK)
+    }
+
+    @PostMapping("/teachers")
+    fun queryTeachers(@RequestBody request: TeacherQueryRequest): ResponseEntity<List<UserDto>> {
+        val teacherSummaries = userService.getTeacherUsers(request).map {
+            teacherUser -> UserDto(teacherUser)
         }
         return ResponseEntity(teacherSummaries, HttpStatus.OK)
     }

@@ -201,3 +201,331 @@ Argument type mismatch: actual type is 'Executor', but 'AsyncTaskExecutor' was e
             android:text="发送"
             android:backgroundTint="?attr/colorPrimary"
             android:textColor="?attr/colorOnPrimary" />
+
+
+2025-12-08 13:07:06.787  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.796  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.805  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.812  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.819  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.828  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.838  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.844  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.853  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.861  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.869  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.878  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.886  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.893  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.903  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.912  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.920  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.929  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.936  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.944  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.953  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.961  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.970  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.978  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.986  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.994  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.002  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.011  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.019  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.027  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.036  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.043  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.052  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.061  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.069  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.076  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.085  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.093  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.102  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.105  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- 200 http://192.168.0.158:8080/api/auth/register (1800ms)
+2025-12-08 13:07:07.105  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Origin
+2025-12-08 13:07:07.106  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Method
+2025-12-08 13:07:07.106  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Headers
+2025-12-08 13:07:07.107  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Content-Type-Options: nosniff
+2025-12-08 13:07:07.107  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-XSS-Protection: 0
+2025-12-08 13:07:07.107  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-08 13:07:07.108  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Pragma: no-cache
+2025-12-08 13:07:07.108  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Expires: 0
+2025-12-08 13:07:07.108  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Frame-Options: DENY
+2025-12-08 13:07:07.109  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.109  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Type: application/json
+2025-12-08 13:07:07.109  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Transfer-Encoding: chunked
+2025-12-08 13:07:07.110  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Date: Mon, 08 Dec 2025 05:07:07 GMT
+2025-12-08 13:07:07.110  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Keep-Alive: timeout=60
+2025-12-08 13:07:07.111  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Connection: keep-alive
+2025-12-08 13:07:07.117  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  {"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzY1MTcwNDI3LCJleHAiOjE3NjU3NzUyMjd9.wvXxz3syzKQDjHzD0rV6ZfxDuFuBwUOAbF_iRTBvNS8JlWYDUXQ1oVQmoDDl-32WaMPwjcyJAWpd5_Voogs8dw","userId":8,"username":"Nulla","message":"注册成功"}
+2025-12-08 13:07:07.118  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.118  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- END HTTP (235-byte body)
+2025-12-08 13:07:07.126  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.134  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.143  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.150  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.159  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.168  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.177  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.184  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.191  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.200  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.201   994-1090  BufferQueueDebug        surfaceflinger                       E  [ActivityRecord{902fde3 u0 cn.arorms.android.ht.client/.MainActivity t974}#1440](this:0xb400007b4134ca80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'ActivityRecord{902fde3 u0 cn.arorms.android.ht.client/.MainActivity t974}#1440'
+2025-12-08 13:07:07.208  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.215  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.219  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:07.223  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.226  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:07.229   994-1090  BufferQueueDebug        surfaceflinger                       E  [f12ed37 Splash Screen cn.arorms.android.ht.client#1442](this:0xb400007b40f33a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'f12ed37 Splash Screen cn.arorms.android.ht.client#1442'
+2025-12-08 13:07:07.231  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.240  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.241   994-1720  BufferQueueDebug        surfaceflinger                       E  [Splash Screen cn.arorms.android.ht.client#1444](this:0xb400007b411f5a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Splash Screen cn.arorms.android.ht.client#1444'
+2025-12-08 13:07:07.248  8745-8798  ContentCatcher          cn.arorms.android.ht.client          I  SettingTrigger : unregister status observer cn.arorms.android.ht.client.ui.auth.LoginActivity
+2025-12-08 13:07:07.276  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.277   994-1720  BufferQueueDebug        surfaceflinger                       E  [Transition Root #111: ActivityRecord{902fde3 u0 cn.arorms.android.ht.client/.MainActivity t974}#1445](this:0xb400007b4123aa80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Transition Root #111: ActivityRecord{902fde3 u0 cn.arorms.android.ht.client/.MainActivity t974}#1445'
+2025-12-08 13:07:07.283   994-1720  BufferQueueDebug        surfaceflinger                       E  [cc03212 ActivityRecordInputSink cn.arorms.android.ht.client/.MainActivity#1446](this:0xb400007b4129ba80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'cc03212 ActivityRecordInputSink cn.arorms.android.ht.client/.MainActivity#1446'
+2025-12-08 13:07:07.286   994-1720  BufferQueueDebug        surfaceflinger                       E  [DefaultTransition Dim Layer for - Surface(name=ActivityRecord{aa0a5b1 u0 cn.arorms.android.ht.client/.ui.auth.LoginActivity t974}#1345)/@0x982cd45#1447](this:0xb400007b412b4a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'DefaultTransition Dim Layer for - Surface(name=ActivityRecord{aa0a5b1 u0 cn.arorms.android.ht.client/.ui.auth.LoginActivity t974}#1345)/@0x982cd45#1447'
+2025-12-08 13:07:07.348  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:07.350  8745-9207  libMEOW                 cn.arorms.android.ht.client          D  meow new tls: 0xb4000071d6bd6080
+2025-12-08 13:07:07.350  8745-9207  libMEOW                 cn.arorms.android.ht.client          D  applied 1 plugins for [cn.arorms.android.ht.client]:
+2025-12-08 13:07:07.350  8745-9207  libMEOW                 cn.arorms.android.ht.client          D    plugin 1: [libMEOW_gift.so]: 0xb400007261345000
+2025-12-08 13:07:07.350  8745-9207  libMEOW                 cn.arorms.android.ht.client          D  rebuild call chain: 0xb4000071d6beff40
+2025-12-08 13:07:07.350  8745-9207  libMEOW                 cn.arorms.android.ht.client          D  meow delete tls: 0xb4000071d6bd6080
+2025-12-08 13:07:07.370  8745-8798  ViewContentFactory      cn.arorms.android.ht.client          D  initViewContentFetcherClass
+2025-12-08 13:07:07.370  8745-8798  ContentCatcher          cn.arorms.android.ht.client          I  ViewContentFetcher : ViewContentFetcher
+2025-12-08 13:07:07.370  8745-8798  ViewContentFactory      cn.arorms.android.ht.client          D  createInterceptor took 0ms
+2025-12-08 13:07:07.372  8745-8798  ContentCatcherManager   cn.arorms.android.ht.client          E  failed to get ContentCatcherService.
+2025-12-08 13:07:07.373  8745-8798  ContentCatcherManager   cn.arorms.android.ht.client          E  failed to get ContentCatcherService.
+2025-12-08 13:07:07.374  8745-8745  ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 13:07:07.375  8745-8745  ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 13:07:07.377  2641-2951  ActivityManagerWrapper  com.miui.home                        E  getRecentTasksForceIncludingTaskIdIfValid: getRecentTasks: size=15
+                                                                                                     mainTaskId=974   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=268435456 cmp=ComponentInfo{cn.arorms.android.ht.client/cn.arorms.android.ht.client.ui.auth.LoginActivity} }
+                                                                                                     mainTaskId=973   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.tencent.androidqqmail/com.tencent.qqmail.launcher.desktop.LauncherActivity} }
+                                                                                                     mainTaskId=947   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.twitter.android/com.twitter.android.StartActivity} }
+                                                                                                     mainTaskId=946   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.github.kr328.clash/com.github.kr328.clash.MainActivity} }
+                                                                                                     mainTaskId=945   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.fileexplorer/com.android.fileexplorer.FileExplorerTabActivity} }
+                                                                                                     mainTaskId=944   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{org.kde.kdeconnect_tp/org.kde.kdeconnect.UserInterface.MainActivity} }
+                                                                                                     mainTaskId=943   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.vending/com.android.vending.AssetBrowserActivity} }
+                                                                                                     mainTaskId=942   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{org.fdroid.fdroid/org.fdroid.fdroid.views.main.MainActivity} }
+                                                                                                     mainTaskId=941   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.xingin.xhs/com.xingin.xhs.index.v2.IndexActivityV2} }
+                                                                                                     mainTaskId=940   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.settings/com.android.settings.MainSettings} }
+                                                                                                     mainTaskId=866   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.chrome/com.google.android.apps.chrome.Main} }
+                                                                                                     mainTaskId=926   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.ConversationListActivityGmail} }
+                                                                                                     mainTaskId=927   userId=0   windowMode=0   baseIntent=Intent { act=com.google.android.gm.email.CREATE_NEW_ACCOUNT flag=805339136 cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.setup.AccountSetupFinalGmail} }
+                                                                                                     mainTaskId=914   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.mms/com.android.mms.ui.MmsTabActivity} }
+                                                                                                     mainTaskId=841   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.tencent.mobileqq/com.tencent.mobileqq.activity.SplashActivity} }
+2025-12-08 13:07:07.402  2641-2951  ActivityManagerWrapper  com.miui.home                        E  getRecentTasksForceIncludingTaskIdIfValid: getRecentTasks: size=15
+                                                                                                     mainTaskId=974   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=268435456 cmp=ComponentInfo{cn.arorms.android.ht.client/cn.arorms.android.ht.client.ui.auth.LoginActivity} }
+                                                                                                     mainTaskId=973   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.tencent.androidqqmail/com.tencent.qqmail.launcher.desktop.LauncherActivity} }
+                                                                                                     mainTaskId=947   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.twitter.android/com.twitter.android.StartActivity} }
+                                                                                                     mainTaskId=946   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.github.kr328.clash/com.github.kr328.clash.MainActivity} }
+                                                                                                     mainTaskId=945   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.fileexplorer/com.android.fileexplorer.FileExplorerTabActivity} }
+                                                                                                     mainTaskId=944   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{org.kde.kdeconnect_tp/org.kde.kdeconnect.UserInterface.MainActivity} }
+                                                                                                     mainTaskId=943   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.vending/com.android.vending.AssetBrowserActivity} }
+                                                                                                     mainTaskId=942   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{org.fdroid.fdroid/org.fdroid.fdroid.views.main.MainActivity} }
+                                                                                                     mainTaskId=941   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.xingin.xhs/com.xingin.xhs.index.v2.IndexActivityV2} }
+                                                                                                     mainTaskId=940   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.settings/com.android.settings.MainSettings} }
+                                                                                                     mainTaskId=866   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.chrome/com.google.android.apps.chrome.Main} }
+                                                                                                     mainTaskId=926   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.ConversationListActivityGmail} }
+                                                                                                     mainTaskId=927   userId=0   windowMode=0   baseIntent=Intent { act=com.google.android.gm.email.CREATE_NEW_ACCOUNT flag=805339136 cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.setup.AccountSetupFinalGmail} }
+                                                                                                     mainTaskId=914   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.mms/com.android.mms.ui.MmsTabActivity} }
+                                                                                                     mainTaskId=841   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.tencent.mobileqq/com.tencent.mobileqq.activity.SplashActivity} }
+2025-12-08 13:07:07.458  8745-8745  ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 13:07:07.492  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> GET http://192.168.0.158:8080/api/users/teachers
+2025-12-08 13:07:07.492  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> END GET
+2025-12-08 13:07:07.501  8745-8745  ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 13:07:07.570  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> GET http://192.168.0.158:8080/api/users/8
+2025-12-08 13:07:07.570  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> END GET
+2025-12-08 13:07:07.581  8745-8798  ContentCatcher          cn.arorms.android.ht.client          I  SettingTrigger : register screen QA status observer cn.arorms.android.ht.client.MainActivity
+2025-12-08 13:07:07.583  8745-8798  ContentCatcher          cn.arorms.android.ht.client          I  SettingTrigger : register global collect status observer cn.arorms.android.ht.client.MainActivity
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- 200 http://192.168.0.158:8080/api/users/teachers (93ms)
+2025-12-08 13:07:07.586  8745-8795  libc                    cn.arorms.android.ht.client          W  Access denied finding property "ro.vendor.display.iris_x7.support"
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Origin
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Method
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Headers
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Content-Type-Options: nosniff
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-XSS-Protection: 0
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Pragma: no-cache
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Expires: 0
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Frame-Options: DENY
+2025-12-08 13:07:07.587  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Type: application/json
+2025-12-08 13:07:07.587  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Transfer-Encoding: chunked
+2025-12-08 13:07:07.587  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Date: Mon, 08 Dec 2025 05:07:07 GMT
+2025-12-08 13:07:07.587  8745-8745  VRI[MainActivity]       cn.arorms.android.ht.client          D  hardware acceleration = true, forceHwAccelerated = false
+2025-12-08 13:07:07.587  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Keep-Alive: timeout=60
+2025-12-08 13:07:07.587  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Connection: keep-alive
+2025-12-08 13:07:07.588  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  [{"id":2,"username":"teacher_wang","email":"wang@example.com","phoneNumber":"13911111111","avatarUrl":null,"realName":"wangbadan","gender":null,"address":null,"createdAt":"2025-11-27T01:52:49.269053","educationalBackground":"初中","taughtGrades":"大学","taughtSubjects":"数学","taughtCourses":"高等数学"},{"id":3,"username":"teacher_zhao","email":"zhao@example.com","phoneNumber":"13922222222","avatarUrl":null,"realName":"zhaoyi","gender":null,"address":null,"createdAt":"2025-11-27T01:52:49.269053","educationalBackground":"初中","taughtGrades":"大学","taughtSubjects":"数学","taughtCourses":"高等数学"},{"id":4,"username":"teacher_qian","email":"qian@example.com","phoneNumber":"13933333333","avatarUrl":null,"realName":"qianqian","gender":null,"address":null,"createdAt":"2025-11-27T01:52:49.269053","educationalBackground":"初中","taughtGrades":"大学","taughtSubjects":null,"taughtCourses":"高等数学"}]
+2025-12-08 13:07:07.588  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- END HTTP (935-byte body)
+2025-12-08 13:07:07.591   994-1090  BufferQueueDebug        surfaceflinger                       E  [e74e2be cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1450](this:0xb400007b40fefa80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'e74e2be cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1450'
+2025-12-08 13:07:07.599  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:07.600  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:07.600  8745-8745  Choreographer           cn.arorms.android.ht.client          I  Skipped 40 frames!  The application may be doing too much work on its main thread.
+2025-12-08 13:07:07.609  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- 200 http://192.168.0.158:8080/api/users/8 (39ms)
+2025-12-08 13:07:07.610  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Origin
+2025-12-08 13:07:07.610  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Method
+2025-12-08 13:07:07.610  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Headers
+2025-12-08 13:07:07.610  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Content-Type-Options: nosniff
+2025-12-08 13:07:07.610  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-XSS-Protection: 0
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Pragma: no-cache
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Expires: 0
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Frame-Options: DENY
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Type: application/json
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Transfer-Encoding: chunked
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Date: Mon, 08 Dec 2025 05:07:07 GMT
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Keep-Alive: timeout=60
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Connection: keep-alive
+2025-12-08 13:07:07.613  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  {"id":8,"username":"Nulla","email":"1272369577@qq.com","password":"$2a$10$2iZEjnc.IcDPwP9p6YfxouAX8RPYGXFPvtIEvL4/xM09/r9fiNVTy","role":"STUDENT","googleId":null,"wechatOpenid":null,"qqOpenid":null,"teacherProfile":null,"wallet":null,"phoneNumber":null,"avatarUrl":null,"realName":null,"gender":null,"wechatId":null,"qqId":null,"address":null,"createdAt":"2025-12-08T13:07:05.76297"}
+2025-12-08 13:07:07.613  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- END HTTP (383-byte body)
+2025-12-08 13:07:07.621  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.637   994-1722  BufferQueueDebug        surfaceflinger                       E  [cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1451](this:0xb400007b40f7da80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1451'
+2025-12-08 13:07:07.652  8745-8745  BufferQueueConsumer     cn.arorms.android.ht.client          D  [](id:222900000002,api:0,p:-1,c:8745) connect: controlledByApp=false
+2025-12-08 13:07:07.654  8745-8795  OpenGLRenderer          cn.arorms.android.ht.client          E  Unable to match the desired swap behavior.
+2025-12-08 13:07:07.758  8745-8745  VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportNextDraw android.view.ViewRootImpl.performTraversals:4460 android.view.ViewRootImpl.doTraversal:3069 android.view.ViewRootImpl$TraversalRunnable.run:10654 android.view.Choreographer$CallbackRecord.run:1768 android.view.Choreographer$CallbackRecord.run:1777 
+2025-12-08 13:07:07.759  8745-8745  VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.Setup new sync=wmsSync-VRI[MainActivity]#6
+2025-12-08 13:07:07.768  8745-8795  OpenGLRenderer          cn.arorms.android.ht.client          D  makeCurrent grContext:0xb4000071fb870f40 reset mTextureAvailable
+2025-12-08 13:07:07.782  8745-8795  BLASTBufferQueue        cn.arorms.android.ht.client          D  [VRI[MainActivity]#2](f:0,a:1) acquireNextBufferLocked size=1080x2400 mFrameNumber=1 applyTransaction=true mTimestamp=7183160784042(auto) mPendingTransactions.size=0 graphicBufferId=37559489003531 transform=0
+2025-12-08 13:07:07.783  8745-8745  VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportDrawFinished
+2025-12-08 13:07:07.786   994-1720  BufferQueueDebug        surfaceflinger                       E  [Surface(name=e74e2be cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1450)/@0xa6f626c - animation-leash of starting_reveal#1454](this:0xb400007b41320a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Surface(name=e74e2be cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1450)/@0xa6f626c - animation-leash of starting_reveal#1454'
+2025-12-08 13:07:07.786  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:07.787  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:07.813   994-1091  BufferQueueDebug        surfaceflinger                       E  [Surface(name=f12ed37 Splash Screen cn.arorms.android.ht.client#1442)/@0x20780d - animation-leash of window_animation#1455](this:0xb400007b477b9a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Surface(name=f12ed37 Splash Screen cn.arorms.android.ht.client#1442)/@0x20780d - animation-leash of window_animation#1455'
+2025-12-08 13:07:07.816  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.819  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.835  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.839  8745-8745  HandWritingStubImpl     cn.arorms.android.ht.client          I  refreshLastKeyboardType: 1
+2025-12-08 13:07:07.839  8745-8745  HandWritingStubImpl     cn.arorms.android.ht.client          I  getCurrentKeyboardType: 1
+2025-12-08 13:07:07.878  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:07.901  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.021  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:08.022  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.030  8745-8798  ContentCatcherManager   cn.arorms.android.ht.client          E  failed to get ContentCatcherService.
+2025-12-08 13:07:08.047  8745-8745  WindowOnBackDispatcher  cn.arorms.android.ht.client          W  sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda23@6e07ae9
+2025-12-08 13:07:08.049  8745-8795  BLASTBufferQueue        cn.arorms.android.ht.client          D  [VRI[LoginActivity]#1](f:0,a:1) destructor()
+2025-12-08 13:07:08.049  8745-8795  BufferQueueConsumer     cn.arorms.android.ht.client          D  [VRI[LoginActivity]#1(BLAST Consumer)1](id:222900000001,api:0,p:-1,c:8745) disconnect
+2025-12-08 13:07:08.050  8745-8745  View                    cn.arorms.android.ht.client          D  [Warning] assignParent to null: this = DecorView@62bb3dd[LoginActivity]
+2025-12-08 13:07:08.055  8745-8745  HandWritingStubImpl     cn.arorms.android.ht.client          I  refreshLastKeyboardType: 1
+2025-12-08 13:07:08.056  8745-8745  HandWritingStubImpl     cn.arorms.android.ht.client          I  getCurrentKeyboardType: 1
+2025-12-08 13:07:08.060  8745-8745  HandWritingStubImpl     cn.arorms.android.ht.client          I  refreshLastKeyboardType: 1
+2025-12-08 13:07:08.060  8745-8745  HandWritingStubImpl     cn.arorms.android.ht.client          I  getCurrentKeyboardType: 1
+2025-12-08 13:07:08.067  8745-8745  InputMethodManager      cn.arorms.android.ht.client          W  Ignoring onBind: cur seq=147, given seq=145
+2025-12-08 13:07:08.069  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.075  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.088  8745-8795  libc                    cn.arorms.android.ht.client          W  Access denied finding property "ro.vendor.display.iris_x7.support"
+2025-12-08 13:07:08.093  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.096  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.099  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.107  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.115  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.124  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.132  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.140  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.149  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.156  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.164  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.173  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.181  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.189  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.197  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.834  8745-8745  AndroidRuntime          cn.arorms.android.ht.client          D  Shutting down VM
+2025-12-08 13:07:08.838  8745-8745  AndroidRuntime          cn.arorms.android.ht.client          E  FATAL EXCEPTION: main (Ask Gemini)
+                                                                                                    Process: cn.arorms.android.ht.client, PID: 8745
+                                                                                                    java.lang.NullPointerException
+                                                                                                    	at cn.arorms.android.ht.client.ui.auth.RegisterFragment.getBinding(RegisterFragment.kt:38)
+                                                                                                    	at cn.arorms.android.ht.client.ui.auth.RegisterFragment.access$getBinding(RegisterFragment.kt:35)
+                                                                                                    	at cn.arorms.android.ht.client.ui.auth.RegisterFragment$startCountDown$1.onTick(RegisterFragment.kt:104)
+                                                                                                    	at android.os.CountDownTimer$1.handleMessage(CountDownTimer.java:145)
+                                                                                                    	at android.os.Handler.dispatchMessage(Handler.java:106)
+                                                                                                    	at android.os.Looper.loopOnce(Looper.java:222)
+                                                                                                    	at android.os.Looper.loop(Looper.java:314)
+                                                                                                    	at android.app.ActivityThread.main(ActivityThread.java:8788)
+                                                                                                    	at java.lang.reflect.Method.invoke(Native Method)
+                                                                                                    	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:569)
+                                                                                                    	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1090)
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4062): avc:  denied  { search } for  name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4063): avc:  denied  { search } for  name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4064): avc:  denied  { search } for  name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.845  8745-8745  ScoutUtils              cn.arorms.android.ht.client          W  Failed to mkdir /data/miuilog/stability/memleak/heapdump/
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4065): avc:  denied  { search } for  name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4066): avc:  denied  { search } for  name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4067): avc:  denied  { search } for  name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4068): avc:  denied  { getattr } for  path="/data/miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4069): avc:  denied  { search } for  name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4070): avc:  denied  { search } for  name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.854  5031-5346  JavaExceptionHandler    com.miui.daemon                      E  Process: cn.arorms.android.ht.client, PID: 8745 (Ask Gemini)
+                                                                                                    java.lang.NullPointerException
+                                                                                                    	at cn.arorms.android.ht.client.ui.auth.RegisterFragment.getBinding(RegisterFragment.kt:38)
+                                                                                                    	at cn.arorms.android.ht.client.ui.auth.RegisterFragment.access$getBinding(RegisterFragment.kt:35)
+                                                                                                    	at cn.arorms.android.ht.client.ui.auth.RegisterFragment$startCountDown$1.onTick(RegisterFragment.kt:104)
+                                                                                                    	at android.os.CountDownTimer$1.handleMessage(CountDownTimer.java:145)
+                                                                                                    	at android.os.Handler.dispatchMessage(Handler.java:106)
+                                                                                                    	at android.os.Looper.loopOnce(Looper.java:222)
+                                                                                                    	at android.os.Looper.loop(Looper.java:314)
+                                                                                                    	at android.app.ActivityThread.main(ActivityThread.java:8788)
+                                                                                                    	at java.lang.reflect.Method.invoke(Native Method)
+                                                                                                    	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:569)
+                                                                                                    	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1090)
+2025-12-08 13:07:08.941  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:08.942  8745-8745  Process                 cn.arorms.android.ht.client          I  Process is going to kill itself! (Ask Gemini)
+                                                                                                    java.lang.Exception
+                                                                                                    	at android.os.Process.killProcess(Process.java:1346)
+                                                                                                    	at com.android.internal.os.RuntimeInit$KillApplicationHandler.uncaughtException(RuntimeInit.java:187)
+                                                                                                    	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1071)
+                                                                                                    	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1066)
+                                                                                                    	at java.lang.Thread.dispatchUncaughtException(Thread.java:2306)
+2025-12-08 13:07:08.943  8745-8745  Process                 cn.arorms.android.ht.client          I  Sending signal. PID: 8745 SIG: 9
+---------------------------- PROCESS ENDED (8745) for package cn.arorms.android.ht.client ----------------------------
+2025-12-08 13:07:09.804  2641-2951  ActivityManagerWrapper  com.miui.home                        E  getRecentTasksForceIncludingTaskIdIfValid: getRecentTasks: size=15
+                                                                                                     mainTaskId=974   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=268435456 cmp=ComponentInfo{cn.arorms.android.ht.client/cn.arorms.android.ht.client.ui.auth.LoginActivity} }
+                                                                                                     mainTaskId=973   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.tencent.androidqqmail/com.tencent.qqmail.launcher.desktop.LauncherActivity} }
+                                                                                                     mainTaskId=947   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.twitter.android/com.twitter.android.StartActivity} }
+                                                                                                     mainTaskId=946   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.github.kr328.clash/com.github.kr328.clash.MainActivity} }
+                                                                                                     mainTaskId=945   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.fileexplorer/com.android.fileexplorer.FileExplorerTabActivity} }
+                                                                                                     mainTaskId=944   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{org.kde.kdeconnect_tp/org.kde.kdeconnect.UserInterface.MainActivity} }
+                                                                                                     mainTaskId=943   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.vending/com.android.vending.AssetBrowserActivity} }
+                                                                                                     mainTaskId=942   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{org.fdroid.fdroid/org.fdroid.fdroid.views.main.MainActivity} }
+                                                                                                     mainTaskId=941   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.xingin.xhs/com.xingin.xhs.index.v2.IndexActivityV2} }
+                                                                                                     mainTaskId=940   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.settings/com.android.settings.MainSettings} }
+                                                                                                     mainTaskId=866   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.chrome/com.google.android.apps.chrome.Main} }
+                                                                                                     mainTaskId=926   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.ConversationListActivityGmail} }
+                                                                                                     mainTaskId=927   userId=0   windowMode=0   baseIntent=Intent { act=com.google.android.gm.email.CREATE_NEW_ACCOUNT flag=805339136 cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.setup.AccountSetupFinalGmail} }
+                                                                                                     mainTaskId=914   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.mms/com.android.mms.ui.MmsTabActivity} }
+                                                                                                     mainTaskId=841   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.tencent.mobileqq/com.tencent.mobileqq.activity.SplashActivity} }
+
+heartfelt_tutoring-# ;
+ id | educational_background | taught_courses | taught_grades | taught_subjects | taught_subject 
+----+------------------------+----------------+---------------+-----------------+----------------
+  1 | 初中                   | 高等数学       | 大学          | MATH            | 
+  3 | 初中                   | 高等数学       | 大学          | MATH            | 
+  2 | 初中                   | 高等数学       | 大学          | MATH            | 
+(3 rows)
+
+heartfelt_tutoring=# select * from users
+heartfelt_tutoring-# ;
+heartfelt_tutoring=# select id, username from users;
+ id |         username         
+----+--------------------------
+  2 | teacher_wang
+  3 | teacher_zhao
+  4 | teacher_qian
+  5 | Mizimi
+  6 | Zihan “Cacciatore” Sheng
+  7 | Luoer
+  8 | Nulla
+(7 rows)
+
+heartfelt_tutoring=# select id, username, teacher_profile_id from users;
+ id |         username         | teacher_profile_id 
+----+--------------------------+--------------------
+  2 | teacher_wang             |                  1
+  3 | teacher_zhao             |                  2
+  4 | teacher_qian             |                  3
+  5 | Mizimi                   |                   
+  6 | Zihan “Cacciatore” Sheng |                   
+  7 | Luoer                    |                   
+  8 | Nulla                    |                   
+(7 rows)
+
+heartfelt_tutoring=# 

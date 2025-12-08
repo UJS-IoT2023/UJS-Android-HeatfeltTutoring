@@ -5,13 +5,13 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_plans"
-            android:icon="@drawable/outline_clarify_24"
-            android:title="学习计划" />
-        <item
             android:id="@+id/nav_teachers"
             android:icon="@drawable/outline_book_ribbon_24"
             android:title="教师列表" />
+        <item
+            android:id="@+id/nav_plans"
+            android:icon="@drawable/outline_clarify_24"
+            android:title="学习计划" />
         <item
             android:id="@+id/nav_appointments"
             android:icon="@drawable/outline_calendar_clock_24"

@@ -1,6 +1,8 @@
 package cn.arorms.android.ht.client.ui.teachers
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +13,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.arorms.android.ht.client.R
 import cn.arorms.android.ht.client.databinding.FragmentTeachersBinding
-import cn.arorms.android.ht.client.pojo.models.TeacherSummary
-import cn.arorms.android.ht.client.ui.user.UserFragment
-import kotlinx.coroutines.flow.collect
+import cn.arorms.android.ht.client.pojo.enums.Subject
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.launch
 
 class TeachersFragment : Fragment() {
@@ -35,11 +36,12 @@ class TeachersFragment : Fragment() {
     
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+
         setupRecyclerView()
         setupObservers()
         setupClickListeners()
-        
+        setupSearch()
+
         // 加载教师列表
         viewModel.loadTeachers()
     }
@@ -88,6 +90,69 @@ class TeachersFragment : Fragment() {
         binding.swipeRefreshLayout.setOnRefreshListener {
             viewModel.loadTeachers()
             binding.swipeRefreshLayout.isRefreshing = false
+        }
+    }
+
+    private fun setupSearch() {
+        // 关键字搜索
+        binding.searchEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                val keyword = s?.toString() ?: ""
+                viewModel.setKeyword(keyword)
+                performSearch()
+            }
+        })
+
+        // 科目选择
+        val subjectButtons = listOf(
+            binding.subjectAllButton to null,
+            binding.subjectChineseButton to Subject.CHINESE,
+            binding.subjectMathButton to Subject.MATH,
+            binding.subjectEnglishButton to Subject.ENGLISH,
+            binding.subjectChemistryButton to Subject.CHEMISTRY,
+            binding.subjectPhysicsButton to Subject.PHYSICS,
+            binding.subjectHistoryButton to Subject.HISTORY,
+            binding.subjectComputerScienceButton to Subject.COMPUTER_SCIENCE
+        )
+
+        subjectButtons.forEach { (button, subject) ->
+            button.setOnClickListener {
+                updateSubjectButtons(subject)
+                viewModel.setSelectedSubject(subject)
+                performSearch()
+            }
+        }
+    }
+
+    private fun updateSubjectButtons(selectedSubject: Subject?) {
+        val buttons = listOf(
+            binding.subjectAllButton to null,
+            binding.subjectChineseButton to Subject.CHINESE,
+            binding.subjectMathButton to Subject.MATH,
+            binding.subjectEnglishButton to Subject.ENGLISH,
+            binding.subjectChemistryButton to Subject.CHEMISTRY,
+            binding.subjectPhysicsButton to Subject.PHYSICS,
+            binding.subjectHistoryButton to Subject.HISTORY,
+            binding.subjectComputerScienceButton to Subject.COMPUTER_SCIENCE
+        )
+
+        buttons.forEach { (button, subject) ->
+            if (subject == selectedSubject) {
+                button.setBackgroundColor(resources.getColor(R.color.purple_muted_primary, null))
+                button.setTextColor(resources.getColor(R.color.white, null))
+            } else {
+                button.setBackgroundColor(resources.getColor(android.R.color.transparent, null))
+                button.setTextColor(resources.getColor(R.color.gray_900, null))
+            }
+        }
+    }
+
+    @OptIn(FlowPreview::class)
+    private fun performSearch() {
+        lifecycleScope.launch {
+            viewModel.searchTeachers()
         }
     }
     

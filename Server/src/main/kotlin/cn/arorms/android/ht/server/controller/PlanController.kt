@@ -1,6 +1,6 @@
 package cn.arorms.android.ht.server.controller
 
-import cn.arorms.android.ht.server.pojo.dto.PlanDetail
+import cn.arorms.android.ht.server.pojo.dto.PlanDto
 import cn.arorms.android.ht.server.pojo.entity.Plan
 import cn.arorms.android.ht.server.service.PlanService
 import cn.arorms.android.ht.server.service.UserService
@@ -50,7 +50,7 @@ class PlanController @Autowired constructor(
 
     // Create new plan
     @PostMapping
-    fun createPlan(@RequestBody createPlanRequest: PlanDetail): ResponseEntity<Plan> {
+    fun createPlan(@RequestBody createPlanRequest: PlanDto): ResponseEntity<Plan> {
         val user = userService.getReferenceById(createPlanRequest.userId)
         user
         val plan = Plan(
@@ -72,7 +72,7 @@ class PlanController @Autowired constructor(
     
     // Update plan
     @PutMapping("/{id}")
-    fun updatePlan(@PathVariable id: Long, @RequestBody planDetail: PlanDetail): ResponseEntity<Plan> {
+    fun updatePlan(@PathVariable id: Long, @RequestBody planDetail: PlanDto): ResponseEntity<Plan> {
         try {
             val user = userService.getReferenceById(planDetail.userId)
             val plan = Plan(

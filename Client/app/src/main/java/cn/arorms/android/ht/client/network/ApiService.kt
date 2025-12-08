@@ -2,8 +2,11 @@ package cn.arorms.android.ht.client.network
 
 import cn.arorms.android.ht.client.pojo.dto.AgentRequest
 import cn.arorms.android.ht.client.pojo.dto.AuthResponse
+import cn.arorms.android.ht.client.pojo.dto.EmailVerification
+import cn.arorms.android.ht.client.pojo.dto.EmailVerificationRequest
 import cn.arorms.android.ht.client.pojo.dto.LoginRequest
 import cn.arorms.android.ht.client.pojo.dto.RegisterRequest
+import cn.arorms.android.ht.client.pojo.dto.TeacherQueryRequest
 import cn.arorms.android.ht.client.pojo.models.*
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -34,6 +37,14 @@ interface ApiService {
     // 验证Token
     @POST("api/auth/verify")
     suspend fun verifyToken(@Header("Authorization") authHeader: String): Map<String, Any?>
+
+    // 发送邮箱验证码
+    @POST("api/auth/send-verification-code")
+    suspend fun sendVerificationCode(@Body request: EmailVerificationRequest): ResponseBody
+
+    // 验证邮箱
+    @POST("api/auth/verify-email")
+    suspend fun verifyEmail(@Body verification: EmailVerification): ResponseBody
 
     // ========== Plans ==========
     
@@ -100,8 +111,8 @@ interface ApiService {
     // ========== User ==========
     
     // Get all teacher users
-    @GET("api/users/teachers")
-    suspend fun getAllTeachers(): List<TeacherSummary>
+    @POST("api/users/teachers")
+    suspend fun getAllTeachers(@Body query: TeacherQueryRequest? = null): List<User>
 
     // Get user detail by id
     @GET("api/users/{id}")

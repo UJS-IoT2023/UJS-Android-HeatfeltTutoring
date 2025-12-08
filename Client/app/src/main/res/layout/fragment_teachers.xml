@@ -22,6 +22,102 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <!-- 搜索区域 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="?attr/colorSurface">
+
+                <!-- 关键字搜索 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="搜索教师姓名或关键词">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/searchEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- 科目选择 -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/subjectAllButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:text="全部" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/subjectChineseButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:text="语文" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/subjectMathButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:text="数学" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/subjectEnglishButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:text="英语" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/subjectChemistryButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:text="化学" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/subjectPhysicsButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:text="物理" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/subjectHistoryButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:text="历史" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/subjectComputerScienceButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:text="计算机" />
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
             <!-- 加载进度条 -->
             <ProgressBar
                 android:id="@+id/progressBar"

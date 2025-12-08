@@ -4,7 +4,7 @@ curl -X POST http://localhost:8080/api/auth/login \
   -d '{
     "loginType": "EMAIL",
     "identifier": "1272369577@qq.com",
-    "password": "password123"
+    "password": "password"
   }' | jq
 
 # Login with username
@@ -13,5 +13,14 @@ curl -X POST http://localhost:8080/api/auth/login \
   -d '{
     "loginType": "USERNAME",
     "identifier": "Nulla",
+    "password": "password123"
+  }' | jq
+
+# Login with email
+curl -X POST http://localhost:8080/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "loginType": "EMAIL",
+    "identifier": "2519994926@qq.com",
     "password": "password123"
   }' | jq
