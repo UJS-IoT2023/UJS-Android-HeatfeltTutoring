@@ -1,0 +1,9 @@
+CONNECT
+accept-version:1.1,1.2
+host:localhost
+
+SEND
+destination:/app/chat/1/send
+content-type:application/json
+
+{"dialogueId":1,"senderId":1,"content":"Hello World!"}

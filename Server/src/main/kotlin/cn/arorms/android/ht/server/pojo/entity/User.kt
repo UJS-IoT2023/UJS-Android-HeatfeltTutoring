@@ -1,6 +1,7 @@
 package cn.arorms.android.ht.server.pojo.entity
 
 import cn.arorms.android.ht.server.pojo.enums.Role
+import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.EnumType
@@ -46,10 +47,12 @@ data class User(
     @JoinColumn(name = "teacher_profile_id")
     var teacherProfile: TeacherProfile? = null,
 
-    @OneToOne @JoinColumn(name = "wallet_id")
+    @OneToOne
+    @JoinColumn(name = "wallet_id")
     var wallet: Wallet? = null,
-    
-    // ===== Profile information =====
+
+
+    // ===== Profile info =====
     @Column(name = "phone_number", unique = true, length = 20)
     var phoneNumber: String? = null,
 

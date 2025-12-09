@@ -5,10 +5,12 @@ import cn.arorms.android.ht.server.pojo.dto.TeacherQueryRequest
 import cn.arorms.android.ht.server.pojo.enums.Role
 import cn.arorms.android.ht.server.pojo.entity.User
 import cn.arorms.android.ht.server.repository.UserRepository
+import cn.arorms.android.ht.server.service.WalletService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import java.util.*
+
 
 /**
  * UserService
@@ -19,6 +21,7 @@ import java.util.*
 class UserService @Autowired constructor(
     private val userRepository: UserRepository,
     private val passwordEncoder: PasswordEncoder,
+    private val walletService: WalletService,
 ) {
     // CRUD
 
@@ -128,8 +131,8 @@ class UserService @Autowired constructor(
     }
 
     // Get user by id
-    fun getUserById(id: Long): Optional<User> {
-        return userRepository.findById(id)
+    fun getUserById(id: Long): User? {
+        return userRepository.findById(id).orElse(null)
     }
 
 
@@ -147,7 +150,12 @@ class UserService @Autowired constructor(
         val encryptedPassword = passwordEncoder.encode(user.password)
         user.password = encryptedPassword
 
-        return userRepository.save(user)
+        val savedUser = userRepository.save(user)
+
+        // Create wallet for the user
+        val wallet = walletService.createWallet()
+        savedUser.wallet = wallet
+        return userRepository.save(savedUser)
     }
 
     // Auth methods
@@ -159,7 +167,7 @@ class UserService @Autowired constructor(
             null
         }
     }
-    
+
     fun authenticateUserByUsername(username: String, password: String): User? {
         val user = userRepository.findByUsername(username)
         return if (user != null && passwordEncoder.matches(password, user.password)) {
@@ -172,7 +180,7 @@ class UserService @Autowired constructor(
     fun authenticateUserByGoogle(googleId: String): User? {
         return userRepository.findByEmail(googleId)
     }
-    
+
     fun existsByEmail(email: String): Boolean {
         return userRepository.existsByEmail(email)
     }

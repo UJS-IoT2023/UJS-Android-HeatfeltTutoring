@@ -51,4 +51,25 @@
         android:label="AI助手"
         tools:layout="@layout/fragment_ai_chat" />
 
+    <!-- 聊天会话 -->
+    <fragment
+        android:id="@+id/chatSessionsFragment"
+        android:name="cn.arorms.android.ht.client.ui.chat.ChatSessionsFragment"
+        android:label="聊天会话"
+        tools:layout="@layout/fragment_chat_sessions" />
+
+    <!-- 私聊 -->
+    <fragment
+        android:id="@+id/privateChatFragment"
+        android:name="cn.arorms.android.ht.client.ui.chat.PrivateChatFragment"
+        android:label="私聊"
+        tools:layout="@layout/fragment_private_chat">
+        <argument
+            android:name="otherUserId"
+            app:argType="long" />
+        <argument
+            android:name="otherUserName"
+            app:argType="string" />
+    </fragment>
+
 </navigation>

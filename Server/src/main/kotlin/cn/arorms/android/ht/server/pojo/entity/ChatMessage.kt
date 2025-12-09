@@ -10,26 +10,17 @@ data class ChatMessage(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
 
-    @Column(name = "sender_id", nullable = false)
-    var senderId: Long,
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "dialogue_id")
+    var dialogue: ChatDialogue?,
 
-    @Column(name = "receiver_id", nullable = false)
-    var receiverId: Long,
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sender_id", nullable = false)
+    var sender: User,
 
     @Column(nullable = false)
     var content: String,
 
-    @Column(name = "message_type", nullable = false)
-    var messageType: String = "text", // text, image, etc.
-
-    @Column(name = "is_read", nullable = false)
-    var isRead: Boolean = false,
-
     @Column(name = "created_at", nullable = false)
     var createdAt: LocalDateTime = LocalDateTime.now()
-) {
-    // Helper method to mark as read
-    fun markAsRead() {
-        this.isRead = true
-    }
-}
+)

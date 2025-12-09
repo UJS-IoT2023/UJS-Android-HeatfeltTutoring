@@ -15,11 +15,15 @@ import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import cn.arorms.android.ht.client.R
 import cn.arorms.android.ht.client.databinding.FragmentUserBinding
 import cn.arorms.android.ht.client.network.AuthManager
 import cn.arorms.android.ht.client.network.RetrofitClient
 import cn.arorms.android.ht.client.pojo.models.Appointment
+import cn.arorms.android.ht.client.pojo.models.CreateDialogueRequest
+import cn.arorms.android.ht.client.pojo.models.Dialogue
 import cn.arorms.android.ht.client.pojo.models.TeacherSummary
 import cn.arorms.android.ht.client.pojo.models.User
 import kotlinx.coroutines.flow.collect
@@ -133,6 +137,10 @@ class UserFragment : Fragment() {
             showAppointmentDialog()
         }
 
+        binding.chatButton.setOnClickListener {
+            startChat()
+        }
+
         binding.sendCommentButton.setOnClickListener {
             sendComment()
         }
@@ -142,6 +150,7 @@ class UserFragment : Fragment() {
         if (isOwnProfile) {
             binding.editButton.visibility = View.VISIBLE
             binding.bookAppointmentButton.visibility = View.GONE
+            binding.chatButton.visibility = View.GONE
             binding.addCommentButton.visibility = View.GONE
             binding.commentInputSection.visibility = View.GONE
         } else {
@@ -150,6 +159,7 @@ class UserFragment : Fragment() {
             val currentUserRole = AuthManager.getUser()?.role ?: "STUDENT"
             val isViewingTeacher = viewModel.user.value?.role == "TEACHER"
             binding.bookAppointmentButton.visibility = if (currentUserRole == "STUDENT" && isViewingTeacher) View.VISIBLE else View.GONE
+            binding.chatButton.visibility = View.VISIBLE
             binding.addCommentButton.visibility = View.VISIBLE
             binding.commentInputSection.visibility = View.GONE
         }
@@ -341,6 +351,46 @@ class UserFragment : Fragment() {
     private fun hideKeyboard() {
         val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(binding.root.windowToken, 0)
+    }
+
+    private fun startChat() {
+        val user = viewModel.user.value ?: return
+        val currentUserId = AuthManager.getUserId()
+
+        lifecycleScope.launch {
+            try {
+                // First get user's dialogues to check if one exists with this user
+                val apiService = RetrofitClient.instance
+                val dialogues = apiService.getUserDialogues(currentUserId)
+
+                // Look for existing dialogue between current user and target user
+                val existingDialogue = dialogues.find { dialogue ->
+                    dialogue.participantIds.contains(currentUserId) &&
+                    dialogue.participantIds.contains(userId) &&
+                    dialogue.participantIds.size == 2
+                }
+
+                val dialogueId = if (existingDialogue != null) {
+                    existingDialogue.id!!
+                } else {
+                    // Create new dialogue
+                    val createRequest = CreateDialogueRequest(participantIds = listOf(currentUserId, userId))
+                    val newDialogue = apiService.createDialogue(createRequest)
+                    newDialogue.id!!
+                }
+
+                // Navigate to chat with dialogue ID
+                val bundle = Bundle().apply {
+                    putLong("dialogueId", dialogueId)
+                    putLong("otherUserId", userId)
+                    putString("otherUserName", user.realName ?: user.username)
+                }
+                findNavController().navigate(R.id.privateChatFragment, bundle)
+
+            } catch (e: Exception) {
+                showErrorDialog("创建对话失败: ${e.message}")
+            }
+        }
     }
 
     private fun showErrorDialog(message: String) {

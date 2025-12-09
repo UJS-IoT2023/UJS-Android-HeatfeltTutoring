@@ -44,7 +44,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.appointmentsFragment,
                 R.id.userFragment,
                 R.id.walletFragment,
-                R.id.aiChatFragment
+                R.id.aiChatFragment,
+                R.id.chatSessionsFragment
             ), binding.drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -91,6 +92,11 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.nav_ai_chat -> {
                     navController.navigate(R.id.aiChatFragment)
+                    binding.drawerLayout.closeDrawers()
+                    true
+                }
+                R.id.nav_chat -> {
+                    navController.navigate(R.id.chatSessionsFragment)
                     binding.drawerLayout.closeDrawers()
                     true
                 }

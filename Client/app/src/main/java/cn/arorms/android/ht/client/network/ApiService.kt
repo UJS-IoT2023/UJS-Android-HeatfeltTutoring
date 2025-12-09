@@ -192,6 +192,47 @@ interface ApiService {
     // AI聊天接口（流式响应）
     @POST("api/ai/chat")
     fun chatWithAI(@Body request: AgentRequest): Call<ResponseBody>
+
+    // ========== Chat ==========
+
+    // Create dialogue
+    @POST("api/chat/dialogue")
+    suspend fun createDialogue(@Body request: CreateDialogueRequest): Dialogue
+
+    // Get user's dialogues
+    @GET("api/chat/dialogues/{userId}")
+    suspend fun getUserDialogues(@Path("userId") userId: Long): List<Dialogue>
+
+    // Send message to dialogue via REST API
+    @POST("api/chat/dialogue/{dialogueId}/send")
+    suspend fun sendMessage(
+        @Path("dialogueId") dialogueId: Long,
+        @Body request: SendMessageRequest
+    ): ChatMessage
+
+    // Get messages in dialogue
+    @GET("api/chat/dialogue/{dialogueId}/messages")
+    suspend fun getDialogueMessages(@Path("dialogueId") dialogueId: Long): List<ChatMessage>
+
+    // Get all messages for current user
+    @GET("api/chat/messages")
+    suspend fun getUserMessages(): List<ChatMessage>
+
+    // Get unread messages count
+    @GET("api/chat/unread/count")
+    suspend fun getUnreadMessageCount(): Map<String, Long>
+
+    // Get unread messages
+    @GET("api/chat/unread")
+    suspend fun getUnreadMessages(): List<ChatMessage>
+
+    // Mark messages as read
+    @POST("api/chat/mark-read")
+    suspend fun markMessagesAsRead(@Body request: MarkAsReadRequest): Map<String, Int>
+
+    // Mark all messages from a specific dialogue as read
+    @POST("api/chat/dialogue/{dialogueId}/mark-read")
+    suspend fun markDialogueMessagesAsRead(@Path("dialogueId") dialogueId: Long): Map<String, Int>
 }
 
 object RetrofitClient {

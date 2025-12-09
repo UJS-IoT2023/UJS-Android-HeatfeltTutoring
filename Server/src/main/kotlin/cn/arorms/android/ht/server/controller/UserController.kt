@@ -58,9 +58,8 @@ class UserController @Autowired constructor(
 
             // 更新用户数据库
             val user = userService.getUserById(id)
-                .orElseThrow { RuntimeException("用户不存在，id: $id") }
 
-            user.avatarUrl = url
+            user!!.avatarUrl = url
             userService.updateUser(id, user)
 
             ResponseEntity(
@@ -94,12 +93,10 @@ class UserController @Autowired constructor(
     }
 
     @GetMapping("/{id}")
-    fun getUserById(@PathVariable id: Long?): ResponseEntity<Optional<User>> {
-        return if (id != null) {
-            ResponseEntity(userService.getUserById(id), HttpStatus.OK)
-        } else {
-            ResponseEntity.badRequest().build()
-        }
+    fun getUserById(@PathVariable id: Long): ResponseEntity<User> {
+        val user = userService.getUserById(id)
+            ?: return ResponseEntity.notFound().build()
+        return ResponseEntity.ok(user)
     }
     
     @GetMapping("/teachers")

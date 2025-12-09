@@ -16,12 +16,8 @@ import jakarta.persistence.Table
 data class Wallet (
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
-    
-    @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    var user: User,
-    
+
     var balance: Double,
-    
+
     var points: Double
 )
