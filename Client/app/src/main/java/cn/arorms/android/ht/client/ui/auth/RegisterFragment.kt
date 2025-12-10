@@ -25,7 +25,10 @@ import androidx.credentials.exceptions.GetCredentialException
 import cn.arorms.android.ht.client.pojo.dto.RegisterType
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
+import cn.arorms.android.ht.client.pojo.dto.EmailVerificationRequest
+import cn.arorms.android.ht.client.pojo.dto.EmailVerification
 import kotlinx.coroutines.launch
+import android.os.CountDownTimer
 
 //private val FragmentRegisterBinding.etUsername: Any
 
@@ -36,6 +39,7 @@ class RegisterFragment : Fragment() {
 
     private val apiService: ApiService = RetrofitClient.instance
     private lateinit var credentialManager: CredentialManager
+    private var countDownTimer: CountDownTimer? = null
     
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,6 +62,10 @@ class RegisterFragment : Fragment() {
             register()
         }
 
+        binding.btnSendCode.setOnClickListener {
+            sendVerificationCode()
+        }
+
         binding.btnGoogleRegister.setOnClickListener {
             googleSignIn()
         }
@@ -66,41 +74,83 @@ class RegisterFragment : Fragment() {
             navigateToLogin()
         }
     }
-    
+
+    private fun sendVerificationCode() {
+        val email = binding.etEmail.text.toString().trim()
+        if (email.isEmpty()) {
+            Toast.makeText(requireContext(), "请输入邮箱", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        binding.btnSendCode.isEnabled = false
+
+        lifecycleScope.launch {
+            try {
+                val request = EmailVerificationRequest(email)
+                apiService.sendVerificationCode(request)
+                Toast.makeText(requireContext(), "验证码已发送", Toast.LENGTH_SHORT).show()
+                startCountDown()
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "发送失败: ${e.message}", Toast.LENGTH_SHORT).show()
+                binding.btnSendCode.isEnabled = true
+            }
+        }
+    }
+
+    private fun startCountDown() {
+        countDownTimer?.cancel()
+        countDownTimer = object : CountDownTimer(60000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                binding.btnSendCode.text = "${millisUntilFinished / 1000}s"
+            }
+
+            override fun onFinish() {
+                binding.btnSendCode.text = "发送验证码"
+                binding.btnSendCode.isEnabled = true
+            }
+        }.start()
+    }
+
     private fun register() {
         val email = binding.etEmail.text.toString().trim()
         val username = binding.etUsername.text.toString().trim()
         val password = binding.etPassword.text.toString().trim()
         val confirmPassword = binding.etConfirmPassword.text.toString().trim()
-        
-        if (password.isEmpty() || confirmPassword.isEmpty()) {
+        val verificationCode = binding.etVerificationCode.text.toString().trim()
+
+        if (email.isEmpty() || username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || verificationCode.isEmpty()) {
             Toast.makeText(requireContext(), "请填写所有字段", Toast.LENGTH_SHORT).show()
             return
         }
-        
+
         if (password != confirmPassword) {
             Toast.makeText(requireContext(), "密码不一致", Toast.LENGTH_SHORT).show()
             return
         }
-        
+
         binding.progressBar.visibility = View.VISIBLE
         binding.btnRegister.isEnabled = false
-        
+
         lifecycleScope.launch {
             try {
+                // First verify email
+                val verification = EmailVerification(email, verificationCode)
+                apiService.verifyEmail(verification)
+
+                // Then register
                 val registerRequest = RegisterRequest(RegisterType.EMAIL, username, email, password)
                 val response = apiService.register(registerRequest)
-                
+
                 // 保存token和用户信息
                 AuthManager.saveToken(response.token)
                 AuthManager.saveUserId(response.userId)
 //                AuthManager.savePhoneNumber(response.phoneNumber)
-                
+
                 Toast.makeText(requireContext(), "注册成功", Toast.LENGTH_SHORT).show()
-                
+
                 // 通过LoginActivity导航到主界面
                 (requireActivity() as LoginActivity).navigateToMain()
-                
+
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "注册失败: ${e.message}", Toast.LENGTH_SHORT).show()
             } finally {
@@ -187,6 +237,7 @@ class RegisterFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        countDownTimer?.cancel()
         _binding = null
     }
 }

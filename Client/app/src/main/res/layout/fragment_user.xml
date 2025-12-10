@@ -327,6 +327,15 @@
             android:layout_marginBottom="16dp"
             android:visibility="gone" />
 
+        <!-- 聊天按钮 -->
+        <Button
+            android:id="@+id/chatButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="开始聊天"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone" />
+
         <!-- 添加评论按钮 -->
         <Button
             android:id="@+id/addCommentButton"
@@ -356,7 +365,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:nestedScrollingEnabled="true" />
+                android:nestedScrollingEnabled="false" />
 
         </LinearLayout>
 

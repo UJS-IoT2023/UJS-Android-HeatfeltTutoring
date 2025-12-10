@@ -35,7 +35,7 @@ class WalletViewModel : ViewModel() {
             }
 
             try {
-                val result = apiService.getWalletById(userId)
+                val result = apiService.getWalletByUserId(userId)
                 _wallet.value = result
             } catch (exception: Exception) {
                 _error.value = "加载钱包失败: ${exception.message}"

@@ -1,8 +1,8 @@
 package cn.arorms.android.ht.server.controller
 
 import cn.arorms.android.ht.server.pojo.dto.SelectUserRequest
-import cn.arorms.android.ht.server.pojo.dto.TeacherSummary
-import cn.arorms.android.ht.server.pojo.dto.UserUpdateDto
+import cn.arorms.android.ht.server.pojo.dto.TeacherQueryRequest
+import cn.arorms.android.ht.server.pojo.dto.UserDto
 import cn.arorms.android.ht.server.pojo.entity.User
 import cn.arorms.android.ht.server.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
@@ -58,9 +58,8 @@ class UserController @Autowired constructor(
 
             // 更新用户数据库
             val user = userService.getUserById(id)
-                .orElseThrow { RuntimeException("用户不存在，id: $id") }
 
-            user.avatarUrl = url
+            user!!.avatarUrl = url
             userService.updateUser(id, user)
 
             ResponseEntity(
@@ -94,24 +93,30 @@ class UserController @Autowired constructor(
     }
 
     @GetMapping("/{id}")
-    fun getUserById(@PathVariable id: Long?): ResponseEntity<Optional<User>> {
-        return if (id != null) {
-            ResponseEntity(userService.getUserById(id), HttpStatus.OK)
-        } else {
-            ResponseEntity.badRequest().build()
-        }
+    fun getUserById(@PathVariable id: Long): ResponseEntity<User> {
+        val user = userService.getUserById(id)
+            ?: return ResponseEntity.notFound().build()
+        return ResponseEntity.ok(user)
     }
     
     @GetMapping("/teachers")
-    fun getTeachers(): ResponseEntity<List<TeacherSummary>> {
+    fun getTeachers(): ResponseEntity<List<UserDto>> {
         val teacherSummaries = userService.getTeacherUsers().map {
-            teacherUser -> TeacherSummary(teacherUser)
+            teacherUser -> UserDto(teacherUser)
+        }
+        return ResponseEntity(teacherSummaries, HttpStatus.OK)
+    }
+
+    @PostMapping("/teachers")
+    fun queryTeachers(@RequestBody request: TeacherQueryRequest): ResponseEntity<List<UserDto>> {
+        val teacherSummaries = userService.getTeacherUsers(request).map {
+            teacherUser -> UserDto(teacherUser)
         }
         return ResponseEntity(teacherSummaries, HttpStatus.OK)
     }
 
     @PutMapping("/{id}")
-    fun updateUser(@PathVariable id: Long, @RequestBody updateDto: UserUpdateDto): ResponseEntity<User> {
+    fun updateUser(@PathVariable id: Long, @RequestBody updateDto: UserDto): ResponseEntity<User> {
         return try {
             val updatedUser = userService.updateUserProfile(id, updateDto)
             ResponseEntity(updatedUser, HttpStatus.OK)

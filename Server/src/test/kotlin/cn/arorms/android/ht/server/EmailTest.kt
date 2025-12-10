@@ -11,20 +11,20 @@ import org.springframework.test.context.TestPropertySource
 @TestPropertySource(locations = ["classpath:application.properties"])
 class EmailTest {
 
-//    val TEST_EMAIL = "1272369577@qq.com"
-    val TEST_EMAIL = "3227585869@qq.com"
+    val TEST_EMAIL = "1272369577@qq.com"
+//    val TEST_EMAIL = "3227585869@qq.com"
     
     @Autowired
     private lateinit var emailService: EmailService
-    
+
     @Autowired
     private lateinit var verificationCodeService: VerificationCodeService
 
-//    @Test
-//    fun simpleEmailTest() {
-//        emailService.sendEmail(TEST_EMAIL, "Huangyi big ice bee")
-//        emailService.sendEmail("3227585869@qq.com", "Huangyi big ice bee")
-//    } 
+    @Test
+    fun simpleEmailTest() {
+        emailService.sendEmail(TEST_EMAIL, "Huangyi big ice bee")
+        emailService.sendEmail("3227585869@qq.com", "Huangyi big ice bee")
+    } 
     
     @Test
     fun sendVerificationCodeTest() {

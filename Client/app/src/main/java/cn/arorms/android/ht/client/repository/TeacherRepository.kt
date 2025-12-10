@@ -2,14 +2,15 @@ package cn.arorms.android.ht.client.repository
 
 import cn.arorms.android.ht.client.network.ApiService
 import cn.arorms.android.ht.client.network.RetrofitClient
-import cn.arorms.android.ht.client.pojo.models.TeacherSummary
+import cn.arorms.android.ht.client.pojo.dto.TeacherQueryRequest
+import cn.arorms.android.ht.client.pojo.models.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class TeacherRepository {
     private val apiService: ApiService = RetrofitClient.instance
-    
-    suspend fun getAllTeachers(): Result<List<TeacherSummary>> {
+
+    suspend fun getAllTeachers(): Result<List<User>> {
         return try {
             withContext(Dispatchers.IO) {
                 val teachers = apiService.getAllTeachers()
@@ -19,7 +20,18 @@ class TeacherRepository {
             Result.failure(e)
         }
     }
-    
+
+    suspend fun searchTeachers(query: TeacherQueryRequest): Result<List<User>> {
+        return try {
+            withContext(Dispatchers.IO) {
+                val teachers = apiService.getAllTeachers(query)
+                Result.success(teachers)
+            }
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
 //    suspend fun getTeacherById(id: Long): Result<TeacherSummary> {
 //        return try {
 //            withContext(Dispatchers.IO) {

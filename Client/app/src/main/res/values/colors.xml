@@ -1,11 +1,21 @@
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="purple_muted_primary">#5B4E75</color>
+    <color name="purple_muted_on_primary">#FFFFFF</color>
+
+    <color name="purple_muted_container">#ECE6F4</color>
+    <color name="purple_muted_on_container">#1D172B</color>
+
+    <color name="secondary_muted">#736B7F</color>
+    <color name="secondary_on_muted">#FFFFFF</color>
+    <color name="secondary_muted_container">#F0EBFA</color>
+    <color name="secondary_on_muted_container">#2B2533</color>
+
+    <color name="surface_warm">#FFFBFE</color>
+    <color name="on_surface_warm">#1C1B1F</color>
+    <color name="surface_variant">#E7E0EC</color>
+    <color name="on_surface_variant">#49454F</color>
+
+    <color name="error_red">#B3261E</color>
 
     <!-- Material Design 3 颜色系统 -->
     <color name="gray_50">#FFFAFAFA</color>
@@ -19,4 +29,8 @@
     <color name="gray_800">#FF424242</color>
     <color name="gray_900">#FF212121</color>
     <color name="gray">#FF9E9E9E</color>
+
+    <!-- Standard Android colors for compatibility -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
 </resources>

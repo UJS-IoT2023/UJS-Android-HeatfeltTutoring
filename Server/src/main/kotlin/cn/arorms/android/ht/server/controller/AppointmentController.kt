@@ -1,5 +1,6 @@
 package cn.arorms.android.ht.server.controller
 
+import cn.arorms.android.ht.server.pojo.dto.AppointmentDto
 import cn.arorms.android.ht.server.pojo.entity.Appointment
 import cn.arorms.android.ht.server.service.AppointmentService
 import org.springframework.beans.factory.annotation.Autowired
@@ -12,12 +13,12 @@ import org.springframework.web.bind.annotation.*
 class AppointmentController @Autowired constructor(
     private val appointmentService: AppointmentService
 ) {
-    // Get all appointments
-    @GetMapping
-    fun getAllAppointments(): ResponseEntity<List<Appointment>> {
-        val appointments = appointmentService.getAllAppointments()
-        return ResponseEntity(appointments, HttpStatus.OK)
-    }
+//    // Get all appointments
+//    @GetMapping
+//    fun getAllAppointments(): ResponseEntity<List<Appointment>> {
+//        val appointments = appointmentService.getAllAppointments()
+//        return ResponseEntity(appointments, HttpStatus.OK)
+//    }
 
     // Get appointment by ID
     @GetMapping("/{id}")
@@ -32,16 +33,18 @@ class AppointmentController @Autowired constructor(
 
     // Get appointments by user ID
     @GetMapping("/user/{userId}")
-    fun getAppointmentsByUserId(@PathVariable userId: Long): ResponseEntity<List<Appointment>> {
+    fun getAppointmentsByUserId(@PathVariable userId: Long): ResponseEntity<List<AppointmentDto>> {
         val appointments = appointmentService.getAppointmentsByUserId(userId)
-        return ResponseEntity(appointments, HttpStatus.OK)
+        val appointmentDtoList = appointments.map{ AppointmentDto(it) }
+        return ResponseEntity(appointmentDtoList, HttpStatus.OK)
     }
 
     // Create new appointment
     @PostMapping
-    fun createAppointment(@RequestBody appointment: Appointment): ResponseEntity<Appointment> {
-        val createdAppointment = appointmentService.createAppointment(appointment)
-        return ResponseEntity(createdAppointment, HttpStatus.CREATED)
+    fun createAppointment(@RequestBody appointmentDto: AppointmentDto): ResponseEntity<AppointmentDto> {
+        val appointmentEntity = appointmentService.projection(appointmentDto)
+        val createdAppointment = appointmentService.createAppointment(appointmentEntity)
+        return ResponseEntity(appointmentDto, HttpStatus.CREATED)
     }
 
     // Update appointment

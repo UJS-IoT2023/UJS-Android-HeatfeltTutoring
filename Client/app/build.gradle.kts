@@ -66,9 +66,23 @@ dependencies {
 
     // CardView
     implementation("androidx.cardview:cardview:1.0.0")
-    
+
     // SwipeRefreshLayout
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
+    // Markdown rendering
+    implementation("io.noties.markwon:core:4.6.2")
+    implementation("io.noties.markwon:linkify:4.6.2")
+
+    // WebSocket support (using OkHttp)
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+    // STOMP over WebSocket
+    implementation("com.github.NaikSoftware:StompProtocolAndroid:1.6.6")
+
+    // RxJava (required by STOMP library)
+    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
+    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
     
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

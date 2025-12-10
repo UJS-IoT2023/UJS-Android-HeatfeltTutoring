@@ -25,16 +25,20 @@ class WalletService @Autowired constructor(
 
     // Get wallet by user ID
     fun getWalletByUserId(userId: Long): Wallet? {
-        val wallet = walletRepository.findByUserId(userId)
-        if (wallet == null) {
-            createWallet(userId)
+        val user = userRepository.findById(userId).orElse(null) ?: return null
+        if (user.wallet == null) {
+            user.wallet = createWallet()
+            userRepository.save(user)
         }
-        return wallet
+        return user.wallet
     }
 
     // Create new wallet
-    fun createWallet(userId: Long): Wallet {
-        val wallet = Wallet(user = userRepository.getReferenceById(userId))
+    fun createWallet(): Wallet {
+        val wallet = Wallet(
+            balance = 0.0,
+            points = 0.0
+        )
         return walletRepository.save(wallet)
     }
 
@@ -43,7 +47,6 @@ class WalletService @Autowired constructor(
         val wallet = walletRepository.findById(id)
             .orElseThrow { RuntimeException("Wallet not found with id: $id") }
 
-        wallet.user = walletDetails.user
         wallet.balance = walletDetails.balance
         wallet.points = walletDetails.points
 

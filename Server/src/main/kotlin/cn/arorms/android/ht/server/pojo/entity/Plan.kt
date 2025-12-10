@@ -1,7 +1,5 @@
 package cn.arorms.android.ht.server.pojo.entity
 
-import cn.arorms.android.ht.server.pojo.dto.PlanDetail
-import cn.arorms.android.ht.server.service.UserService
 import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.Column
 import jakarta.persistence.Entity

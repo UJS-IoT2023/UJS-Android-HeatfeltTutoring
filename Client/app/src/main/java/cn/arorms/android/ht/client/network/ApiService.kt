@@ -1,14 +1,20 @@
 package cn.arorms.android.ht.client.network
 
+import cn.arorms.android.ht.client.pojo.dto.AgentRequest
 import cn.arorms.android.ht.client.pojo.dto.AuthResponse
+import cn.arorms.android.ht.client.pojo.dto.EmailVerification
+import cn.arorms.android.ht.client.pojo.dto.EmailVerificationRequest
 import cn.arorms.android.ht.client.pojo.dto.LoginRequest
 import cn.arorms.android.ht.client.pojo.dto.RegisterRequest
+import cn.arorms.android.ht.client.pojo.dto.TeacherQueryRequest
 import cn.arorms.android.ht.client.pojo.models.*
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.Response as OkHttpResponse
+import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -31,6 +37,14 @@ interface ApiService {
     // 验证Token
     @POST("api/auth/verify")
     suspend fun verifyToken(@Header("Authorization") authHeader: String): Map<String, Any?>
+
+    // 发送邮箱验证码
+    @POST("api/auth/send-verification-code")
+    suspend fun sendVerificationCode(@Body request: EmailVerificationRequest): ResponseBody
+
+    // 验证邮箱
+    @POST("api/auth/verify-email")
+    suspend fun verifyEmail(@Body verification: EmailVerification): ResponseBody
 
     // ========== Plans ==========
     
@@ -69,8 +83,6 @@ interface ApiService {
     // ========== 预约管理接口 ==========
     
     // 获取所有预约
-    @GET("api/appointments")
-    suspend fun getAllAppointments(): List<Appointment>
     
     // 根据ID获取预约
     @GET("api/appointments/{id}")
@@ -99,8 +111,8 @@ interface ApiService {
     // ========== User ==========
     
     // Get all teacher users
-    @GET("api/users/teachers")
-    suspend fun getAllTeachers(): List<TeacherSummary>
+    @POST("api/users/teachers")
+    suspend fun getAllTeachers(@Body query: TeacherQueryRequest? = null): List<User>
 
     // Get user detail by id
     @GET("api/users/{id}")
@@ -165,18 +177,62 @@ interface ApiService {
     // 钱包管理接口
     @GET("api/wallets")
     suspend fun getAllWallets(): List<Wallet>
-    
-    @GET("api/wallets/{id}")
-    suspend fun getWalletById(@Path("id") id: Long): Wallet
-    
-    @POST("api/wallets")
-    suspend fun createWallet(@Body wallet: Wallet): Wallet
-    
+
+    @GET("api/wallets/user/{userId}")
+    suspend fun getWalletByUserId(@Path("userId") userId: Long): Wallet
+
     @PUT("api/wallets/{id}")
     suspend fun updateWallet(@Path("id") id: Long, @Body wallet: Wallet): Wallet
-    
+
     @DELETE("api/wallets/{id}")
     suspend fun deleteWallet(@Path("id") id: Long)
+
+    // ========== AI Chat ==========
+
+    // AI聊天接口（流式响应）
+    @POST("api/ai/chat")
+    fun chatWithAI(@Body request: AgentRequest): Call<ResponseBody>
+
+    // ========== Chat ==========
+
+    // Create dialogue
+    @POST("api/chat/dialogue")
+    suspend fun createDialogue(@Body request: CreateDialogueRequest): Dialogue
+
+    // Get user's dialogues
+    @GET("api/chat/dialogues/{userId}")
+    suspend fun getUserDialogues(@Path("userId") userId: Long): List<Dialogue>
+
+    // Send message to dialogue via REST API
+    @POST("api/chat/dialogue/{dialogueId}/send")
+    suspend fun sendMessage(
+        @Path("dialogueId") dialogueId: Long,
+        @Body request: SendMessageRequest
+    ): ChatMessage
+
+    // Get messages in dialogue
+    @GET("api/chat/dialogue/{dialogueId}/messages")
+    suspend fun getDialogueMessages(@Path("dialogueId") dialogueId: Long): List<ChatMessage>
+
+    // Get all messages for current user
+    @GET("api/chat/messages")
+    suspend fun getUserMessages(): List<ChatMessage>
+
+    // Get unread messages count
+    @GET("api/chat/unread/count")
+    suspend fun getUnreadMessageCount(): Map<String, Long>
+
+    // Get unread messages
+    @GET("api/chat/unread")
+    suspend fun getUnreadMessages(): List<ChatMessage>
+
+    // Mark messages as read
+    @POST("api/chat/mark-read")
+    suspend fun markMessagesAsRead(@Body request: MarkAsReadRequest): Map<String, Int>
+
+    // Mark all messages from a specific dialogue as read
+    @POST("api/chat/dialogue/{dialogueId}/mark-read")
+    suspend fun markDialogueMessagesAsRead(@Path("dialogueId") dialogueId: Long): Map<String, Int>
 }
 
 object RetrofitClient {
@@ -209,7 +265,7 @@ object RetrofitClient {
         .writeTimeout(30, TimeUnit.SECONDS)
         .build()
     
-    private val gson: Gson by lazy {
+    val gson: Gson by lazy {
         GsonBuilder()
             .registerTypeAdapter(LocalDateTime::class.java, LocalDateTimeTypeAdapter())
             .create()

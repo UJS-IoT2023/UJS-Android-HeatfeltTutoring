@@ -1,0 +1,1111 @@
+2025-12-08T10:04:41.068+08:00  INFO 17609 --- [HeartfeltTutoringServer] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-08T10:04:41.069+08:00  INFO 17609 --- [HeartfeltTutoringServer] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-08T10:05:47.886+08:00  WARN 17609 --- [HeartfeltTutoringServer] [nio-8080-exec-2] o.s.a.r.a.SpringAiRetryAutoConfiguration : Retry error. Retry count: 1, Exception: HTTP 404 - Not Found
+
+org.springframework.ai.retry.NonTransientAiException: HTTP 404 - Not Found
+	at org.springframework.ai.retry.autoconfigure.SpringAiRetryAutoConfiguration$2.handleError(SpringAiRetryAutoConfiguration.java:126) ~[spring-ai-autoconfigure-retry-1.1.1.jar:1.1.1]
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:58) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.client.StatusHandler.lambda$fromErrorHandler$1(StatusHandler.java:71) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.client.StatusHandler.handle(StatusHandler.java:146) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.applyStatusHandlers(DefaultRestClient.java:838) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.lambda$readBody$4(DefaultRestClient.java:827) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.client.DefaultRestClient.readWithMessageConverters(DefaultRestClient.java:216) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.readBody(DefaultRestClient.java:826) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.lambda$toEntityInternal$2(DefaultRestClient.java:782) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:586) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchange(DefaultRestClient.java:540) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.client.RestClient$RequestHeadersSpec.exchange(RestClient.java:680) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.executeAndExtract(DefaultRestClient.java:821) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.toEntityInternal(DefaultRestClient.java:781) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.toEntity(DefaultRestClient.java:770) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.ai.openai.api.OpenAiApi.chatCompletionEntity(OpenAiApi.java:214) ~[spring-ai-openai-1.1.1.jar:1.1.1]
+	at org.springframework.ai.openai.OpenAiChatModel.lambda$internalCall$1(OpenAiChatModel.java:200) ~[spring-ai-openai-1.1.1.jar:1.1.1]
+	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:357) ~[spring-retry-2.0.12.jar:na]
+	at org.springframework.retry.support.RetryTemplate.execute(RetryTemplate.java:230) ~[spring-retry-2.0.12.jar:na]
+	at org.springframework.ai.openai.OpenAiChatModel.lambda$internalCall$3(OpenAiChatModel.java:200) ~[spring-ai-openai-1.1.1.jar:1.1.1]
+	at io.micrometer.observation.Observation.observe(Observation.java:564) ~[micrometer-observation-1.15.5.jar:1.15.5]
+	at org.springframework.ai.openai.OpenAiChatModel.internalCall(OpenAiChatModel.java:197) ~[spring-ai-openai-1.1.1.jar:1.1.1]
+	at org.springframework.ai.openai.OpenAiChatModel.call(OpenAiChatModel.java:182) ~[spring-ai-openai-1.1.1.jar:1.1.1]
+	at org.springframework.ai.chat.client.advisor.ChatModelCallAdvisor.adviseCall(ChatModelCallAdvisor.java:56) ~[spring-ai-client-chat-1.1.1.jar:1.1.1]
+	at org.springframework.ai.chat.client.advisor.DefaultAroundAdvisorChain.lambda$nextCall$1(DefaultAroundAdvisorChain.java:114) ~[spring-ai-client-chat-1.1.1.jar:1.1.1]
+	at io.micrometer.observation.Observation.observe(Observation.java:564) ~[micrometer-observation-1.15.5.jar:1.15.5]
+	at org.springframework.ai.chat.client.advisor.DefaultAroundAdvisorChain.nextCall(DefaultAroundAdvisorChain.java:113) ~[spring-ai-client-chat-1.1.1.jar:1.1.1]
+	at org.springframework.ai.chat.client.DefaultChatClient$DefaultCallResponseSpec.lambda$doGetObservableChatClientResponse$1(DefaultChatClient.java:539) ~[spring-ai-client-chat-1.1.1.jar:1.1.1]
+	at io.micrometer.observation.Observation.observe(Observation.java:564) ~[micrometer-observation-1.15.5.jar:1.15.5]
+	at org.springframework.ai.chat.client.DefaultChatClient$DefaultCallResponseSpec.doGetObservableChatClientResponse(DefaultChatClient.java:537) ~[spring-ai-client-chat-1.1.1.jar:1.1.1]
+	at org.springframework.ai.chat.client.DefaultChatClient$DefaultCallResponseSpec.content(DefaultChatClient.java:517) ~[spring-ai-client-chat-1.1.1.jar:1.1.1]
+	at cn.arorms.android.ht.server.service.AiService.generate(AiService.kt:18) ~[main/:na]
+	at cn.arorms.android.ht.server.controller.AiController.generate(AiController.kt:19) ~[main/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at kotlin.reflect.jvm.internal.calls.CallerImpl$Method.callMethod(CallerImpl.kt:97) ~[kotlin-reflect-2.2.0.jar:2.2.0-release-294]
+	at kotlin.reflect.jvm.internal.calls.CallerImpl$Method$Instance.call(CallerImpl.kt:113) ~[kotlin-reflect-2.2.0.jar:2.2.0-release-294]
+	at kotlin.reflect.jvm.internal.KCallableImpl.callDefaultMethod$kotlin_reflection(KCallableImpl.kt:207) ~[kotlin-reflect-2.2.0.jar:2.2.0-release-294]
+	at kotlin.reflect.jvm.internal.KCallableImpl.callBy(KCallableImpl.kt:112) ~[kotlin-reflect-2.2.0.jar:2.2.0-release-294]
+	at org.springframework.web.method.support.InvocableHandlerMethod$KotlinDelegate.invokeFunction(InvocableHandlerMethod.java:335) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.48.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.48.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:59) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:216) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:202) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.authentication.ui.DefaultResourcesFilter.doFilter(DefaultResourcesFilter.java:72) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at cn.arorms.android.ht.server.config.JwtFilter.doFilterInternal(JwtFilter.kt:51) ~[main/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:235) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:229) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:198) ~[spring-security-oauth2-client-6.5.6.jar:6.5.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.5.6.jar:6.5.6]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319) ~[spring-security-config-6.5.6.jar:6.5.6]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267) ~[spring-webmvc-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240) ~[spring-security-config-6.5.6.jar:6.5.6]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.12.jar:6.2.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+org.springframework.ai.retry.NonTransientAiException: HTTP 404 - Not Found
+	at org.springframework.ai.retry.autoconfigure.SpringAiRetryAutoConfiguration$2.handleError(SpringAiRetryAutoConfiguration.java:126)
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:58)
+	at org.springframework.web.client.StatusHandler.lambda$fromErrorHandler$1(StatusHandler.java:71)
+	at org.springframework.web.client.StatusHandler.handle(StatusHandler.java:146)
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.applyStatusHandlers(DefaultRestClient.java:838)
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.lambda$readBody$4(DefaultRestClient.java:827)
+	at org.springframework.web.client.DefaultRestClient.readWithMessageConverters(DefaultRestClient.java:216)
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.readBody(DefaultRestClient.java:826)
+
+2025-12-08T11:34:37.681+08:00  WARN 78101 --- [HeartfeltTutoringServer] [oundedElastic-1] s.w.s.m.m.a.RequestMappingHandlerAdapter : !!!
+Performing asynchronous handling through the default Spring MVC SimpleAsyncTaskExecutor.
+This executor is not suitable for production use under load.
+Please, configure an AsyncTaskExecutor through the WebMvc config.
+-------------------------------
+!!!
+
+Argument type mismatch: actual type is 'Executor', but 'AsyncTaskExecutor' was expected.
+
+        <EditText
+            android:id="@+id/messageInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="输入消息..."
+            android:maxLines="3"
+            android:inputType="textMultiLine"
+            android:background="@drawable/edit_text_background"
+            android:padding="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary" />
+
+
+2025-12-08 13:07:06.787  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.796  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.805  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.812  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.819  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.828  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.838  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.844  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.853  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.861  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.869  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.878  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.886  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.893  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.903  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.912  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.920  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.929  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.936  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.944  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.953  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.961  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.970  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.978  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.986  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:06.994  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.002  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.011  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.019  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.027  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.036  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.043  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.052  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.061  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.069  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.076  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.085  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.093  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.102  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.105  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- 200 http://192.168.0.158:8080/api/auth/register (1800ms)
+2025-12-08 13:07:07.105  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Origin
+2025-12-08 13:07:07.106  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Method
+2025-12-08 13:07:07.106  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Headers
+2025-12-08 13:07:07.107  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Content-Type-Options: nosniff
+2025-12-08 13:07:07.107  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-XSS-Protection: 0
+2025-12-08 13:07:07.107  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-08 13:07:07.108  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Pragma: no-cache
+2025-12-08 13:07:07.108  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Expires: 0
+2025-12-08 13:07:07.108  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Frame-Options: DENY
+2025-12-08 13:07:07.109  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.109  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Type: application/json
+2025-12-08 13:07:07.109  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Transfer-Encoding: chunked
+2025-12-08 13:07:07.110  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Date: Mon, 08 Dec 2025 05:07:07 GMT
+2025-12-08 13:07:07.110  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Keep-Alive: timeout=60
+2025-12-08 13:07:07.111  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Connection: keep-alive
+2025-12-08 13:07:07.117  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  {"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzY1MTcwNDI3LCJleHAiOjE3NjU3NzUyMjd9.wvXxz3syzKQDjHzD0rV6ZfxDuFuBwUOAbF_iRTBvNS8JlWYDUXQ1oVQmoDDl-32WaMPwjcyJAWpd5_Voogs8dw","userId":8,"username":"Nulla","message":"注册成功"}
+2025-12-08 13:07:07.118  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.118  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- END HTTP (235-byte body)
+2025-12-08 13:07:07.126  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.134  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.143  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.150  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.159  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.168  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.177  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.184  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.191  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.200  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.201   994-1090  BufferQueueDebug        surfaceflinger                       E  [ActivityRecord{902fde3 u0 cn.arorms.android.ht.client/.MainActivity t974}#1440](this:0xb400007b4134ca80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'ActivityRecord{902fde3 u0 cn.arorms.android.ht.client/.MainActivity t974}#1440'
+2025-12-08 13:07:07.208  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.215  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.219  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:07.223  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.226  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:07.229   994-1090  BufferQueueDebug        surfaceflinger                       E  [f12ed37 Splash Screen cn.arorms.android.ht.client#1442](this:0xb400007b40f33a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'f12ed37 Splash Screen cn.arorms.android.ht.client#1442'
+2025-12-08 13:07:07.231  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.240  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.241   994-1720  BufferQueueDebug        surfaceflinger                       E  [Splash Screen cn.arorms.android.ht.client#1444](this:0xb400007b411f5a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Splash Screen cn.arorms.android.ht.client#1444'
+2025-12-08 13:07:07.248  8745-8798  ContentCatcher          cn.arorms.android.ht.client          I  SettingTrigger : unregister status observer cn.arorms.android.ht.client.ui.auth.LoginActivity
+2025-12-08 13:07:07.276  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.277   994-1720  BufferQueueDebug        surfaceflinger                       E  [Transition Root #111: ActivityRecord{902fde3 u0 cn.arorms.android.ht.client/.MainActivity t974}#1445](this:0xb400007b4123aa80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Transition Root #111: ActivityRecord{902fde3 u0 cn.arorms.android.ht.client/.MainActivity t974}#1445'
+2025-12-08 13:07:07.283   994-1720  BufferQueueDebug        surfaceflinger                       E  [cc03212 ActivityRecordInputSink cn.arorms.android.ht.client/.MainActivity#1446](this:0xb400007b4129ba80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'cc03212 ActivityRecordInputSink cn.arorms.android.ht.client/.MainActivity#1446'
+2025-12-08 13:07:07.286   994-1720  BufferQueueDebug        surfaceflinger                       E  [DefaultTransition Dim Layer for - Surface(name=ActivityRecord{aa0a5b1 u0 cn.arorms.android.ht.client/.ui.auth.LoginActivity t974}#1345)/@0x982cd45#1447](this:0xb400007b412b4a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'DefaultTransition Dim Layer for - Surface(name=ActivityRecord{aa0a5b1 u0 cn.arorms.android.ht.client/.ui.auth.LoginActivity t974}#1345)/@0x982cd45#1447'
+2025-12-08 13:07:07.348  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:07.350  8745-9207  libMEOW                 cn.arorms.android.ht.client          D  meow new tls: 0xb4000071d6bd6080
+2025-12-08 13:07:07.350  8745-9207  libMEOW                 cn.arorms.android.ht.client          D  applied 1 plugins for [cn.arorms.android.ht.client]:
+2025-12-08 13:07:07.350  8745-9207  libMEOW                 cn.arorms.android.ht.client          D    plugin 1: [libMEOW_gift.so]: 0xb400007261345000
+2025-12-08 13:07:07.350  8745-9207  libMEOW                 cn.arorms.android.ht.client          D  rebuild call chain: 0xb4000071d6beff40
+2025-12-08 13:07:07.350  8745-9207  libMEOW                 cn.arorms.android.ht.client          D  meow delete tls: 0xb4000071d6bd6080
+2025-12-08 13:07:07.370  8745-8798  ViewContentFactory      cn.arorms.android.ht.client          D  initViewContentFetcherClass
+2025-12-08 13:07:07.370  8745-8798  ContentCatcher          cn.arorms.android.ht.client          I  ViewContentFetcher : ViewContentFetcher
+2025-12-08 13:07:07.370  8745-8798  ViewContentFactory      cn.arorms.android.ht.client          D  createInterceptor took 0ms
+2025-12-08 13:07:07.372  8745-8798  ContentCatcherManager   cn.arorms.android.ht.client          E  failed to get ContentCatcherService.
+2025-12-08 13:07:07.373  8745-8798  ContentCatcherManager   cn.arorms.android.ht.client          E  failed to get ContentCatcherService.
+2025-12-08 13:07:07.374  8745-8745  ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 13:07:07.375  8745-8745  ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 13:07:07.377  2641-2951  ActivityManagerWrapper  com.miui.home                        E  getRecentTasksForceIncludingTaskIdIfValid: getRecentTasks: size=15
+                                                                                                     mainTaskId=974   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=268435456 cmp=ComponentInfo{cn.arorms.android.ht.client/cn.arorms.android.ht.client.ui.auth.LoginActivity} }
+                                                                                                     mainTaskId=973   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.tencent.androidqqmail/com.tencent.qqmail.launcher.desktop.LauncherActivity} }
+                                                                                                     mainTaskId=947   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.twitter.android/com.twitter.android.StartActivity} }
+                                                                                                     mainTaskId=946   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.github.kr328.clash/com.github.kr328.clash.MainActivity} }
+                                                                                                     mainTaskId=945   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.fileexplorer/com.android.fileexplorer.FileExplorerTabActivity} }
+                                                                                                     mainTaskId=944   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{org.kde.kdeconnect_tp/org.kde.kdeconnect.UserInterface.MainActivity} }
+                                                                                                     mainTaskId=943   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.vending/com.android.vending.AssetBrowserActivity} }
+                                                                                                     mainTaskId=942   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{org.fdroid.fdroid/org.fdroid.fdroid.views.main.MainActivity} }
+                                                                                                     mainTaskId=941   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.xingin.xhs/com.xingin.xhs.index.v2.IndexActivityV2} }
+                                                                                                     mainTaskId=940   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.settings/com.android.settings.MainSettings} }
+                                                                                                     mainTaskId=866   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.chrome/com.google.android.apps.chrome.Main} }
+                                                                                                     mainTaskId=926   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.ConversationListActivityGmail} }
+                                                                                                     mainTaskId=927   userId=0   windowMode=0   baseIntent=Intent { act=com.google.android.gm.email.CREATE_NEW_ACCOUNT flag=805339136 cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.setup.AccountSetupFinalGmail} }
+                                                                                                     mainTaskId=914   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.mms/com.android.mms.ui.MmsTabActivity} }
+                                                                                                     mainTaskId=841   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.tencent.mobileqq/com.tencent.mobileqq.activity.SplashActivity} }
+2025-12-08 13:07:07.402  2641-2951  ActivityManagerWrapper  com.miui.home                        E  getRecentTasksForceIncludingTaskIdIfValid: getRecentTasks: size=15
+                                                                                                     mainTaskId=974   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=268435456 cmp=ComponentInfo{cn.arorms.android.ht.client/cn.arorms.android.ht.client.ui.auth.LoginActivity} }
+                                                                                                     mainTaskId=973   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.tencent.androidqqmail/com.tencent.qqmail.launcher.desktop.LauncherActivity} }
+                                                                                                     mainTaskId=947   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.twitter.android/com.twitter.android.StartActivity} }
+                                                                                                     mainTaskId=946   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.github.kr328.clash/com.github.kr328.clash.MainActivity} }
+                                                                                                     mainTaskId=945   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.fileexplorer/com.android.fileexplorer.FileExplorerTabActivity} }
+                                                                                                     mainTaskId=944   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{org.kde.kdeconnect_tp/org.kde.kdeconnect.UserInterface.MainActivity} }
+                                                                                                     mainTaskId=943   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.vending/com.android.vending.AssetBrowserActivity} }
+                                                                                                     mainTaskId=942   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{org.fdroid.fdroid/org.fdroid.fdroid.views.main.MainActivity} }
+                                                                                                     mainTaskId=941   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.xingin.xhs/com.xingin.xhs.index.v2.IndexActivityV2} }
+                                                                                                     mainTaskId=940   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.settings/com.android.settings.MainSettings} }
+                                                                                                     mainTaskId=866   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.chrome/com.google.android.apps.chrome.Main} }
+                                                                                                     mainTaskId=926   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.ConversationListActivityGmail} }
+                                                                                                     mainTaskId=927   userId=0   windowMode=0   baseIntent=Intent { act=com.google.android.gm.email.CREATE_NEW_ACCOUNT flag=805339136 cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.setup.AccountSetupFinalGmail} }
+                                                                                                     mainTaskId=914   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.mms/com.android.mms.ui.MmsTabActivity} }
+                                                                                                     mainTaskId=841   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.tencent.mobileqq/com.tencent.mobileqq.activity.SplashActivity} }
+2025-12-08 13:07:07.458  8745-8745  ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 13:07:07.492  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> GET http://192.168.0.158:8080/api/users/teachers
+2025-12-08 13:07:07.492  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> END GET
+2025-12-08 13:07:07.501  8745-8745  ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 13:07:07.570  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> GET http://192.168.0.158:8080/api/users/8
+2025-12-08 13:07:07.570  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> END GET
+2025-12-08 13:07:07.581  8745-8798  ContentCatcher          cn.arorms.android.ht.client          I  SettingTrigger : register screen QA status observer cn.arorms.android.ht.client.MainActivity
+2025-12-08 13:07:07.583  8745-8798  ContentCatcher          cn.arorms.android.ht.client          I  SettingTrigger : register global collect status observer cn.arorms.android.ht.client.MainActivity
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- 200 http://192.168.0.158:8080/api/users/teachers (93ms)
+2025-12-08 13:07:07.586  8745-8795  libc                    cn.arorms.android.ht.client          W  Access denied finding property "ro.vendor.display.iris_x7.support"
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Origin
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Method
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Headers
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Content-Type-Options: nosniff
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-XSS-Protection: 0
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Pragma: no-cache
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Expires: 0
+2025-12-08 13:07:07.586  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Frame-Options: DENY
+2025-12-08 13:07:07.587  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Type: application/json
+2025-12-08 13:07:07.587  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Transfer-Encoding: chunked
+2025-12-08 13:07:07.587  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Date: Mon, 08 Dec 2025 05:07:07 GMT
+2025-12-08 13:07:07.587  8745-8745  VRI[MainActivity]       cn.arorms.android.ht.client          D  hardware acceleration = true, forceHwAccelerated = false
+2025-12-08 13:07:07.587  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Keep-Alive: timeout=60
+2025-12-08 13:07:07.587  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Connection: keep-alive
+2025-12-08 13:07:07.588  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  [{"id":2,"username":"teacher_wang","email":"wang@example.com","phoneNumber":"13911111111","avatarUrl":null,"realName":"wangbadan","gender":null,"address":null,"createdAt":"2025-11-27T01:52:49.269053","educationalBackground":"初中","taughtGrades":"大学","taughtSubjects":"数学","taughtCourses":"高等数学"},{"id":3,"username":"teacher_zhao","email":"zhao@example.com","phoneNumber":"13922222222","avatarUrl":null,"realName":"zhaoyi","gender":null,"address":null,"createdAt":"2025-11-27T01:52:49.269053","educationalBackground":"初中","taughtGrades":"大学","taughtSubjects":"数学","taughtCourses":"高等数学"},{"id":4,"username":"teacher_qian","email":"qian@example.com","phoneNumber":"13933333333","avatarUrl":null,"realName":"qianqian","gender":null,"address":null,"createdAt":"2025-11-27T01:52:49.269053","educationalBackground":"初中","taughtGrades":"大学","taughtSubjects":null,"taughtCourses":"高等数学"}]
+2025-12-08 13:07:07.588  8745-8881  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- END HTTP (935-byte body)
+2025-12-08 13:07:07.591   994-1090  BufferQueueDebug        surfaceflinger                       E  [e74e2be cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1450](this:0xb400007b40fefa80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'e74e2be cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1450'
+2025-12-08 13:07:07.599  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:07.600  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:07.600  8745-8745  Choreographer           cn.arorms.android.ht.client          I  Skipped 40 frames!  The application may be doing too much work on its main thread.
+2025-12-08 13:07:07.609  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- 200 http://192.168.0.158:8080/api/users/8 (39ms)
+2025-12-08 13:07:07.610  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Origin
+2025-12-08 13:07:07.610  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Method
+2025-12-08 13:07:07.610  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Headers
+2025-12-08 13:07:07.610  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Content-Type-Options: nosniff
+2025-12-08 13:07:07.610  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-XSS-Protection: 0
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Pragma: no-cache
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Expires: 0
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Frame-Options: DENY
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Type: application/json
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Transfer-Encoding: chunked
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Date: Mon, 08 Dec 2025 05:07:07 GMT
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Keep-Alive: timeout=60
+2025-12-08 13:07:07.611  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Connection: keep-alive
+2025-12-08 13:07:07.613  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  {"id":8,"username":"Nulla","email":"1272369577@qq.com","password":"$2a$10$2iZEjnc.IcDPwP9p6YfxouAX8RPYGXFPvtIEvL4/xM09/r9fiNVTy","role":"STUDENT","googleId":null,"wechatOpenid":null,"qqOpenid":null,"teacherProfile":null,"wallet":null,"phoneNumber":null,"avatarUrl":null,"realName":null,"gender":null,"wechatId":null,"qqId":null,"address":null,"createdAt":"2025-12-08T13:07:05.76297"}
+2025-12-08 13:07:07.613  8745-9211  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- END HTTP (383-byte body)
+2025-12-08 13:07:07.621  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.637   994-1722  BufferQueueDebug        surfaceflinger                       E  [cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1451](this:0xb400007b40f7da80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1451'
+2025-12-08 13:07:07.652  8745-8745  BufferQueueConsumer     cn.arorms.android.ht.client          D  [](id:222900000002,api:0,p:-1,c:8745) connect: controlledByApp=false
+2025-12-08 13:07:07.654  8745-8795  OpenGLRenderer          cn.arorms.android.ht.client          E  Unable to match the desired swap behavior.
+2025-12-08 13:07:07.758  8745-8745  VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportNextDraw android.view.ViewRootImpl.performTraversals:4460 android.view.ViewRootImpl.doTraversal:3069 android.view.ViewRootImpl$TraversalRunnable.run:10654 android.view.Choreographer$CallbackRecord.run:1768 android.view.Choreographer$CallbackRecord.run:1777 
+2025-12-08 13:07:07.759  8745-8745  VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.Setup new sync=wmsSync-VRI[MainActivity]#6
+2025-12-08 13:07:07.768  8745-8795  OpenGLRenderer          cn.arorms.android.ht.client          D  makeCurrent grContext:0xb4000071fb870f40 reset mTextureAvailable
+2025-12-08 13:07:07.782  8745-8795  BLASTBufferQueue        cn.arorms.android.ht.client          D  [VRI[MainActivity]#2](f:0,a:1) acquireNextBufferLocked size=1080x2400 mFrameNumber=1 applyTransaction=true mTimestamp=7183160784042(auto) mPendingTransactions.size=0 graphicBufferId=37559489003531 transform=0
+2025-12-08 13:07:07.783  8745-8745  VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportDrawFinished
+2025-12-08 13:07:07.786   994-1720  BufferQueueDebug        surfaceflinger                       E  [Surface(name=e74e2be cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1450)/@0xa6f626c - animation-leash of starting_reveal#1454](this:0xb400007b41320a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Surface(name=e74e2be cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1450)/@0xa6f626c - animation-leash of starting_reveal#1454'
+2025-12-08 13:07:07.786  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:07.787  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:07.813   994-1091  BufferQueueDebug        surfaceflinger                       E  [Surface(name=f12ed37 Splash Screen cn.arorms.android.ht.client#1442)/@0x20780d - animation-leash of window_animation#1455](this:0xb400007b477b9a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Surface(name=f12ed37 Splash Screen cn.arorms.android.ht.client#1442)/@0x20780d - animation-leash of window_animation#1455'
+2025-12-08 13:07:07.816  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.819  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.835  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:07.839  8745-8745  HandWritingStubImpl     cn.arorms.android.ht.client          I  refreshLastKeyboardType: 1
+2025-12-08 13:07:07.839  8745-8745  HandWritingStubImpl     cn.arorms.android.ht.client          I  getCurrentKeyboardType: 1
+2025-12-08 13:07:07.878  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:07.901  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.021  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:08.022  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.030  8745-8798  ContentCatcherManager   cn.arorms.android.ht.client          E  failed to get ContentCatcherService.
+2025-12-08 13:07:08.047  8745-8745  WindowOnBackDispatcher  cn.arorms.android.ht.client          W  sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda23@6e07ae9
+2025-12-08 13:07:08.049  8745-8795  BLASTBufferQueue        cn.arorms.android.ht.client          D  [VRI[LoginActivity]#1](f:0,a:1) destructor()
+2025-12-08 13:07:08.049  8745-8795  BufferQueueConsumer     cn.arorms.android.ht.client          D  [VRI[LoginActivity]#1(BLAST Consumer)1](id:222900000001,api:0,p:-1,c:8745) disconnect
+2025-12-08 13:07:08.050  8745-8745  View                    cn.arorms.android.ht.client          D  [Warning] assignParent to null: this = DecorView@62bb3dd[LoginActivity]
+2025-12-08 13:07:08.055  8745-8745  HandWritingStubImpl     cn.arorms.android.ht.client          I  refreshLastKeyboardType: 1
+2025-12-08 13:07:08.056  8745-8745  HandWritingStubImpl     cn.arorms.android.ht.client          I  getCurrentKeyboardType: 1
+2025-12-08 13:07:08.060  8745-8745  HandWritingStubImpl     cn.arorms.android.ht.client          I  refreshLastKeyboardType: 1
+2025-12-08 13:07:08.060  8745-8745  HandWritingStubImpl     cn.arorms.android.ht.client          I  getCurrentKeyboardType: 1
+2025-12-08 13:07:08.067  8745-8745  InputMethodManager      cn.arorms.android.ht.client          W  Ignoring onBind: cur seq=147, given seq=145
+2025-12-08 13:07:08.069  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.075  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.088  8745-8795  libc                    cn.arorms.android.ht.client          W  Access denied finding property "ro.vendor.display.iris_x7.support"
+2025-12-08 13:07:08.093  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.096  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.099  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.107  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.115  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.124  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.132  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.140  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.149  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.156  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.164  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.173  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.181  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.189  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.197  8745-8795  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 13:07:08.834  8745-8745  AndroidRuntime          cn.arorms.android.ht.client          D  Shutting down VM
+2025-12-08 13:07:08.838  8745-8745  AndroidRuntime          cn.arorms.android.ht.client          E  FATAL EXCEPTION: main (Ask Gemini)
+                                                                                                    Process: cn.arorms.android.ht.client, PID: 8745
+                                                                                                    java.lang.NullPointerException
+                                                                                                    	at cn.arorms.android.ht.client.ui.auth.RegisterFragment.getBinding(RegisterFragment.kt:38)
+                                                                                                    	at cn.arorms.android.ht.client.ui.auth.RegisterFragment.access$getBinding(RegisterFragment.kt:35)
+                                                                                                    	at cn.arorms.android.ht.client.ui.auth.RegisterFragment$startCountDown$1.onTick(RegisterFragment.kt:104)
+                                                                                                    	at android.os.CountDownTimer$1.handleMessage(CountDownTimer.java:145)
+                                                                                                    	at android.os.Handler.dispatchMessage(Handler.java:106)
+                                                                                                    	at android.os.Looper.loopOnce(Looper.java:222)
+                                                                                                    	at android.os.Looper.loop(Looper.java:314)
+                                                                                                    	at android.app.ActivityThread.main(ActivityThread.java:8788)
+                                                                                                    	at java.lang.reflect.Method.invoke(Native Method)
+                                                                                                    	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:569)
+                                                                                                    	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1090)
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4062): avc:  denied  { search } for  name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4063): avc:  denied  { search } for  name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4064): avc:  denied  { search } for  name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.845  8745-8745  ScoutUtils              cn.arorms.android.ht.client          W  Failed to mkdir /data/miuilog/stability/memleak/heapdump/
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4065): avc:  denied  { search } for  name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4066): avc:  denied  { search } for  name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4067): avc:  denied  { search } for  name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4068): avc:  denied  { getattr } for  path="/data/miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4069): avc:  denied  { search } for  name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.839  8745-8745  droid.ht.client         cn.arorms.android.ht.client          W  type=1400 audit(0.0:4070): avc:  denied  { search } for  name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 13:07:08.854  5031-5346  JavaExceptionHandler    com.miui.daemon                      E  Process: cn.arorms.android.ht.client, PID: 8745 (Ask Gemini)
+                                                                                                    java.lang.NullPointerException
+                                                                                                    	at cn.arorms.android.ht.client.ui.auth.RegisterFragment.getBinding(RegisterFragment.kt:38)
+                                                                                                    	at cn.arorms.android.ht.client.ui.auth.RegisterFragment.access$getBinding(RegisterFragment.kt:35)
+                                                                                                    	at cn.arorms.android.ht.client.ui.auth.RegisterFragment$startCountDown$1.onTick(RegisterFragment.kt:104)
+                                                                                                    	at android.os.CountDownTimer$1.handleMessage(CountDownTimer.java:145)
+                                                                                                    	at android.os.Handler.dispatchMessage(Handler.java:106)
+                                                                                                    	at android.os.Looper.loopOnce(Looper.java:222)
+                                                                                                    	at android.os.Looper.loop(Looper.java:314)
+                                                                                                    	at android.app.ActivityThread.main(ActivityThread.java:8788)
+                                                                                                    	at java.lang.reflect.Method.invoke(Native Method)
+                                                                                                    	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:569)
+                                                                                                    	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1090)
+2025-12-08 13:07:08.941  8745-8745  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 13:07:08.942  8745-8745  Process                 cn.arorms.android.ht.client          I  Process is going to kill itself! (Ask Gemini)
+                                                                                                    java.lang.Exception
+                                                                                                    	at android.os.Process.killProcess(Process.java:1346)
+                                                                                                    	at com.android.internal.os.RuntimeInit$KillApplicationHandler.uncaughtException(RuntimeInit.java:187)
+                                                                                                    	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1071)
+                                                                                                    	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1066)
+                                                                                                    	at java.lang.Thread.dispatchUncaughtException(Thread.java:2306)
+2025-12-08 13:07:08.943  8745-8745  Process                 cn.arorms.android.ht.client          I  Sending signal. PID: 8745 SIG: 9
+---------------------------- PROCESS ENDED (8745) for package cn.arorms.android.ht.client ----------------------------
+2025-12-08 13:07:09.804  2641-2951  ActivityManagerWrapper  com.miui.home                        E  getRecentTasksForceIncludingTaskIdIfValid: getRecentTasks: size=15
+                                                                                                     mainTaskId=974   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=268435456 cmp=ComponentInfo{cn.arorms.android.ht.client/cn.arorms.android.ht.client.ui.auth.LoginActivity} }
+                                                                                                     mainTaskId=973   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.tencent.androidqqmail/com.tencent.qqmail.launcher.desktop.LauncherActivity} }
+                                                                                                     mainTaskId=947   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.twitter.android/com.twitter.android.StartActivity} }
+                                                                                                     mainTaskId=946   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.github.kr328.clash/com.github.kr328.clash.MainActivity} }
+                                                                                                     mainTaskId=945   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.fileexplorer/com.android.fileexplorer.FileExplorerTabActivity} }
+                                                                                                     mainTaskId=944   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{org.kde.kdeconnect_tp/org.kde.kdeconnect.UserInterface.MainActivity} }
+                                                                                                     mainTaskId=943   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.vending/com.android.vending.AssetBrowserActivity} }
+                                                                                                     mainTaskId=942   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{org.fdroid.fdroid/org.fdroid.fdroid.views.main.MainActivity} }
+                                                                                                     mainTaskId=941   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.xingin.xhs/com.xingin.xhs.index.v2.IndexActivityV2} }
+                                                                                                     mainTaskId=940   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.settings/com.android.settings.MainSettings} }
+                                                                                                     mainTaskId=866   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.chrome/com.google.android.apps.chrome.Main} }
+                                                                                                     mainTaskId=926   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.ConversationListActivityGmail} }
+                                                                                                     mainTaskId=927   userId=0   windowMode=0   baseIntent=Intent { act=com.google.android.gm.email.CREATE_NEW_ACCOUNT flag=805339136 cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.setup.AccountSetupFinalGmail} }
+                                                                                                     mainTaskId=914   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.mms/com.android.mms.ui.MmsTabActivity} }
+                                                                                                     mainTaskId=841   userId=0   windowMode=0   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.tencent.mobileqq/com.tencent.mobileqq.activity.SplashActivity} }
+
+heartfelt_tutoring-# ;
+ id | educational_background | taught_courses | taught_grades | taught_subjects | taught_subject 
+----+------------------------+----------------+---------------+-----------------+----------------
+  1 | 初中                   | 高等数学       | 大学          | MATH            | 
+  3 | 初中                   | 高等数学       | 大学          | MATH            | 
+  2 | 初中                   | 高等数学       | 大学          | MATH            | 
+(3 rows)
+
+heartfelt_tutoring=# select * from users
+heartfelt_tutoring-# ;
+heartfelt_tutoring=# select id, username from users;
+ id |         username         
+----+--------------------------
+  2 | teacher_wang
+  3 | teacher_zhao
+  4 | teacher_qian
+  5 | Mizimi
+  6 | Zihan “Cacciatore” Sheng
+  7 | Luoer
+  8 | Nulla
+(7 rows)
+
+heartfelt_tutoring=# select id, username, teacher_profile_id from users;
+ id |         username         | teacher_profile_id 
+----+--------------------------+--------------------
+  2 | teacher_wang             |                  1
+  3 | teacher_zhao             |                  2
+  4 | teacher_qian             |                  3
+  5 | Mizimi                   |                   
+  6 | Zihan “Cacciatore” Sheng |                   
+  7 | Luoer                    |                   
+  8 | Nulla                    |                   
+(7 rows)
+
+heartfelt_tutoring=# 
+
+
+Android resource linking failed
+cn.arorms.android.ht.client.app-mergeDebugResources-55:/layout/fragment_teachers.xml:66: error: attribute textColor (aka cn.arorms.android.ht.client:textColor) not found.
+error: failed linking file resources.
+
+2025-12-08 19:36:29.316 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.323 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.332 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.334 22775-22775 FileUtils cn.arorms.android.ht.client E err write to mi_exception_log
+2025-12-08 19:36:29.344 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.355 22775-22775 ScrollerOp...ionManager cn.arorms.android.ht.client D registerConfigChangedListener
+2025-12-08 19:36:29.357 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.363 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.369 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.373 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.383 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.384 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I --> GET http://192.168.0.158:8080/api/plans/user/8
+2025-12-08 19:36:29.384 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I --> END GET
+2025-12-08 19:36:29.393 22775-22775 FileUtils cn.arorms.android.ht.client E err write to mi_exception_log
+2025-12-08 19:36:29.398 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.401 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.405 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.414 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.422 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.431 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.440 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.449 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.458 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.466 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.473 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.481 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.489 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.492 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I <-- 200 http://192.168.0.158:8080/api/plans/user/8 (106ms)
+2025-12-08 19:36:29.492 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I Vary: Origin
+2025-12-08 19:36:29.493 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I Vary: Access-Control-Request-Method
+2025-12-08 19:36:29.493 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I Vary: Access-Control-Request-Headers
+2025-12-08 19:36:29.493 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I X-Content-Type-Options: nosniff
+2025-12-08 19:36:29.494 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I X-XSS-Protection: 0
+2025-12-08 19:36:29.494 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-08 19:36:29.494 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I Pragma: no-cache
+2025-12-08 19:36:29.495 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I Expires: 0
+2025-12-08 19:36:29.495 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I X-Frame-Options: DENY
+2025-12-08 19:36:29.496 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I Content-Type: application/json
+2025-12-08 19:36:29.496 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I Transfer-Encoding: chunked
+2025-12-08 19:36:29.496 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I Date: Mon, 08 Dec 2025 11:36:29 GMT
+2025-12-08 19:36:29.497 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I Keep-Alive: timeout=60
+2025-12-08 19:36:29.497 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I Connection: keep-alive
+2025-12-08 19:36:29.497 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.501 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I []
+2025-12-08 19:36:29.501 22775-22846 okhttp.OkHttpClient cn.arorms.android.ht.client I <-- END HTTP (2-byte body)
+2025-12-08 19:36:29.508 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.515 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.523 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.531 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.539 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.548 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.557 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.565 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.571 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.582 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.590 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.598 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.605 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.613 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.622 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.630 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.638 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.648 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.655 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.663 22775-22824 gralloc4 cn.arorms.android.ht.client I @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:36:29.952 22775-22775 AndroidRuntime cn.arorms.android.ht.client E FATAL EXCEPTION: main (Ask Gemini)
+                                                                                                    Process: cn.arorms.android.ht.client, PID: 22775
+                                                                                                    java.lang.NullPointerException
+                                                                                                     at cn.arorms.android.ht.client.ui.ai.AIChatFragment.getBinding(AIChatFragment.kt:18)
+                                                                                                     at cn.arorms.android.ht.client.ui.ai.AIChatFragment.access$getBinding(AIChatFragment.kt:15)
+                                                                                                     at cn.arorms.android.ht.client.ui.ai.AIChatFragment$setupObservers$2$1.emit(AIChatFragment.kt:64)
+                                                                                                     at cn.arorms.android.ht.client.ui.ai.AIChatFragment$setupObservers$2$1.emit(AIChatFragment.kt:63)
+                                                                                                     at kotlinx.coroutines.flow.StateFlowImpl.collect(StateFlow.kt:396)
+                                                                                                     at kotlinx.coroutines.flow.StateFlowImpl$collect$1.invokeSuspend(Unknown Source:15)
+                                                                                                     at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+                                                                                                     at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:104)
+                                                                                                     at android.os.Handler.handleCallback(Handler.java:958)
+                                                                                                     at android.os.Handler.dispatchMessage(Handler.java:99)
+                                                                                                     at android.os.Looper.loopOnce(Looper.java:222)
+                                                                                                     at android.os.Looper.loop(Looper.java:314)
+                                                                                                     at android.app.ActivityThread.main(ActivityThread.java:8788)
+                                                                                                     at java.lang.reflect.Method.invoke(Native Method)
+                                                                                                     at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:569)
+                                                                                                     at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1090)
+                                                                                                     Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [StandaloneCoroutine{Cancelling}@43f9fdc, Dispatchers.Main.immediate]
+2025-12-08 19:36:29.959 22775-22775 droid.ht.client cn.arorms.android.ht.client W type=1400 audit(0.0:7467): avc: denied { search } for name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 19:36:29.959 22775-22775 droid.ht.client cn.arorms.android.ht.client W type=1400 audit(0.0:7468): avc: denied { search } for name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 19:36:29.959 22775-22775 droid.ht.client cn.arorms.android.ht.client W type=1400 audit(0.0:7469): avc: denied { search } for name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 19:36:29.959 22775-22775 droid.ht.client cn.arorms.android.ht.client W type=1400 audit(0.0:7470): avc: denied { search } for name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 19:36:29.963 22775-22775 ScoutUtils cn.arorms.android.ht.client W Failed to mkdir /data/miuilog/stability/memleak/heapdump/
+2025-12-08 19:36:29.959 22775-22775 droid.ht.client cn.arorms.android.ht.client W type=1400 audit(0.0:7471): avc: denied { search } for name="miuilog" dev="dm-66" ino=410 scontext=u:r:untrusted_app:s0:c74,c257,c512,c768 tcontext=u:object_r:data_log_file:s0 tclass=dir permissive=0 app=cn.arorms.android.ht.client
+2025-12-08 19:36:29.973 5031-5346 JavaExceptionHandler com.miui.daemon E Process: cn.arorms.android.ht.client, PID: 22775 (Ask Gemini)
+                                                                                                    java.lang.NullPointerException
+                                                                                                     at cn.arorms.android.ht.client.ui.ai.AIChatFragment.getBinding(AIChatFragment.kt:18)
+                                                                                                     at cn.arorms.android.ht.client.ui.ai.AIChatFragment.access$getBinding(AIChatFragment.kt:15)
+                                                                                                     at cn.arorms.android.ht.client.ui.ai.AIChatFragment$setupObservers$2$1.emit(AIChatFragment.kt:64)
+                                                                                                     at cn.arorms.android.ht.client.ui.ai.AIChatFragment$setupObservers$2$1.emit(AIChatFragment.kt:63)
+                                                                                                     at kotlinx.coroutines.flow.StateFlowImpl.collect(StateFlow.kt:396)
+                                                                                                     at kotlinx.coroutines.flow.StateFlowImpl$collect$1.invokeSuspend(Unknown Source:15)
+                                                                                                     at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+                                                                                                     at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:104)
+                                                                                                     at android.os.Handler.handleCallback(Handler.java:958)
+                                                                                                     at android.os.Handler.dispatchMessage(Handler.java:99)
+                                                                                                     at android.os.Looper.loopOnce(Looper.java:222)
+                                                                                                     at android.os.Looper.loop(Looper.java:314)
+                                                                                                     at android.app.ActivityThread.main(ActivityThread.java:8788)
+                                                                                                     at java.lang.reflect.Method.invoke(Native Method)
+                                                                                                     at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:569)
+                                                                                                     at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1090)
+                                                                                                     Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [StandaloneCoroutine{Cancelling}@43f9fdc, Dispatchers.Main.immediate]
+2025-12-08 19:36:30.043 22775-22775 FileUtils cn.arorms.android.ht.client E err write to mi_exception_log
+2025-12-08 19:36:30.050 22775-22775 Process cn.arorms.android.ht.client I Process is going to kill itself! (Ask Gemini)
+                                                                                                    java.lang.Exception
+                                                                                                     at android.os.Process.killProcess(Process.java:1346)
+                                                                                                     at com.android.internal.os.RuntimeInit$KillApplicationHandler.uncaughtException(RuntimeInit.java:187)
+                                                                                                     at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1071)
+                                                                                                     at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1066)
+                                                                                                     at kotlinx.coroutines.internal.CoroutineExceptionHandlerImplKt.propagateExceptionFinalResort(CoroutineExceptionHandlerImpl.kt:31)
+                                                                                                     at kotlinx.coroutines.internal.CoroutineExceptionHandlerImpl_commonKt.handleUncaughtCoroutineException(CoroutineExceptionHandlerImpl.common.kt:48)
+                                                                                                     at kotlinx.coroutines.CoroutineExceptionHandlerKt.handleCoroutineException(CoroutineExceptionHandler.kt:28)
+                                                                                                     at kotlinx.coroutines.StandaloneCoroutine.handleJobException(Builders.common.kt:190)
+                                                                                                     at kotlinx.coroutines.JobSupport.finalizeFinishingState(JobSupport.kt:228)
+                                                                                                     at kotlinx.coroutines.JobSupport.tryMakeCompletingSlowPath(JobSupport.kt:917)
+                                                                                                     at kotlinx.coroutines.JobSupport.tryMakeCompleting(JobSupport.kt:874)
+                                                                                                     at kotlinx.coroutines.JobSupport.makeCompletingOnce$kotlinx_coroutines_core(JobSupport.kt:839)
+                                                                                                     at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:97)
+                                                                                                     at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+                                                                                                     at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:104)
+                                                                                                     at android.os.Handler.handleCallback(Handler.java:958)
+                                                                                                     at android.os.Handler.dispatchMessage(Handler.java:99)
+                                                                                                     at android.os.Looper.loopOnce(Looper.java:222)
+                                                                                                     at android.os.Looper.loop(Looper.java:314)
+                                                                                                     at android.app.ActivityThread.main(ActivityThread.java:8788)
+                                                                                                     at java.lang.reflect.Method.invoke(Native Method)
+                                                                                                     at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:569)
+                                                                                                     at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1090)
+2025-12-08 19:36:30.051 22775-22775 Process cn.arorms.android.ht.client I Sending signal. PID: 22775 SIG: 9
+2025-12-08 19:36:31.101 2641-2951 ActivityManagerWrapper com.miui.home E getRecentTasksForceIncludingTaskIdIfValid: getRecentTasks: size=16
+                                                                                                     mainTaskId=979 userId=0 windowMode=1 baseIntent=Intent { act=android.intent.action.MAIN flag=268435456 cmp=ComponentInfo{cn.arorms.android.ht.client/cn.arorms.android.ht.client.ui.auth.LoginActivity} }
+                                                                                                     mainTaskId=977 userId=0 windowMode=1 baseIntent=Intent { act=android.intent.action.SEARCH flag=270532608 cmp=ComponentInfo{com.android.quicksearchbox/com.android.quicksearchbox.SearchActivityTransparent} }
+                                                                                                     mainTaskId=973 userId=0 windowMode=1 baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.tencent.androidqqmail/com.tencent.qqmail.launcher.desktop.LauncherActivity} }
+                                                                                                     mainTaskId=947 userId=0 windowMode=1 baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.twitter.android/com.twitter.android.StartActivity} }
+                                                                                                     mainTaskId=946 userId=0 windowMode=1 baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.github.kr328.clash/com.github.kr328.clash.MainActivity} }
+                                                                                                     mainTaskId=945 userId=0 windowMode=0 baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.fileexplorer/com.android.fileexplorer.FileExplorerTabActivity} }
+                                                                                                     mainTaskId=944 userId=0 windowMode=0 baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{org.kde.kdeconnect_tp/org.kde.kdeconnect.UserInterface.MainActivity} }
+                                                                                                     mainTaskId=943 userId=0 windowMode=0 baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.vending/com.android.vending.AssetBrowserActivity} }
+                                                                                                     mainTaskId=942 userId=0 windowMode=0 baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{org.fdroid.fdroid/org.fdroid.fdroid.views.main.MainActivity} }
+                                                                                                     mainTaskId=941 userId=0 windowMode=0 baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.xingin.xhs/com.xingin.xhs.index.v2.IndexActivityV2} }
+                                                                                                     mainTaskId=940 userId=0 windowMode=0 baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.settings/com.android.settings.MainSettings} }
+                                                                                                     mainTaskId=866 userId=0 windowMode=0 baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.chrome/com.google.android.apps.chrome.Main} }
+                                                                                                     mainTaskId=926 userId=0 windowMode=0 baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.ConversationListActivityGmail} }
+                                                                                                     mainTaskId=927 userId=0 windowMode=0 baseIntent=Intent { act=com.google.android.gm.email.CREATE_NEW_ACCOUNT flag=805339136 cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.setup.AccountSetupFinalGmail} }
+                                                                                                     mainTaskId=914 userId=0 windowMode=0 baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.mms/com.android.mms.ui.MmsTabActivity} }
+                                                                                                     mainTaskId=841 userId=0 windowMode=0 baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.tencent.mobileqq/com.tencent.mobileqq.activity.SplashActivity} }
+
+																									 e: file:///home/cacc/Workspace/UJS-Android-HeartfeltTutoring/Client/app/src/main/java/cn/arorms/android/ht/client/network/WebSocketService.kt:35:56 No value passed for parameter 'p0'.
+Ask Gemini
+
+e: file:///home/cacc/Workspace/UJS-Android-HeartfeltTutoring/Client/app/src/main/java/cn/arorms/android/ht/client/network/WebSocketService.kt:35:56 No value passed for parameter 'p0'.
+Ask Gemini
+
+2025-12-08 19:54:59.116 24686-24858 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Headers
+2025-12-08 19:54:59.116 24686-24858 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Content-Type-Options: nosniff
+2025-12-08 19:54:59.116 24686-24858 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-XSS-Protection: 0
+2025-12-08 19:54:59.116 24686-24858 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-08 19:54:59.116 24686-24858 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Pragma: no-cache
+2025-12-08 19:54:59.117 24686-24858 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Expires: 0
+2025-12-08 19:54:59.117 24686-24858 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Frame-Options: DENY
+2025-12-08 19:54:59.117 24686-24858 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Length: 0
+2025-12-08 19:54:59.117 24686-24858 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Date: Mon, 08 Dec 2025 11:54:59 GMT
+2025-12-08 19:54:59.117 24686-24858 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Connection: close
+2025-12-08 19:54:59.117 24686-24858 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- END HTTP (0-byte body)
+2025-12-08 19:54:59.119 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.127 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.138 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.141 24686-24686 ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 19:54:59.145 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.148 24686-24686 ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 19:54:59.153 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.161 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.169 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.172 24686-24813 libc                    cn.arorms.android.ht.client          W  Access denied finding property "ro.vendor.display.iris_x7.support"
+2025-12-08 19:54:59.172 24686-24686 VRI[MainActivity]       cn.arorms.android.ht.client          D  hardware acceleration = true, forceHwAccelerated = false
+2025-12-08 19:54:59.174   994-1721  BufferQueueDebug        surfaceflinger                       E  [171598 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1938](this:0xb400007b47e05a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from '171598 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1938'
+2025-12-08 19:54:59.178 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.183 24686-24686 FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 19:54:59.186 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.194 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.202 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.204   994-1721  BufferQueueDebug        surfaceflinger                       E  [cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1941](this:0xb400007b4780aa80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1941'
+2025-12-08 19:54:59.211 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.214 24686-24686 BufferQueueConsumer     cn.arorms.android.ht.client          D  [](id:606e00000002,api:0,p:-1,c:24686) connect: controlledByApp=false
+2025-12-08 19:54:59.220 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.220 24686-24813 OpenGLRenderer          cn.arorms.android.ht.client          E  Unable to match the desired swap behavior.
+2025-12-08 19:54:59.224 24686-24686 VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportNextDraw android.view.ViewRootImpl.performTraversals:4460 android.view.ViewRootImpl.doTraversal:3069 android.view.ViewRootImpl$TraversalRunnable.run:10654 android.view.Choreographer$CallbackRecord.run:1768 android.view.Choreographer$CallbackRecord.run:1777 
+2025-12-08 19:54:59.225 24686-24686 VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.Setup new sync=wmsSync-VRI[MainActivity]#4
+2025-12-08 19:54:59.226 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.231 24686-24813 OpenGLRenderer          cn.arorms.android.ht.client          D  makeCurrent grContext:0xb4000071fc56f160 reset mTextureAvailable
+2025-12-08 19:54:59.232 24686-24813 BLASTBufferQueue        cn.arorms.android.ht.client          D  [VRI[MainActivity]#2](f:0,a:1) acquireNextBufferLocked size=1202x696 mFrameNumber=1 applyTransaction=true mTimestamp=24175288903286(auto) mPendingTransactions.size=0 graphicBufferId=106025562669067 transform=0
+2025-12-08 19:54:59.234 24686-24686 VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportDrawFinished
+2025-12-08 19:54:59.235 24686-24686 FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 19:54:59.235 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.237   994-1721  BufferQueueDebug        surfaceflinger                       E  [Surface(name=171598 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1938)/@0xa8161d6 - animation-leash of window_animation#1942](this:0xb400007b4780da80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Surface(name=171598 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1938)/@0xa8161d6 - animation-leash of window_animation#1942'
+2025-12-08 19:54:59.243 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.250 24686-24686 ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 19:54:59.251 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.256 24686-24686 ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 19:54:59.260 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.268 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.276 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.278 24686-24813 libc                    cn.arorms.android.ht.client          W  Access denied finding property "ro.vendor.display.iris_x7.support"
+2025-12-08 19:54:59.279 24686-24686 VRI[MainActivity]       cn.arorms.android.ht.client          D  hardware acceleration = true, forceHwAccelerated = false
+2025-12-08 19:54:59.281   994-1091  BufferQueueDebug        surfaceflinger                       E  [8baca9d cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1945](this:0xb400007b47859a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from '8baca9d cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1945'
+2025-12-08 19:54:59.284 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.291 24686-24686 FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 19:54:59.293 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.302 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.310 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.310   994-1090  BufferQueueDebug        surfaceflinger                       E  [cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1948](this:0xb400007b487a4a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1948'
+2025-12-08 19:54:59.315 24686-24686 BufferQueueConsumer     cn.arorms.android.ht.client          D  [](id:606e00000003,api:0,p:-1,c:24686) connect: controlledByApp=false
+2025-12-08 19:54:59.318 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.320 24686-24813 OpenGLRenderer          cn.arorms.android.ht.client          E  Unable to match the desired swap behavior.
+2025-12-08 19:54:59.325 24686-24686 VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportNextDraw android.view.ViewRootImpl.performTraversals:4460 android.view.ViewRootImpl.doTraversal:3069 android.view.ViewRootImpl$TraversalRunnable.run:10654 android.view.Choreographer$CallbackRecord.run:1768 android.view.Choreographer$CallbackRecord.run:1777 
+2025-12-08 19:54:59.327 24686-24686 VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.Setup new sync=wmsSync-VRI[MainActivity]#6
+2025-12-08 19:54:59.327 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.334 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.334 24686-24813 OpenGLRenderer          cn.arorms.android.ht.client          D  makeCurrent grContext:0xb4000071fc56f160 reset mTextureAvailable
+2025-12-08 19:54:59.336 24686-24813 BLASTBufferQueue        cn.arorms.android.ht.client          D  [VRI[MainActivity]#3](f:0,a:1) acquireNextBufferLocked size=1202x696 mFrameNumber=1 applyTransaction=true mTimestamp=24175392232209(auto) mPendingTransactions.size=0 graphicBufferId=106025562669071 transform=0
+2025-12-08 19:54:59.336 24686-24686 VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportDrawFinished
+2025-12-08 19:54:59.340   994-1091  BufferQueueDebug        surfaceflinger                       E  [Surface(name=8baca9d cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1945)/@0x7b5a2e3 - animation-leash of window_animation#1949](this:0xb400007b4795ca80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Surface(name=8baca9d cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1945)/@0x7b5a2e3 - animation-leash of window_animation#1949'
+2025-12-08 19:54:59.343 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.351 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.360 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.368 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.378 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.380 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.384 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.386 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.387 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.392 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.394 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.395 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.400 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.402 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.403 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.408 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.410 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.411 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.417 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.419 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.421 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.425 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.428 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.430 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.433 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.436 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.437 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.441 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.444 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.446 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.449 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.457 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.466 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.474 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:54:59.516 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.021 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.027 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.028 24686-24686 WindowOnBackDispatcher  cn.arorms.android.ht.client          W  sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda23@6347bc2
+2025-12-08 19:55:00.034 24686-24813 OpenGLRenderer          cn.arorms.android.ht.client          D  endAllActiveAnimators on 0xb40000726fd08c00 (RippleDrawable) with handle 0xb4000071d765f240
+2025-12-08 19:55:00.035 24686-24686 View                    cn.arorms.android.ht.client          D  [Warning] assignParent to null: this = DecorView@4b04396[MainActivity]
+2025-12-08 19:55:00.039   994-1090  BufferQueueDebug        surfaceflinger                       E  [Surface(name=8baca9d cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1945)/@0x7b5a2e3 - animation-leash of window_animation#1950](this:0xb400007b487dda80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Surface(name=8baca9d cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1945)/@0x7b5a2e3 - animation-leash of window_animation#1950'
+2025-12-08 19:55:00.041 24686-24718 BLASTBufferQueue        cn.arorms.android.ht.client          D  [VRI[MainActivity]#3](f:0,a:1) destructor()
+2025-12-08 19:55:00.042 24686-24718 BufferQueueConsumer     cn.arorms.android.ht.client          D  [VRI[MainActivity]#3(BLAST Consumer)3](id:606e00000003,api:0,p:-1,c:24686) disconnect
+2025-12-08 19:55:00.071 24686-24686 FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 19:55:00.108 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.113 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.121 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.130 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.138 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.145 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.154 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.161 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.171 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.180 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.186 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.195 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.535 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.541 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.541 24686-24686 WindowOnBackDispatcher  cn.arorms.android.ht.client          W  sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda23@29f1b86
+2025-12-08 19:55:00.546 24686-24813 OpenGLRenderer          cn.arorms.android.ht.client          D  endAllActiveAnimators on 0xb40000726fca8a00 (RippleDrawable) with handle 0xb4000071d78b86a0
+2025-12-08 19:55:00.548 24686-24686 View                    cn.arorms.android.ht.client          D  [Warning] assignParent to null: this = DecorView@abfe60f[MainActivity]
+2025-12-08 19:55:00.552   994-1091  BufferQueueDebug        surfaceflinger                       E  [Surface(name=171598 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1938)/@0xa8161d6 - animation-leash of window_animation#1953](this:0xb400007b47970a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Surface(name=171598 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1938)/@0xa8161d6 - animation-leash of window_animation#1953'
+2025-12-08 19:55:00.553 24686-24718 BLASTBufferQueue        cn.arorms.android.ht.client          D  [VRI[MainActivity]#2](f:0,a:1) destructor()
+2025-12-08 19:55:00.554 24686-24718 BufferQueueConsumer     cn.arorms.android.ht.client          D  [VRI[MainActivity]#2(BLAST Consumer)2](id:606e00000002,api:0,p:-1,c:24686) disconnect
+2025-12-08 19:55:00.585 24686-24686 FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 19:55:00.601 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.611 24686-24686 HandWritingStubImpl     cn.arorms.android.ht.client          I  refreshLastKeyboardType: 1
+2025-12-08 19:55:00.611 24686-24686 HandWritingStubImpl     cn.arorms.android.ht.client          I  getCurrentKeyboardType: 1
+2025-12-08 19:55:00.630 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.634 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.643 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.650 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.659 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.667 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.675 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.684 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.693 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.700 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.708 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:00.718 24686-24813 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:55:06.036 24686-24706 droid.ht.client         cn.arorms.android.ht.client          I  This is non sticky GC, maxfree is 8388608 minfree is 524288
+2025-12-08 19:55:06.079 24686-24708 droid.ht.client         cn.arorms.android.ht.client          W  ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/ContentCatcherOS2/ContentCatcherOS2.apk' with 1 weak references
+2025-12-08 19:55:06.079 24686-24708 droid.ht.client         cn.arorms.android.ht.client          W  ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/RtMiCloudSDK/RtMiCloudSDK.apk' with 1 weak references
+2025-12-08 19:55:06.079 24686-24708 droid.ht.client         cn.arorms.android.ht.client          W  ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/app/miuisystem/miuisystem.apk' with 1 weak references
+
+2025-12-08 19:59:48.575 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.584 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.592 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.601 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.609 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.617 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.626 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.634 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.642 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.650 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.658 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.667 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.675 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.683 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.691 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.699 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.708 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.716 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.724 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.733 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.741 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.749 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:48.758 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.052 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.053 25161-25161 WindowOnBackDispatcher  cn.arorms.android.ht.client          W  OnBackInvokedCallback is not enabled for the application.
+Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+2025-12-08 19:59:49.065 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.075 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.080 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.088 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.097 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.104 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.112 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.120 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.128 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.137 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.145 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.154 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.161 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.164 25161-25161 FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 19:59:49.177 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.182 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.188 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.192 25161-25161 ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 19:59:49.198 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.203 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.213 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.216 25161-25297 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> GET http://192.168.0.158:8080/api/chat/messages
+2025-12-08 19:59:49.216 25161-25297 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> END GET
+2025-12-08 19:59:49.216 25161-25232 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> GET http://192.168.0.158:8080/api/chat/messages
+2025-12-08 19:59:49.216 25161-25232 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> END GET
+2025-12-08 19:59:49.220 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.228 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.231 25161-25161 FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 19:59:49.236 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.245 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.254 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.264 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.271 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.280 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.286 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.295 25161-25297 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- 400 http://192.168.0.158:8080/api/chat/messages (79ms)
+2025-12-08 19:59:49.295 25161-25297 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Origin
+2025-12-08 19:59:49.295 25161-25297 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Method
+2025-12-08 19:59:49.295 25161-25297 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Headers
+2025-12-08 19:59:49.295 25161-25297 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Content-Type-Options: nosniff
+2025-12-08 19:59:49.295 25161-25297 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-XSS-Protection: 0
+2025-12-08 19:59:49.295 25161-25297 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-08 19:59:49.295 25161-25297 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Pragma: no-cache
+2025-12-08 19:59:49.295 25161-25297 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Expires: 0
+2025-12-08 19:59:49.295 25161-25297 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Frame-Options: DENY
+2025-12-08 19:59:49.296 25161-25297 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Length: 0
+2025-12-08 19:59:49.296 25161-25297 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Date: Mon, 08 Dec 2025 11:59:49 GMT
+2025-12-08 19:59:49.296 25161-25297 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Connection: close
+2025-12-08 19:59:49.296 25161-25297 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- END HTTP (0-byte body)
+2025-12-08 19:59:49.298 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.305 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.312 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.320 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.321 25161-25161 ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 19:59:49.327 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.330 25161-25161 ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 19:59:49.336 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.344 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.352 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.360 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.360 25161-25208 libc                    cn.arorms.android.ht.client          W  Access denied finding property "ro.vendor.display.iris_x7.support"
+2025-12-08 19:59:49.361 25161-25161 VRI[MainActivity]       cn.arorms.android.ht.client          D  hardware acceleration = true, forceHwAccelerated = false
+2025-12-08 19:59:49.365   994-1721  BufferQueueDebug        surfaceflinger                       E  [9b74ae4 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1984](this:0xb400007b425dfa80,id:-1,api:0,p:-1,c:-1) id info cannot be read from '9b74ae4 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1984'
+2025-12-08 19:59:49.368 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.377 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.381 25161-25161 FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 19:59:49.385 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.393 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.402 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.407   994-1091  BufferQueueDebug        surfaceflinger                       E  [cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1987](this:0xb400007b47970a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1987'
+2025-12-08 19:59:49.411 25161-25232 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- 400 http://192.168.0.158:8080/api/chat/messages (194ms)
+2025-12-08 19:59:49.411 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.411 25161-25232 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Origin
+2025-12-08 19:59:49.411 25161-25232 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Method
+2025-12-08 19:59:49.411 25161-25232 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Headers
+2025-12-08 19:59:49.411 25161-25232 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Content-Type-Options: nosniff
+2025-12-08 19:59:49.411 25161-25232 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-XSS-Protection: 0
+2025-12-08 19:59:49.411 25161-25232 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-08 19:59:49.411 25161-25232 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Pragma: no-cache
+2025-12-08 19:59:49.411 25161-25232 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Expires: 0
+2025-12-08 19:59:49.411 25161-25232 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Frame-Options: DENY
+2025-12-08 19:59:49.411 25161-25232 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Length: 0
+2025-12-08 19:59:49.412 25161-25232 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Date: Mon, 08 Dec 2025 11:59:49 GMT
+2025-12-08 19:59:49.412 25161-25232 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Connection: close
+2025-12-08 19:59:49.412 25161-25232 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- END HTTP (0-byte body)
+2025-12-08 19:59:49.419 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.426 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.426 25161-25161 BufferQueueConsumer     cn.arorms.android.ht.client          D  [](id:624900000001,api:0,p:-1,c:25161) connect: controlledByApp=false
+2025-12-08 19:59:49.430 25161-25208 OpenGLRenderer          cn.arorms.android.ht.client          E  Unable to match the desired swap behavior.
+2025-12-08 19:59:49.434 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.439 25161-25161 VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportNextDraw android.view.ViewRootImpl.performTraversals:4460 android.view.ViewRootImpl.doTraversal:3069 android.view.ViewRootImpl$TraversalRunnable.run:10654 android.view.Choreographer$CallbackRecord.run:1768 android.view.Choreographer$CallbackRecord.run:1777 
+2025-12-08 19:59:49.439 25161-25161 VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.Setup new sync=wmsSync-VRI[MainActivity]#2
+2025-12-08 19:59:49.442 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.448 25161-25208 OpenGLRenderer          cn.arorms.android.ht.client          D  makeCurrent grContext:0xb4000071dd7fa760 reset mTextureAvailable
+2025-12-08 19:59:49.450 25161-25208 BLASTBufferQueue        cn.arorms.android.ht.client          D  [VRI[MainActivity]#1](f:0,a:1) acquireNextBufferLocked size=1202x696 mFrameNumber=1 applyTransaction=true mTimestamp=24465506267611(auto) mPendingTransactions.size=0 graphicBufferId=108065672134663 transform=0
+2025-12-08 19:59:49.451 25161-25161 VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportDrawFinished
+2025-12-08 19:59:49.452 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.454 25161-25161 FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 19:59:49.454   994-1091  BufferQueueDebug        surfaceflinger                       E  [Surface(name=9b74ae4 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1984)/@0xf5ef602 - animation-leash of window_animation#1988](this:0xb400007b479a6a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Surface(name=9b74ae4 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1984)/@0xf5ef602 - animation-leash of window_animation#1988'
+2025-12-08 19:59:49.460 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.468 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.476 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.477 25161-25161 ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 19:59:49.484 25161-25161 ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-08 19:59:49.485 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.492 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.501 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.508 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.510 25161-25208 libc                    cn.arorms.android.ht.client          W  Access denied finding property "ro.vendor.display.iris_x7.support"
+2025-12-08 19:59:49.510 25161-25161 VRI[MainActivity]       cn.arorms.android.ht.client          D  hardware acceleration = true, forceHwAccelerated = false
+2025-12-08 19:59:49.511   994-1722  BufferQueueDebug        surfaceflinger                       E  [9215f03 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1991](this:0xb400007b40efaa80,id:-1,api:0,p:-1,c:-1) id info cannot be read from '9215f03 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1991'
+2025-12-08 19:59:49.517 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.521 25161-25161 FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 19:59:49.525 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.533 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.542   994-1722  BufferQueueDebug        surfaceflinger                       E  [cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1994](this:0xb400007b40f92a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1994'
+2025-12-08 19:59:49.548 25161-25161 BufferQueueConsumer     cn.arorms.android.ht.client          D  [](id:624900000002,api:0,p:-1,c:25161) connect: controlledByApp=false
+2025-12-08 19:59:49.551 25161-25208 OpenGLRenderer          cn.arorms.android.ht.client          E  Unable to match the desired swap behavior.
+2025-12-08 19:59:49.557 25161-25161 VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportNextDraw android.view.ViewRootImpl.performTraversals:4460 android.view.ViewRootImpl.doTraversal:3069 android.view.ViewRootImpl$TraversalRunnable.run:10654 android.view.Choreographer$CallbackRecord.run:1768 android.view.Choreographer$CallbackRecord.run:1777 
+2025-12-08 19:59:49.558 25161-25161 VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.Setup new sync=wmsSync-VRI[MainActivity]#4
+2025-12-08 19:59:49.565 25161-25208 OpenGLRenderer          cn.arorms.android.ht.client          D  makeCurrent grContext:0xb4000071dd7fa760 reset mTextureAvailable
+2025-12-08 19:59:49.568 25161-25208 BLASTBufferQueue        cn.arorms.android.ht.client          D  [VRI[MainActivity]#2](f:0,a:1) acquireNextBufferLocked size=1202x696 mFrameNumber=1 applyTransaction=true mTimestamp=24465624230303(auto) mPendingTransactions.size=0 graphicBufferId=108065672134667 transform=0
+2025-12-08 19:59:49.568 25161-25161 VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportDrawFinished
+2025-12-08 19:59:49.571   994-1091  BufferQueueDebug        surfaceflinger                       E  [Surface(name=9215f03 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1991)/@0xb99dcb9 - animation-leash of window_animation#1995](this:0xb400007b477dea80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Surface(name=9215f03 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1991)/@0xb99dcb9 - animation-leash of window_animation#1995'
+2025-12-08 19:59:49.580 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.590 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.592 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.603 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.604 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.608 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.610 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.612 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.619 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.620 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.624 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.627 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.628 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.634 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.635 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.637 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.643 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.644 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.645 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.651 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.652 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.654 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.659 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.660 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.662 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.666 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.667 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.674 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.684 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.690 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:49.923 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:50.827 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:50.831 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:50.837 25161-25161 WindowOnBackDispatcher  cn.arorms.android.ht.client          W  sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda23@2ca21b9
+2025-12-08 19:59:50.840 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:50.847 25161-25208 OpenGLRenderer          cn.arorms.android.ht.client          D  endAllActiveAnimators on 0xb4000071c3dc0200 (RippleDrawable) with handle 0xb400007272e18000
+2025-12-08 19:59:50.848 25161-25161 View                    cn.arorms.android.ht.client          D  [Warning] assignParent to null: this = DecorView@6fd10e5[MainActivity]
+2025-12-08 19:59:50.850   994-1091  BufferQueueDebug        surfaceflinger                       E  [Surface(name=9215f03 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1991)/@0xb99dcb9 - animation-leash of window_animation#1996](this:0xb400007b477eca80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Surface(name=9215f03 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1991)/@0xb99dcb9 - animation-leash of window_animation#1996'
+2025-12-08 19:59:50.850 25161-25187 BLASTBufferQueue        cn.arorms.android.ht.client          D  [VRI[MainActivity]#2](f:0,a:1) destructor()
+2025-12-08 19:59:50.851 25161-25187 BufferQueueConsumer     cn.arorms.android.ht.client          D  [VRI[MainActivity]#2(BLAST Consumer)2](id:624900000002,api:0,p:-1,c:25161) disconnect
+2025-12-08 19:59:50.901 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:50.905 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:50.914 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:50.924 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:50.932 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:50.940 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:50.948 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:50.957 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:50.965 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:50.973 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:50.981 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:50.991 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:50.997 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.005 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.014 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.022 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.031 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.038 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.047 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.055 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.063 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.071 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.080 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.088 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.096 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.104 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.113 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.121 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.129 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.138 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.146 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.154 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.162 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.171 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.180 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.187 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.195 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.205 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.212 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.221 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.229 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.237 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.245 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:51.460 25161-25300 ProfileInstaller        cn.arorms.android.ht.client          D  Installing profile for cn.arorms.android.ht.client
+2025-12-08 19:59:52.117 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:52.121 25161-25161 WindowOnBackDispatcher  cn.arorms.android.ht.client          W  sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda23@4e3404d
+2025-12-08 19:59:52.122 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:52.128 25161-25208 OpenGLRenderer          cn.arorms.android.ht.client          D  endAllActiveAnimators on 0xb4000071c3d36a00 (RippleDrawable) with handle 0xb400007272e18000
+2025-12-08 19:59:52.129 25161-25161 View                    cn.arorms.android.ht.client          D  [Warning] assignParent to null: this = DecorView@6f93f5e[MainActivity]
+2025-12-08 19:59:52.133   994-1721  BufferQueueDebug        surfaceflinger                       E  [Surface(name=9b74ae4 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1984)/@0xf5ef602 - animation-leash of window_animation#1999](this:0xb400007b425e8a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Surface(name=9b74ae4 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#1984)/@0xf5ef602 - animation-leash of window_animation#1999'
+2025-12-08 19:59:52.134 25161-25187 BLASTBufferQueue        cn.arorms.android.ht.client          D  [VRI[MainActivity]#1](f:0,a:1) destructor()
+2025-12-08 19:59:52.135 25161-25187 BufferQueueConsumer     cn.arorms.android.ht.client          D  [VRI[MainActivity]#1(BLAST Consumer)1](id:624900000001,api:0,p:-1,c:25161) disconnect
+2025-12-08 19:59:52.172 25161-25161 BinderMonitor           cn.arorms.android.ht.client          E  err open binder_delay errno=2
+2025-12-08 19:59:52.176 25161-25161 FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 19:59:52.181 25161-25161 FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-08 19:59:52.205 25161-25161 HandWritingStubImpl     cn.arorms.android.ht.client          I  refreshLastKeyboardType: 1
+2025-12-08 19:59:52.205 25161-25161 HandWritingStubImpl     cn.arorms.android.ht.client          I  getCurrentKeyboardType: 1
+2025-12-08 19:59:52.222 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:52.231 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:52.239 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:52.246 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:52.255 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:52.264 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:52.272 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:52.280 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:52.288 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:52.297 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:52.306 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-08 19:59:52.314 25161-25208 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)

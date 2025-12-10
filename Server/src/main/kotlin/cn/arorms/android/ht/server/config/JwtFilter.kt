@@ -30,7 +30,7 @@ class JwtFilter(
                     val userId = jwtUtil.extractUserId(token)
 
                     if (userId != null) {
-                        val user = userService.getUserById(userId).orElse(null)
+                        val user = userService.getUserById(userId)
 
                         if (user != null) {
                             val authentication = UsernamePasswordAuthenticationToken(

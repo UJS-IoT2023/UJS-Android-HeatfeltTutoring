@@ -6,5 +6,5 @@ data class EmailVerificationRequest(
 
 data class EmailVerification(
     val email: String,
-    val verrificationCode: String
+    val code: String
 )

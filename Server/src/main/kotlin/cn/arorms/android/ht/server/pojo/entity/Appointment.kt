@@ -16,14 +16,10 @@ data class Appointment(
     var id: Long? = null,
 
     @ManyToOne
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JsonIgnore
     @JoinColumn(name = "user_id")
     var user: User,
 
     @ManyToOne
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JsonIgnore
     @JoinColumn(name = "teacher_user_id")
     var teacherUser: User,
 

@@ -1,5 +1,6 @@
 package cn.arorms.android.ht.client.ui.user
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
@@ -14,11 +15,15 @@ import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import cn.arorms.android.ht.client.R
 import cn.arorms.android.ht.client.databinding.FragmentUserBinding
 import cn.arorms.android.ht.client.network.AuthManager
 import cn.arorms.android.ht.client.network.RetrofitClient
 import cn.arorms.android.ht.client.pojo.models.Appointment
+import cn.arorms.android.ht.client.pojo.models.CreateDialogueRequest
+import cn.arorms.android.ht.client.pojo.models.Dialogue
 import cn.arorms.android.ht.client.pojo.models.TeacherSummary
 import cn.arorms.android.ht.client.pojo.models.User
 import kotlinx.coroutines.flow.collect
@@ -81,7 +86,10 @@ class UserFragment : Fragment() {
     private fun setupObservers() {
         lifecycleScope.launch {
             viewModel.user.collect { user ->
-                user?.let { updateUserProfile(it) }
+                user?.let {
+                    updateUserProfile(it)
+                    updateUIForProfileType()  // Update UI after user data is loaded
+                }
             }
         }
 
@@ -129,6 +137,10 @@ class UserFragment : Fragment() {
             showAppointmentDialog()
         }
 
+        binding.chatButton.setOnClickListener {
+            startChat()
+        }
+
         binding.sendCommentButton.setOnClickListener {
             sendComment()
         }
@@ -138,6 +150,7 @@ class UserFragment : Fragment() {
         if (isOwnProfile) {
             binding.editButton.visibility = View.VISIBLE
             binding.bookAppointmentButton.visibility = View.GONE
+            binding.chatButton.visibility = View.GONE
             binding.addCommentButton.visibility = View.GONE
             binding.commentInputSection.visibility = View.GONE
         } else {
@@ -146,6 +159,7 @@ class UserFragment : Fragment() {
             val currentUserRole = AuthManager.getUser()?.role ?: "STUDENT"
             val isViewingTeacher = viewModel.user.value?.role == "TEACHER"
             binding.bookAppointmentButton.visibility = if (currentUserRole == "STUDENT" && isViewingTeacher) View.VISIBLE else View.GONE
+            binding.chatButton.visibility = View.VISIBLE
             binding.addCommentButton.visibility = View.VISIBLE
             binding.commentInputSection.visibility = View.GONE
         }
@@ -292,26 +306,10 @@ class UserFragment : Fragment() {
     private fun createAppointment(user: User, teacherUser: cn.arorms.android.ht.client.pojo.models.User, subject: String, dateTime: LocalDateTime) {
         lifecycleScope.launch {
             try {
-                // Create teacher summary from teacher user
-                val teacherSummary = TeacherSummary(
-                    id = teacherUser.id,
-                    username = teacherUser.username,
-                    email = teacherUser.email,
-                    phoneNumber = teacherUser.phoneNumber,
-                    avatarUrl = teacherUser.avatarUrl,
-                    realName = teacherUser.realName,
-                    sex = teacherUser.gender,
-                    address = teacherUser.address,
-                    createdAt = teacherUser.createdAt,
-                    educationalBackground = teacherUser.teacherProfile?.educationalBackground,
-                    taughtGrades = teacherUser.teacherProfile?.taughtGrades,
-                    taughtSubjects = teacherUser.teacherProfile?.taughtSubjects,
-                    taughtCourses = teacherUser.teacherProfile?.taughtCourses
-                )
 
                 val appointment = Appointment(
-                    user = user,
-                    teacher = teacherSummary,
+                    userId = user.id!!,
+                    teacherUserId = teacherUser.id!!,
                     subject = subject,
                     appointmentDate = dateTime
                 )
@@ -331,6 +329,7 @@ class UserFragment : Fragment() {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun setupKeyboardHandling() {
         // Handle "Done" action on comment EditText
         binding.commentEditText.setOnEditorActionListener { _, actionId, _ ->
@@ -352,6 +351,46 @@ class UserFragment : Fragment() {
     private fun hideKeyboard() {
         val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(binding.root.windowToken, 0)
+    }
+
+    private fun startChat() {
+        val user = viewModel.user.value ?: return
+        val currentUserId = AuthManager.getUserId()
+
+        lifecycleScope.launch {
+            try {
+                // First get user's dialogues to check if one exists with this user
+                val apiService = RetrofitClient.instance
+                val dialogues = apiService.getUserDialogues(currentUserId)
+
+                // Look for existing dialogue between current user and target user
+                val existingDialogue = dialogues.find { dialogue ->
+                    dialogue.participants?.any { it.id == currentUserId } == true &&
+                    dialogue.participants?.any { it.id == userId } == true &&
+                    dialogue.participants?.size == 2
+                }
+
+                val dialogueId = if (existingDialogue != null) {
+                    existingDialogue.id!!
+                } else {
+                    // Create new dialogue
+                    val createRequest = CreateDialogueRequest(participantIds = listOf(currentUserId, userId))
+                    val newDialogue = apiService.createDialogue(createRequest)
+                    newDialogue.id!!
+                }
+
+                // Navigate to chat with dialogue ID
+                val bundle = Bundle().apply {
+                    putLong("dialogueId", dialogueId)
+                    putLong("otherUserId", userId)
+                    putString("otherUserName", user.realName ?: user.username)
+                }
+                findNavController().navigate(R.id.privateChatFragment, bundle)
+
+            } catch (e: Exception) {
+                showErrorDialog("创建对话失败: ${e.message}")
+            }
+        }
     }
 
     private fun showErrorDialog(message: String) {

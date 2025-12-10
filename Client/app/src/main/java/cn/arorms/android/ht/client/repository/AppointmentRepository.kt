@@ -9,17 +9,6 @@ import kotlinx.coroutines.withContext
 class AppointmentRepository {
     private val apiService: ApiService = RetrofitClient.instance
     
-    suspend fun getAllAppointments(): Result<List<Appointment>> {
-        return try {
-            withContext(Dispatchers.IO) {
-                val appointments = apiService.getAllAppointments()
-                Result.success(appointments)
-            }
-        } catch (e: Exception) {
-            Result.failure(e)
-        }
-    }
-    
     suspend fun getAppointmentById(id: Long): Result<Appointment> {
         return try {
             withContext(Dispatchers.IO) {
