@@ -153,9 +153,8 @@ class UserService @Autowired constructor(
         val savedUser = userRepository.save(user)
 
         // Create wallet for the user
-        val wallet = walletService.createWallet()
-        savedUser.wallet = wallet
-        return userRepository.save(savedUser)
+        walletService.createWallet(savedUser.id!!)
+        return savedUser
     }
 
     // Auth methods

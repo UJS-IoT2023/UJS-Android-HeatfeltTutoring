@@ -28,9 +28,9 @@ class PrivateChatAdapter : ListAdapter<ChatMessage, PrivateChatAdapter.ChatMessa
 
         fun bind(message: ChatMessage) {
             android.util.Log.d("ChatDebug", "Adapter: Binding message: ${message.content}")
-            binding.apply {
+            binding.apply { 
                 messageText.text = message.content
-//                messageTime.text = message.createdAt.format(DateTimeFormatter.ofPattern("HH:mm"))
+                messageTime.text = message.createdAt?.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")) ?: "Unknown time"
 
                 val currentUserId = AuthManager.getUserId()
                 val isCurrentUser = message.senderId == currentUserId
@@ -39,16 +39,14 @@ class PrivateChatAdapter : ListAdapter<ChatMessage, PrivateChatAdapter.ChatMessa
                     // Current user message - right aligned
                     messageContainer.setBackgroundResource(R.drawable.user_message_background)
                     messageText.setTextColor(root.context.getColor(R.color.white))
-                    messageContainer.layoutParams = (messageContainer.layoutParams as android.widget.LinearLayout.LayoutParams).apply {
-                        gravity = android.view.Gravity.END
-                    }
+                    (messageContainer.layoutParams as android.widget.LinearLayout.LayoutParams).gravity = android.view.Gravity.END
+                    (messageTime.layoutParams as android.widget.LinearLayout.LayoutParams).gravity = android.view.Gravity.END
                 } else {
                     // Other user message - left aligned
                     messageContainer.setBackgroundResource(R.drawable.ai_message_background)
                     messageText.setTextColor(root.context.getColor(R.color.black))
-                    messageContainer.layoutParams = (messageContainer.layoutParams as android.widget.LinearLayout.LayoutParams).apply {
-                        gravity = android.view.Gravity.START
-                    }
+                    (messageContainer.layoutParams as android.widget.LinearLayout.LayoutParams).gravity = android.view.Gravity.START
+                    (messageTime.layoutParams as android.widget.LinearLayout.LayoutParams).gravity = android.view.Gravity.START
                 }
             }
         }
