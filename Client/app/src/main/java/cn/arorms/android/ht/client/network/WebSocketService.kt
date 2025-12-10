@@ -4,25 +4,26 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import cn.arorms.android.ht.client.pojo.models.ChatMessage
-import com.google.gson.Gson
 import ua.naiksoftware.stomp.Stomp
 import ua.naiksoftware.stomp.StompClient
 import ua.naiksoftware.stomp.dto.StompHeader
 
-class WebSocketService {
+object WebSocketService {
 
-    private val gson = Gson()
+    private val gson = RetrofitClient.gson
     private val listeners = mutableListOf<(ChatMessage) -> Unit>()
     private var stompClient: StompClient? = null
     private val handler = Handler(Looper.getMainLooper())
     private var subscribedDialogueIds = mutableSetOf<Long>()
+    private var isStompConnected = false
 
     fun connect() {
         if (stompClient?.isConnected == true) {
             return
         }
 
-        // Assuming WebSocket endpoint is /ws
+        // WebSocket endpoint should match HTTP API base URL
+//        val stompUrl = "ws://172.20.10.2:8080/ws"
         val stompUrl = "ws://192.168.0.158:8080/ws"
 
         stompClient = Stomp.over(Stomp.ConnectionProvider.OKHTTP, stompUrl).apply {
@@ -40,14 +41,18 @@ class WebSocketService {
             when (lifecycleEvent.type) {
                 ua.naiksoftware.stomp.dto.LifecycleEvent.Type.OPENED -> {
                     Log.d("WebSocket", "STOMP connection opened")
-                    // Re-subscribe to previously subscribed topics
-                    subscribedDialogueIds.forEach { subscribeToDialogue(it) }
+                    // Delay subscription to allow STOMP handshake to complete
+                    handler.postDelayed({
+                        Log.d("WebSocket", "Attempting to subscribe after handshake delay")
+                        subscribedDialogueIds.forEach { subscribeToDialogue(it) }
+                    }, 200) // 200ms delay should be sufficient for CONNECTED frame
                 }
                 ua.naiksoftware.stomp.dto.LifecycleEvent.Type.ERROR -> {
                     Log.e("WebSocket", "STOMP connection error", lifecycleEvent.exception)
                 }
                 ua.naiksoftware.stomp.dto.LifecycleEvent.Type.CLOSED -> {
                     Log.d("WebSocket", "STOMP connection closed")
+                    isStompConnected = false
                 }
                 ua.naiksoftware.stomp.dto.LifecycleEvent.Type.FAILED_SERVER_HEARTBEAT -> {
                     Log.e("WebSocket", "Server heartbeat failed")
@@ -67,6 +72,7 @@ class WebSocketService {
         stompClient?.topic(topic)?.subscribe { stompMessage ->
             try {
                 val message = gson.fromJson(stompMessage.payload, ChatMessage::class.java)
+                Log.d("WebSocket", "Received message: $message")
                 handler.post {
                     listeners.forEach { listener ->
                         listener(message)
@@ -98,7 +104,7 @@ class WebSocketService {
             return
         }
 
-        val destination = "/app/chat/dialogue/$dialogueId/send"
+        val destination = "/app/chat/$dialogueId/send"
         val messageJson = gson.toJson(message)
 
         stompClient?.send(destination, messageJson)

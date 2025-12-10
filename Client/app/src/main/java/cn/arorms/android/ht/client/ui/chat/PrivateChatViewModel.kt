@@ -6,7 +6,7 @@ import cn.arorms.android.ht.client.network.AuthManager
 import cn.arorms.android.ht.client.network.WebSocketService
 import cn.arorms.android.ht.client.pojo.models.ChatMessage
 import cn.arorms.android.ht.client.pojo.models.Dialogue
-import cn.arorms.android.ht.client.pojo.models.SendMessageRequest
+import cn.arorms.android.ht.client.pojo.models.Participant
 import cn.arorms.android.ht.client.repository.ChatRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,7 +15,6 @@ import kotlinx.coroutines.launch
 class PrivateChatViewModel : ViewModel() {
 
     private val chatRepository = ChatRepository()
-    private val webSocketService = WebSocketService()
 
     private val _messages = MutableStateFlow<List<ChatMessage>>(emptyList())
     val messages: StateFlow<List<ChatMessage>> = _messages
@@ -61,9 +60,14 @@ class PrivateChatViewModel : ViewModel() {
             try {
                 // Get dialogue details (optional, could be simplified)
                 // For now, just create a placeholder dialogue object
+                val currentUserId = AuthManager.getUserId()
+                val otherUserId = _otherUserId.value ?: 0
                 val dialogue = Dialogue(
                     id = dialogueId,
-                    participantIds = listOf(AuthManager.getUserId(), _otherUserId.value ?: 0)
+                    participants = listOf(
+                        Participant(id = currentUserId, username = null),
+                        Participant(id = otherUserId, username = _otherUserName.value)
+                    )
                 )
                 _dialogue.value = dialogue
 
@@ -93,9 +97,9 @@ class PrivateChatViewModel : ViewModel() {
 
                     // Find existing dialogue with this user
                     val existingDialogue = dialogues.find { dialogue ->
-                        dialogue.participantIds.contains(currentUserId) &&
-                        dialogue.participantIds.contains(otherUserId) &&
-                        dialogue.participantIds.size == 2
+                        dialogue.participants?.any { it.id == currentUserId } == true &&
+                        dialogue.participants?.any { it.id == otherUserId } == true &&
+                        dialogue.participants?.size == 2
                     }
 
                     if (existingDialogue != null) {
@@ -134,50 +138,54 @@ class PrivateChatViewModel : ViewModel() {
                 val result = chatRepository.getDialogueMessages(dialogueId)
                 if (result.isSuccess) {
                     val messages = result.getOrNull() ?: emptyList()
+                    android.util.Log.d("ChatDebug", "Loaded ${messages.size} messages for dialogue $dialogueId")
+                    if (messages.isNotEmpty()) {
+                        android.util.Log.d("ChatDebug", "First message: ${messages[0]}")
+                    }
                     _messages.value = messages.sortedBy { it.createdAt }
 
                     // Mark messages as read
                     chatRepository.markDialogueMessagesAsRead(dialogueId)
                 } else {
-                    _error.value = result.exceptionOrNull()?.message ?: "加载消息失败"
+                    val errorMsg = result.exceptionOrNull()?.message ?: "加载消息失败"
+                    android.util.Log.e("ChatDebug", "Failed to load messages: $errorMsg")
+                    _error.value = errorMsg
                 }
             } catch (e: Exception) {
+                android.util.Log.e("ChatDebug", "Exception loading messages: ${e.message}", e)
                 _error.value = e.message ?: "加载消息失败"
             }
         }
     }
 
     private fun setupWebSocket(dialogueId: Long) {
-        webSocketService.connect()
-        webSocketService.subscribeToDialogue(dialogueId)
+        WebSocketService.connect()
+        WebSocketService.subscribeToDialogue(dialogueId)
 
         messageListener = { message ->
-            if (message.dialogueId == dialogueId) {
-                _messages.value = (_messages.value + message).sortedBy { it.createdAt }
-            }
+            addNewMessage(message)
         }
-        webSocketService.addMessageListener(messageListener!!)
+        WebSocketService.addMessageListener(messageListener!!)
     }
 
     fun sendMessage(content: String) {
         val dialogueId = _dialogue.value?.id ?: return
+        val currentUserId = AuthManager.getUserId()
+        val currentUsername = AuthManager.getUsername()
 
-        viewModelScope.launch {
-            try {
-                val request = SendMessageRequest(content = content)
-                val result = chatRepository.sendMessage(dialogueId, request)
-                if (result.isSuccess) {
-                    val newMessage = result.getOrNull()
-                    if (newMessage != null) {
-                        _messages.value = _messages.value + newMessage
-                    }
-                } else {
-                    _error.value = result.exceptionOrNull()?.message ?: "发送消息失败"
-                }
-            } catch (e: Exception) {
-                _error.value = e.message ?: "发送消息失败"
-            }
-        }
+        // Create message object for WebSocket
+        val messageToSend = ChatMessage(
+            dialogueId = dialogueId,
+            senderId = currentUserId,
+            senderUsername = currentUsername,
+            content = content
+        )
+
+        // Send via WebSocket
+        WebSocketService.sendMessage(dialogueId, messageToSend)
+
+        // Optimistically add to local messages list
+        _messages.value = _messages.value + messageToSend
     }
 
     fun addNewMessage(message: ChatMessage) {
@@ -185,7 +193,24 @@ class PrivateChatViewModel : ViewModel() {
         val currentDialogueId = _dialogue.value?.id ?: return
 
         if (message.dialogueId == currentDialogueId) {
-            _messages.value = (_messages.value + message).sortedBy { it.createdAt }
+            val currentMessages = _messages.value
+
+            // Check if this message already exists (optimistic update)
+            val existingIndex = currentMessages.indexOfFirst {
+                it.senderId == message.senderId &&
+                it.content == message.content &&
+                it.createdAt == message.createdAt
+            }
+
+            if (existingIndex >= 0) {
+                // Update existing message (e.g., with server-generated ID)
+                val updatedMessages = currentMessages.toMutableList()
+                updatedMessages[existingIndex] = message
+                _messages.value = updatedMessages.sortedBy { it.createdAt }
+            } else {
+                // Add new message
+                _messages.value = (currentMessages + message).sortedBy { it.createdAt }
+            }
         }
     }
 
@@ -195,7 +220,7 @@ class PrivateChatViewModel : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        messageListener?.let { webSocketService.removeMessageListener(it) }
-        _dialogue.value?.id?.let { webSocketService.unsubscribeFromDialogue(it) }
+        messageListener?.let { WebSocketService.removeMessageListener(it) }
+        _dialogue.value?.id?.let { WebSocketService.unsubscribeFromDialogue(it) }
     }
 }

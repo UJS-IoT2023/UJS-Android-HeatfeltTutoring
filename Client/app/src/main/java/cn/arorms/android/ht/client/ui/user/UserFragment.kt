@@ -365,9 +365,9 @@ class UserFragment : Fragment() {
 
                 // Look for existing dialogue between current user and target user
                 val existingDialogue = dialogues.find { dialogue ->
-                    dialogue.participantIds.contains(currentUserId) &&
-                    dialogue.participantIds.contains(userId) &&
-                    dialogue.participantIds.size == 2
+                    dialogue.participants?.any { it.id == currentUserId } == true &&
+                    dialogue.participants?.any { it.id == userId } == true &&
+                    dialogue.participants?.size == 2
                 }
 
                 val dialogueId = if (existingDialogue != null) {

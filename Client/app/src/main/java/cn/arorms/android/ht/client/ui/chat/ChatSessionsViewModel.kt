@@ -52,24 +52,20 @@ class ChatSessionsViewModel : ViewModel() {
                     // Create chat sessions from dialogues (assuming private chats for now)
                     val sessions = dialogues.mapNotNull { dialogue ->
                         // For private chats, find the other participant
-                        val otherUserId = dialogue.participantIds.find { it != currentUserId }
-                        if (otherUserId == null) return@mapNotNull null
+                        val otherParticipant = dialogue.participants?.find { it.id != currentUserId }
+                        if (otherParticipant == null) return@mapNotNull null
+
+                        val otherUserId = otherParticipant.id
 
                         // Get last message from dialogue
-                        val lastMessage = dialogue.lastMessage
-                        val lastMessageTime = dialogue.lastMessageAt
+                        val lastMessage = dialogue.lastMessageContent
+                        val lastMessageTime = dialogue.updatedAt
 
                         // Get unread count - for now assume 0, could be calculated from messages
                         val unreadCount = 0 // TODO: Calculate unread count
 
-                        // Get user name
-                        var otherUserName = "用户 $otherUserId"
-                        try {
-                            val userResult = RetrofitClient.instance.getUserById(otherUserId)
-                            otherUserName = userResult.username ?: "用户 $otherUserId"
-                        } catch (e: Exception) {
-                            // Keep default name if user fetch fails
-                        }
+                        // Get user name from participant or title
+                        val otherUserName = otherParticipant.username ?: dialogue.title ?: "用户 $otherUserId"
 
                         ChatSession(
                             dialogueId = dialogue.id!!,

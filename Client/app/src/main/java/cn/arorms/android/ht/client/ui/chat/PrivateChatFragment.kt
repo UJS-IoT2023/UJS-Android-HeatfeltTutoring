@@ -79,6 +79,10 @@ class PrivateChatFragment : Fragment() {
     private fun setupObservers() {
         lifecycleScope.launch {
             viewModel.messages.collect { messages ->
+                android.util.Log.d("ChatDebug", "UI: Received ${messages.size} messages for display")
+                if (messages.isNotEmpty()) {
+                    android.util.Log.d("ChatDebug", "UI: First message content: ${messages[0].content}")
+                }
                 chatAdapter.submitList(messages) {
                     // Scroll to bottom when new messages arrive
                     binding.messagesRecyclerView.scrollToPosition(messages.size - 1)

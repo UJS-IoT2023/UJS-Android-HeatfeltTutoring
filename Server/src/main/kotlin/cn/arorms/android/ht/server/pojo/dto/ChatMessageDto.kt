@@ -6,7 +6,7 @@ data class ChatMessageDto(
     val id: Long? = null,
     val dialogueId: Long,
     val senderId: Long,
-    val senderUsername: String,
+    val senderUsername: String?,
     val content: String,
-    val createdAt: LocalDateTime = LocalDateTime.now()
+    val createdAt: LocalDateTime? = LocalDateTime.now()
 )

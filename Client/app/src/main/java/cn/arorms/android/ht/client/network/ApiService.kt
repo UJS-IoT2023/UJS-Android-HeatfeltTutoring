@@ -265,7 +265,7 @@ object RetrofitClient {
         .writeTimeout(30, TimeUnit.SECONDS)
         .build()
     
-    private val gson: Gson by lazy {
+    val gson: Gson by lazy {
         GsonBuilder()
             .registerTypeAdapter(LocalDateTime::class.java, LocalDateTimeTypeAdapter())
             .create()

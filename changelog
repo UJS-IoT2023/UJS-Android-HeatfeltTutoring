@@ -1,3 +1,6 @@
+2025-12-10
+1. 添加聊天界面
+
 2025-12-08
 1. 更新 AI 聊天功能，接口为 /api/ai/chat
 2. 重构教师DTO，改为 User + TeacherProfile 扩展

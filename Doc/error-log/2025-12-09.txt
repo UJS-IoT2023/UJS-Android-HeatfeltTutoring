@@ -3,3 +3,404 @@
         val dialogues = chatDialogueService.getUserDialogues(userId)
         return ResponseEntity.ok(dialogues)
     }
+
+2025-12-09 23:20:22.736  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.742  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.745  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- 200 http://172.20.10.2:8080/api/chat/dialogues/5 (53ms)
+2025-12-09 23:20:22.746  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Origin
+2025-12-09 23:20:22.746  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Method
+2025-12-09 23:20:22.746  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Headers
+2025-12-09 23:20:22.747  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Content-Type-Options: nosniff
+2025-12-09 23:20:22.747  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- 200 http://172.20.10.2:8080/api/chat/dialogues/5 (55ms)
+2025-12-09 23:20:22.747  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Origin
+2025-12-09 23:20:22.747  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Method
+2025-12-09 23:20:22.747  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-XSS-Protection: 0
+2025-12-09 23:20:22.747  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Headers
+2025-12-09 23:20:22.747  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Content-Type-Options: nosniff
+2025-12-09 23:20:22.747  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-XSS-Protection: 0
+2025-12-09 23:20:22.747  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-09 23:20:22.747  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-09 23:20:22.747  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Pragma: no-cache
+2025-12-09 23:20:22.747  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Expires: 0
+2025-12-09 23:20:22.747  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Pragma: no-cache
+2025-12-09 23:20:22.747  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Frame-Options: DENY
+2025-12-09 23:20:22.747  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Type: application/json
+2025-12-09 23:20:22.748  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Transfer-Encoding: chunked
+2025-12-09 23:20:22.748  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Date: Tue, 09 Dec 2025 15:20:23 GMT
+2025-12-09 23:20:22.748  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Expires: 0
+2025-12-09 23:20:22.748  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Keep-Alive: timeout=60
+2025-12-09 23:20:22.748  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Connection: keep-alive
+2025-12-09 23:20:22.748  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Frame-Options: DENY
+2025-12-09 23:20:22.748  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Type: application/json
+2025-12-09 23:20:22.749  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Transfer-Encoding: chunked
+2025-12-09 23:20:22.749  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  [{"id":1,"title":"teacher_qian","dialogueType":"PRIVATE","lastMessageContent":null,"updatedAt":"2025-12-09T18:30:10.194545","participants":[{"id":4,"username":"teacher_qian","avatar":null},{"id":5,"username":"Mizimi","avatar":null}]}]
+2025-12-09 23:20:22.749  2965-3286  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- END HTTP (234-byte body)
+2025-12-09 23:20:22.749  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Date: Tue, 09 Dec 2025 15:20:23 GMT
+2025-12-09 23:20:22.749  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Keep-Alive: timeout=60
+2025-12-09 23:20:22.750  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Connection: keep-alive
+2025-12-09 23:20:22.752  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.753  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  [{"id":1,"title":"teacher_qian","dialogueType":"PRIVATE","lastMessageContent":null,"updatedAt":"2025-12-09T18:30:10.194545","participants":[{"id":4,"username":"teacher_qian","avatar":null},{"id":5,"username":"Mizimi","avatar":null}]}]
+2025-12-09 23:20:22.753  2965-3069  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- END HTTP (234-byte body)
+2025-12-09 23:20:22.758  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.766  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.771  2965-2965  ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-09 23:20:22.775  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.779  2965-2965  ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-09 23:20:22.782  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.790  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.798  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.807  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.810  2965-3042  libc                    cn.arorms.android.ht.client          W  Access denied finding property "ro.vendor.display.iris_x7.support"
+2025-12-09 23:20:22.810  2965-2965  VRI[MainActivity]       cn.arorms.android.ht.client          D  hardware acceleration = true, forceHwAccelerated = false
+2025-12-09 23:20:22.813   994-1721  BufferQueueDebug        surfaceflinger                       E  [2e014f4 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#3752](this:0xb400007b47a54a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from '2e014f4 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#3752'
+2025-12-09 23:20:22.815  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.824  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.826  2965-2965  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-09 23:20:22.831  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.840  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.849  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.855   994-1721  BufferQueueDebug        surfaceflinger                       E  [cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#3755](this:0xb400007b47a93a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#3755'
+2025-12-09 23:20:22.856  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.865  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.865  2965-2965  BufferQueueConsumer     cn.arorms.android.ht.client          D  [](id:b9500000003,api:0,p:-1,c:2965) connect: controlledByApp=false
+2025-12-09 23:20:22.868  2965-3042  OpenGLRenderer          cn.arorms.android.ht.client          E  Unable to match the desired swap behavior.
+2025-12-09 23:20:22.872  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.873  2965-2965  VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportNextDraw android.view.ViewRootImpl.performTraversals:4460 android.view.ViewRootImpl.doTraversal:3069 android.view.ViewRootImpl$TraversalRunnable.run:10654 android.view.Choreographer$CallbackRecord.run:1768 android.view.Choreographer$CallbackRecord.run:1777 
+2025-12-09 23:20:22.874  2965-2965  VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.Setup new sync=wmsSync-VRI[MainActivity]#6
+2025-12-09 23:20:22.881  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.882  2965-3042  OpenGLRenderer          cn.arorms.android.ht.client          D  makeCurrent grContext:0xb4000071e1014a60 reset mTextureAvailable
+2025-12-09 23:20:22.884  2965-3042  BLASTBufferQueue        cn.arorms.android.ht.client          D  [VRI[MainActivity]#3](f:0,a:1) acquireNextBufferLocked size=1202x797 mFrameNumber=1 applyTransaction=true mTimestamp=46002326281356(auto) mPendingTransactions.size=0 graphicBufferId=12734578032655 transform=0
+2025-12-09 23:20:22.885  2965-2965  VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportDrawFinished
+2025-12-09 23:20:22.887  2965-2965  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-09 23:20:22.887   994-1721  BufferQueueDebug        surfaceflinger                       E  [Surface(name=2e014f4 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#3752)/@0x8c77692 - animation-leash of window_animation#3756](this:0xb400007b47ab4a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Surface(name=2e014f4 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#3752)/@0x8c77692 - animation-leash of window_animation#3756'
+2025-12-09 23:20:22.889  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.897  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.902  2965-2965  ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-09 23:20:22.906  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.909  2965-2965  ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-09 23:20:22.913  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.921  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.930  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.935  2965-3042  libc                    cn.arorms.android.ht.client          W  Access denied finding property "ro.vendor.display.iris_x7.support"
+2025-12-09 23:20:22.936  2965-2965  VRI[MainActivity]       cn.arorms.android.ht.client          D  hardware acceleration = true, forceHwAccelerated = false
+2025-12-09 23:20:22.939   994-1720  BufferQueueDebug        surfaceflinger                       E  [ff5f053 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#3758](this:0xb400007b410baa80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'ff5f053 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#3758'
+2025-12-09 23:20:22.939  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.947  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.952  2965-2965  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-09 23:20:22.955  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.965  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:22.984   994-1090  BufferQueueDebug        surfaceflinger                       E  [cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#3761](this:0xb400007b41115a80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#3761'
+2025-12-09 23:20:22.990  2965-2965  BufferQueueConsumer     cn.arorms.android.ht.client          D  [](id:b9500000004,api:0,p:-1,c:2965) connect: controlledByApp=false
+2025-12-09 23:20:22.993  2965-3042  OpenGLRenderer          cn.arorms.android.ht.client          E  Unable to match the desired swap behavior.
+2025-12-09 23:20:22.998  2965-2965  VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportNextDraw android.view.ViewRootImpl.performTraversals:4460 android.view.ViewRootImpl.doTraversal:3069 android.view.ViewRootImpl$TraversalRunnable.run:10654 android.view.Choreographer$CallbackRecord.run:1768 android.view.Choreographer$CallbackRecord.run:1777 
+2025-12-09 23:20:22.998  2965-2965  VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.Setup new sync=wmsSync-VRI[MainActivity]#8
+2025-12-09 23:20:23.007  2965-3042  OpenGLRenderer          cn.arorms.android.ht.client          D  makeCurrent grContext:0xb4000071e1014a60 reset mTextureAvailable
+2025-12-09 23:20:23.009  2965-3042  BLASTBufferQueue        cn.arorms.android.ht.client          D  [VRI[MainActivity]#4](f:0,a:1) acquireNextBufferLocked size=1202x797 mFrameNumber=1 applyTransaction=true mTimestamp=46002450940817(auto) mPendingTransactions.size=0 graphicBufferId=12734578032659 transform=0
+2025-12-09 23:20:23.009  2965-2965  VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportDrawFinished
+2025-12-09 23:20:23.011  2965-2965  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-09 23:20:23.013   994-1090  BufferQueueDebug        surfaceflinger                       E  [Surface(name=ff5f053 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#3758)/@0xcd39689 - animation-leash of window_animation#3762](this:0xb400007b4114ba80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'Surface(name=ff5f053 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#3758)/@0xcd39689 - animation-leash of window_animation#3762'
+2025-12-09 23:20:23.024  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:23.034  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:20:23.041  2965-3042  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+
+when entering chat dialogue page, it said attempt to invoke interface method java util iterator java lang iterable iterator on a null object reference
+
+2025-12-09 23:34:53.100  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:53.189  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  [ANR Warning]Input routeing takes more than 6000ms since 1970-01-01 08:00:00.000, this = com.mediatek.view.impl.ViewDebugManagerImpl@60583cd
+2025-12-09 23:34:53.190  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  Input event delivered to android.view.ViewRootImpl$SyntheticInputStage@67c86da at 2025-12-09 23:34:53.179
+2025-12-09 23:34:53.190  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  Input event delivered to android.view.ViewRootImpl$ViewPostImeInputStage@234c9fc at 2025-12-09 23:34:53.160
+2025-12-09 23:34:53.191  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  Input event delivered to android.view.ViewRootImpl$EarlyPostImeInputStage@ad07bce at 2025-12-09 23:34:53.159
+2025-12-09 23:34:53.191  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  Input event delivered to android.view.ViewRootImpl$NativePostImeInputStage@fd1aaef at 2025-12-09 23:34:53.160
+2025-12-09 23:34:53.203  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:53.205  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  [ANR Warning]Input routeing takes more than 6000ms since 1970-01-01 08:00:00.000, this = com.mediatek.view.impl.ViewDebugManagerImpl@60583cd
+2025-12-09 23:34:53.206  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  Input event delivered to android.view.ViewRootImpl$SyntheticInputStage@67c86da at 2025-12-09 23:34:53.203
+2025-12-09 23:34:53.207  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  Input event delivered to android.view.ViewRootImpl$ViewPostImeInputStage@234c9fc at 2025-12-09 23:34:53.202
+2025-12-09 23:34:53.207  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  Input event delivered to android.view.ViewRootImpl$EarlyPostImeInputStage@ad07bce at 2025-12-09 23:34:53.202
+2025-12-09 23:34:53.208  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  Input event delivered to android.view.ViewRootImpl$NativePostImeInputStage@fd1aaef at 2025-12-09 23:34:53.202
+2025-12-09 23:34:53.291  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  [ANR Warning]Input routeing takes more than 6000ms since 1970-01-01 08:00:00.000, this = com.mediatek.view.impl.ViewDebugManagerImpl@60583cd
+2025-12-09 23:34:53.291  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  Input event delivered to android.view.ViewRootImpl$SyntheticInputStage@67c86da at 2025-12-09 23:34:53.284
+2025-12-09 23:34:53.292  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  Input event delivered to android.view.ViewRootImpl$ViewPostImeInputStage@234c9fc at 2025-12-09 23:34:53.281
+2025-12-09 23:34:53.293  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  Input event delivered to android.view.ViewRootImpl$EarlyPostImeInputStage@ad07bce at 2025-12-09 23:34:53.281
+2025-12-09 23:34:53.293  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  Input event delivered to android.view.ViewRootImpl$NativePostImeInputStage@fd1aaef at 2025-12-09 23:34:53.281
+2025-12-09 23:34:53.298  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  [ANR Warning]Input routeing takes more than 6000ms since 1970-01-01 08:00:00.000, this = com.mediatek.view.impl.ViewDebugManagerImpl@60583cd
+2025-12-09 23:34:53.298  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  Input event delivered to android.view.ViewRootImpl$SyntheticInputStage@67c86da at 2025-12-09 23:34:53.294
+2025-12-09 23:34:53.299  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  Input event delivered to android.view.ViewRootImpl$ViewPostImeInputStage@234c9fc at 2025-12-09 23:34:53.294
+2025-12-09 23:34:53.299  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  Input event delivered to android.view.ViewRootImpl$EarlyPostImeInputStage@ad07bce at 2025-12-09 23:34:53.294
+2025-12-09 23:34:53.300  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          V  Input event delivered to android.view.ViewRootImpl$NativePostImeInputStage@fd1aaef at 2025-12-09 23:34:53.294
+2025-12-09 23:34:53.689  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.201  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.329  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.562  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.564  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> POST http://172.20.10.2:8080/api/chat/dialogue/1/send
+2025-12-09 23:34:54.564  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Type: application/json; charset=UTF-8
+2025-12-09 23:34:54.564  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Length: 37
+2025-12-09 23:34:54.565  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  {"content":"hi","messageType":"text"}
+2025-12-09 23:34:54.565  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> END POST (37-byte body)
+2025-12-09 23:34:54.571  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.578  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.588  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.597  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.605  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.610  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.618  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.631  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.636  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.645  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.649  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- 404 http://172.20.10.2:8080/api/chat/dialogue/1/send (83ms)
+2025-12-09 23:34:54.649  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Origin
+2025-12-09 23:34:54.649  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Method
+2025-12-09 23:34:54.649  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Headers
+2025-12-09 23:34:54.649  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Content-Type-Options: nosniff
+2025-12-09 23:34:54.649  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-XSS-Protection: 0
+2025-12-09 23:34:54.649  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-09 23:34:54.649  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Pragma: no-cache
+2025-12-09 23:34:54.650  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Expires: 0
+2025-12-09 23:34:54.650  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Frame-Options: DENY
+2025-12-09 23:34:54.650  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Type: application/json
+2025-12-09 23:34:54.650  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Transfer-Encoding: chunked
+2025-12-09 23:34:54.650  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Date: Tue, 09 Dec 2025 15:34:55 GMT
+2025-12-09 23:34:54.651  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Keep-Alive: timeout=60
+2025-12-09 23:34:54.651  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Connection: keep-alive
+2025-12-09 23:34:54.653  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  {"timestamp":"2025-12-09T15:34:55.017+00:00","status":404,"error":"Not Found","path":"/api/chat/dialogue/1/send"}
+2025-12-09 23:34:54.654  6131-8663  okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- END HTTP (113-byte body)
+2025-12-09 23:34:54.654  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.662  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.668  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.676  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.683  6131-6131  ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-09 23:34:54.685  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.693  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.694  6131-6131  ScrollerOp...ionManager cn.arorms.android.ht.client          D  registerConfigChangedListener
+2025-12-09 23:34:54.701  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.710  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.718  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.726  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.730  6131-6218  libc                    cn.arorms.android.ht.client          W  Access denied finding property "ro.vendor.display.iris_x7.support"
+2025-12-09 23:34:54.731  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          D  hardware acceleration = true, forceHwAccelerated = false
+2025-12-09 23:34:54.733   994-1720  BufferQueueDebug        surfaceflinger                       E  [ffd3450 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#3932](this:0xb400007b4110da80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'ffd3450 cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#3932'
+2025-12-09 23:34:54.734  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.743  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.743  6131-6131  FileUtils               cn.arorms.android.ht.client          E  err write to mi_exception_log
+2025-12-09 23:34:54.751  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.759  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.760   994-1720  BufferQueueDebug        surfaceflinger                       E  [cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#3934](this:0xb400007b4117fa80,id:-1,api:0,p:-1,c:-1) id info cannot be read from 'cn.arorms.android.ht.client/cn.arorms.android.ht.client.MainActivity#3934'
+2025-12-09 23:34:54.768  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.770  6131-6131  BufferQueueConsumer     cn.arorms.android.ht.client          D  [](id:17f300000003,api:0,p:-1,c:6131) connect: controlledByApp=false
+2025-12-09 23:34:54.773  6131-6218  OpenGLRenderer          cn.arorms.android.ht.client          E  Unable to match the desired swap behavior.
+2025-12-09 23:34:54.776  6131-6218  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-09 23:34:54.780  6131-6131  VRI[MainActivity]       cn.arorms.android.ht.client          D  vri.reportNextDraw android.view.ViewRootImpl.performTraversals:4460 android.view.ViewRootImpl.doTraversal:3069 android.view.ViewRootImpl$TraversalRunnable.run:10654 android.view.Choreographer$CallbackRecord.run:1768 android.view.Choreographer$CallbackRecord.run:1777 
+
+it not a http protocol api but a ws api, you need to subscribe the dialogue first and send if user input some message, here's the backend api
+
+package cn.arorms.android.ht.server.controller
+
+import cn.arorms.android.ht.server.pojo.dto.ChatMessageDto
+import cn.arorms.android.ht.server.service.ChatDialogueService
+import org.springframework.messaging.handler.annotation.DestinationVariable
+import org.springframework.messaging.handler.annotation.MessageMapping
+import org.springframework.messaging.handler.annotation.Payload
+import org.springframework.messaging.handler.annotation.SendTo
+import org.springframework.messaging.simp.SimpMessageHeaderAccessor
+import org.springframework.stereotype.Controller
+
+@Controller
+class ChatWebSocketController(
+    private val chatDialogueService: ChatDialogueService
+) {
+
+    // 处理发送消息
+    @MessageMapping("/chat/{dialogueId}/send")
+    @SendTo("/topic/dialogue/{dialogueId}")
+    fun sendMessage(
+        @DestinationVariable dialogueId: Long,
+        @Payload messageDto: ChatMessageDto,
+        headerAccessor: SimpMessageHeaderAccessor
+    ): ChatMessageDto {
+        // 保存消息到数据库
+        val savedMessage = chatDialogueService.sendMessage(
+            dialogueId = dialogueId,
+            senderId = messageDto.senderId,
+            content = messageDto.content
+        )
+
+        // 返回包含完整信息的消息 DTO
+        return ChatMessageDto(
+            id = savedMessage.id,
+            dialogueId = dialogueId,
+            senderId = savedMessage.sender.id!!,
+            senderUsername = savedMessage.sender.username ?: "Unknown",
+            content = savedMessage.content,
+            createdAt = savedMessage.createdAt
+        )
+    }
+
+    // 处理用户加入对话（可选，用于状态管理）
+    @MessageMapping("/chat/{dialogueId}/join")
+    @SendTo("/topic/dialogue/{dialogueId}")
+    fun joinDialogue(
+        @DestinationVariable dialogueId: Long,
+        @Payload joinMessage: Map<String, Any>
+    ): Map<String, Any> {
+        val userId = joinMessage["userId"] as Long
+        val username = joinMessage["username"] as String
+
+        return mapOf(
+            "type" to "JOIN",
+            "userId" to userId,
+            "username" to username,
+            "message" to "$username joined the dialogue"
+        )
+    }
+}
+
+2025-12-10 00:01:13.924  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-10 00:01:13.925  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Pragma: no-cache
+2025-12-10 00:01:13.925  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Expires: 0
+2025-12-10 00:01:13.925  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Frame-Options: DENY
+2025-12-10 00:01:13.925  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Type: application/json
+2025-12-10 00:01:13.926  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Transfer-Encoding: chunked
+2025-12-10 00:01:13.926  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Date: Tue, 09 Dec 2025 16:01:14 GMT
+2025-12-10 00:01:13.926  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Keep-Alive: timeout=60
+2025-12-10 00:01:13.926  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Connection: keep-alive
+2025-12-10 00:01:13.929  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  [{"id":1,"title":"teacher_qian","dialogueType":"PRIVATE","lastMessageContent":null,"updatedAt":"2025-12-09T18:30:10.194545","participants":[{"id":4,"username":"teacher_qian","avatar":null},{"id":5,"username":"Mizimi","avatar":null}]}]
+2025-12-10 00:01:13.929  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- END HTTP (234-byte body)
+2025-12-10 00:01:13.941  9153-9153  StompClient             cn.arorms.android.ht.client          D  Connect
+2025-12-10 00:01:13.943  9153-9153  WebSocket               cn.arorms.android.ht.client          W  Cannot subscribe: STOMP client not connected
+2025-12-10 00:01:13.947  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> GET http://172.20.10.2:8080/api/chat/dialogue/1/messages
+2025-12-10 00:01:13.947  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> END GET
+2025-12-10 00:01:13.991  9153-16639 AbstractCo...onProvider cn.arorms.android.ht.client          D  Emit lifecycle event: OPENED
+2025-12-10 00:01:13.992  9153-16639 AbstractCo...onProvider cn.arorms.android.ht.client          D  Send STOMP message: CONNECT
+                                                                                                    accept-version:1.1,1.2
+                                                                                                    heart-beat:0,0
+                                                                                                    Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1IiwiaWF0IjoxNzY1MjkzNjIwLCJleHAiOjE3NjU4OTg0MjB9.pkt8fVs709iIXYh6GQ4ER9naVfSvMjIuar812XG-_CVG9VmvXrJUAWowBXYZjcDLSGQV0aKtCPCX4t50LyaRuw
+                                                                                                    
+                                                                                                    ??
+2025-12-10 00:01:13.992  9153-16639 StompClient             cn.arorms.android.ht.client          D  Publish open
+2025-12-10 00:01:13.992  9153-16639 WebSocket               cn.arorms.android.ht.client          D  STOMP connection opened
+2025-12-10 00:01:13.992  9153-16639 WebSocket               cn.arorms.android.ht.client          W  Cannot subscribe: STOMP client not connected
+2025-12-10 00:01:13.999  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- 200 http://172.20.10.2:8080/api/chat/dialogue/1/messages (51ms)
+2025-12-10 00:01:13.999  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Origin
+2025-12-10 00:01:13.999  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Method
+2025-12-10 00:01:13.999  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Headers
+2025-12-10 00:01:14.000  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Content-Type-Options: nosniff
+2025-12-10 00:01:14.000  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-XSS-Protection: 0
+2025-12-10 00:01:14.000  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-10 00:01:14.000  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Pragma: no-cache
+2025-12-10 00:01:14.000  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Expires: 0
+2025-12-10 00:01:14.001  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Frame-Options: DENY
+2025-12-10 00:01:14.001  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Type: application/json
+2025-12-10 00:01:14.001  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Transfer-Encoding: chunked
+2025-12-10 00:01:14.001  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Date: Tue, 09 Dec 2025 16:01:14 GMT
+2025-12-10 00:01:14.002  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Keep-Alive: timeout=60
+2025-12-10 00:01:14.002  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Connection: keep-alive
+2025-12-10 00:01:14.004  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  []
+2025-12-10 00:01:14.004  9153-16639 AbstractCo...onProvider cn.arorms.android.ht.client          D  Receive STOMP message: CONNECTED
+                                                                                                    version:1.2
+                                                                                                    heart-beat:0,0
+                                                                                                    
+                                                                                                    ??
+2025-12-10 00:01:14.004  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- END HTTP (2-byte body)
+2025-12-10 00:01:14.014  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> POST http://172.20.10.2:8080/api/chat/dialogue/1/mark-read
+2025-12-10 00:01:14.014  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Length: 0
+2025-12-10 00:01:14.015  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  --> END POST (0-byte body)
+2025-12-10 00:01:14.044  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- 404 http://172.20.10.2:8080/api/chat/dialogue/1/mark-read (28ms)
+2025-12-10 00:01:14.045  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Origin
+2025-12-10 00:01:14.045  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Method
+2025-12-10 00:01:14.045  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Headers
+2025-12-10 00:01:14.045  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Content-Type-Options: nosniff
+2025-12-10 00:01:14.046  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-XSS-Protection: 0
+2025-12-10 00:01:14.046  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-10 00:01:14.046  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Pragma: no-cache
+2025-12-10 00:01:14.047  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Expires: 0
+2025-12-10 00:01:14.047  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Frame-Options: DENY
+2025-12-10 00:01:14.047  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Type: application/json
+2025-12-10 00:01:14.048  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Transfer-Encoding: chunked
+2025-12-10 00:01:14.048  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Date: Tue, 09 Dec 2025 16:01:14 GMT
+2025-12-10 00:01:14.048  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Keep-Alive: timeout=60
+2025-12-10 00:01:14.048  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Connection: keep-alive
+2025-12-10 00:01:14.051  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  {"timestamp":"2025-12-09T16:01:14.419+00:00","status":404,"error":"Not Found","path":"/api/chat/dialogue/1/mark-read"}
+2025-12-10 00:01:14.052  9153-16634 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- END HTTP (118-byte body)
+2025-12-10 00:01:14.107  9153-9153  Editor                  cn.arorms.android.ht.client          D  Double tap detection is fail
+2025-12-10 00:01:14.165  9153-9153  HandWritingStubImpl     cn.arorms.android.ht.client          I  refreshLastKeyboardType: 1
+2025-12-10 00:01:14.168  9153-9153  HandWritingStubImpl     cn.arorms.android.ht.client          I  getCurrentKeyboardType: 1
+2025-12-10 00:01:14.174  9153-9153  ImeTracker              cn.arorms.android.ht.client          I  cn.arorms.android.ht.client:64138b1: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+2025-12-10 00:01:14.174  9153-9153  InputMethodManager      cn.arorms.android.ht.client          D  showSoftInput() view=com.google.android.material.textfield.TextInputEditText{fa1e070 VFED..CL. .F.P..ID 22,22-753,143 #7f08014e app:id/messageInput aid=1073741838} flags=0 reason=SHOW_SOFT_INPUT
+2025-12-10 00:01:14.181  9153-9153  TextViewImpl            cn.arorms.android.ht.client          V  sendCursorInfo support:true
+2025-12-10 00:01:14.186  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:14.195  9153-9153  AssistStructure         cn.arorms.android.ht.client          I  Flattened final assist data: 1964 bytes, containing 1 windows, 14 views
+2025-12-10 00:01:14.208  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:14.215  9153-9153  InsetsController        cn.arorms.android.ht.client          D  show(ime(), fromIme=true)
+2025-12-10 00:01:14.233  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:14.442  9153-9153  ImeTracker              cn.arorms.android.ht.client          I  cn.arorms.android.ht.client:64138b1: onShown
+2025-12-10 00:01:14.673  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:15.177  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:15.674  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:15.880  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.054  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.066  9153-9153  AbstractCo...onProvider cn.arorms.android.ht.client          D  Send STOMP message: SEND
+                                                                                                    destination:/app/chat/dialogue/1/send
+                                                                                                    
+                                                                                                    {"content":"你好","createdAt":{},"dialogueId":1,"isRead":false,"messageType":"text","senderId":5}??
+2025-12-10 00:01:16.066  9153-9153  WebSocket               cn.arorms.android.ht.client          D  Message sent successfully
+2025-12-10 00:01:16.070  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.075  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.085  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.093  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.100  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.108  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.117  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.125  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.132  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.143  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.153  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.160  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.166  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.173  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.182  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:01:16.190  9153-9243  gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+
+Android客户端在STOMP握手完成前就尝试订阅话题。正确的流程应该是：
+
+1. ✅ __WebSocket连接__ → 连接建立
+2. ✅ __发送CONNECT帧__ → 发起STOMP连接
+3. ❌ __立即订阅__ → 错误：连接还未完全建立
+4. ✅ __等待CONNECTED帧__ → 服务器确认连接成功
+5. ✅ __然后订阅话题__ → 现在可以订阅了
+
+## 解决方案
+
+在Android客户端代码中，需要等待STOMP连接完全建立后再订阅：
+
+                                                                                                    Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1IiwiaWF0IjoxNzY1MjkzNjIwLCJleHAiOjE3NjU4OTg0MjB9.pkt8fVs709iIXYh6GQ4ER9naVfSvMjIuar812XG-_CVG9VmvXrJUAWowBXYZjcDLSGQV0aKtCPCX4t50LyaRuw
+                                                                                                    
+                                                                                                    ??
+2025-12-10 00:16:26.752 19365-21011 StompClient             cn.arorms.android.ht.client          D  Publish open
+2025-12-10 00:16:26.753 19365-21011 WebSocket               cn.arorms.android.ht.client          D  STOMP connection opened
+2025-12-10 00:16:26.755 19365-19430 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:16:26.760 19365-21011 AbstractCo...onProvider cn.arorms.android.ht.client          D  Receive STOMP message: CONNECTED
+                                                                                                    version:1.2
+                                                                                                    heart-beat:0,0
+                                                                                                    
+                                                                                                    ??
+2025-12-10 00:16:26.761 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- 200 http://172.20.10.2:8080/api/chat/dialogue/1/messages (32ms)
+2025-12-10 00:16:26.761 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Origin
+2025-12-10 00:16:26.761 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Method
+2025-12-10 00:16:26.762 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Vary: Access-Control-Request-Headers
+2025-12-10 00:16:26.762 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Content-Type-Options: nosniff
+2025-12-10 00:16:26.763 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-XSS-Protection: 0
+2025-12-10 00:16:26.763 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+2025-12-10 00:16:26.763 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Pragma: no-cache
+2025-12-10 00:16:26.763 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Expires: 0
+2025-12-10 00:16:26.764 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  X-Frame-Options: DENY
+2025-12-10 00:16:26.764 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Content-Type: application/json
+2025-12-10 00:16:26.764 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Transfer-Encoding: chunked
+2025-12-10 00:16:26.764 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Date: Tue, 09 Dec 2025 16:16:27 GMT
+2025-12-10 00:16:26.764 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Keep-Alive: timeout=60
+2025-12-10 00:16:26.765 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  Connection: keep-alive
+2025-12-10 00:16:26.766 19365-19430 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:16:26.769 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  [{"id":1,"senderId":5,"senderUsername":"Mizimi","content":"123","createdAt":"2025-12-10T00:13:43"}]
+2025-12-10 00:16:26.770 19365-21005 okhttp.OkHttpClient     cn.arorms.android.ht.client          I  <-- END HTTP (99-byte body)
+2025-12-10 00:16:26.772 19365-19430 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:16:26.780 19365-19430 gralloc4                cn.arorms.android.ht.client          I  @set_metadata: update dataspace from GM (0x00000000 -> 0x08010000)
+2025-12-10 00:16:26.790 19365-21005 okhttp.OkHttpCli
+the history message didn't display in the chat page

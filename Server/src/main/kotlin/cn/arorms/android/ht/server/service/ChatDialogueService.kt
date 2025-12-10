@@ -23,7 +23,7 @@ class ChatDialogueService(
 
     // 获取用户的对话列表，包含动态生成的标题
     fun getUserDialogues(userId: Long): List<ChatDialogueDto> {
-        val dialogues = chatDialogueRepository.findByParticipants_ParticipantUser_Id(userId)
+        val dialogues = chatDialogueRepository.findByParticipants_participantUser_id(userId)
         return dialogues.map { dialogue ->
             val participants = dialogue.participants.map { participant ->
                 ChatParticipantDto(
@@ -69,8 +69,8 @@ class ChatDialogueService(
 
     // 创建新对话
     @Transactional
-    fun createDialogue(creatorId: Long, participantIds: List<Long>, title: String? = null): ChatDialogue {
-        val dialogueType = if (participantIds.size == 1) DialogueType.PRIVATE else DialogueType.GROUP
+    fun createDialogue(participantIds: List<Long>, title: String? = null): ChatDialogue {
+        val dialogueType = if (participantIds.size == 2) DialogueType.PRIVATE else DialogueType.GROUP
 
         val dialogue = ChatDialogue(
             dialogueType = dialogueType,
@@ -79,7 +79,7 @@ class ChatDialogueService(
         val savedDialogue = chatDialogueRepository.save(dialogue)
 
         // 添加参与者
-        val allParticipantIds = participantIds + creatorId
+        val allParticipantIds = participantIds
         allParticipantIds.forEach { userId ->
             val participant = ChatDialogueParticipant(
                 dialogue = savedDialogue,
@@ -98,9 +98,11 @@ class ChatDialogueService(
             IllegalArgumentException("Dialogue not found")
         }
 
+        val sender = userService.getUserById(senderId) ?: throw IllegalArgumentException("Sender not found")
+
         val message = ChatMessage(
             dialogue = dialogue,
-            sender = userService.getReferenceById(senderId), // 简化的 User 对象
+            sender = sender,
             content = content
         )
         val savedMessage = chatMessageRepository.save(message)
