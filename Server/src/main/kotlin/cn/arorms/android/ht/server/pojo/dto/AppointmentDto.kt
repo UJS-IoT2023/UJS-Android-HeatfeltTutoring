@@ -1,9 +1,10 @@
 package cn.arorms.android.ht.server.pojo.dto
 
 import cn.arorms.android.ht.server.pojo.entity.Appointment
+import com.fasterxml.jackson.annotation.JsonCreator
 import java.time.LocalDateTime
 
-data class AppointmentDto(
+data class AppointmentDto @JsonCreator constructor(
     var id: Long? = null,
 
     var userId: Long? = null,

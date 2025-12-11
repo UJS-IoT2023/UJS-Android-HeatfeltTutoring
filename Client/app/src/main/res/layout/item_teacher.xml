@@ -1,126 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginVertical="6dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- 教师基本信息行 -->
+        <ImageView
+            android:id="@+id/teacherIcon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:contentDescription="教师头像"
+            tools:src="@drawable/baseline_person_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/teacherName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="教师姓名"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/teacherTaughtSubjects"
+            app:layout_constraintEnd_toStartOf="@+id/teacherGender"
+            app:layout_constraintStart_toEndOf="@+id/teacherIcon"
+            app:layout_constraintTop_toTopOf="@+id/teacherIcon"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/teacherTaughtSubjects"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:text="教授科目"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/teacherIcon"
+            app:layout_constraintEnd_toStartOf="@+id/teacherGender"
+            app:layout_constraintStart_toEndOf="@+id/teacherIcon"
+            app:layout_constraintTop_toBottomOf="@+id/teacherName" />
+
+
+        <TextView
+            android:id="@+id/teacherGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="性别"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/teacherPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="电话"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/teacherGender" />
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/teacherIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- 教师头像（预留位置） -->
-            <ImageView
-                android:id="@+id/teacherIcon"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginEnd="12dp"
-                android:contentDescription="教师头像" />
-
-            <!-- 教师姓名和性别 -->
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
+                android:gravity="center_vertical"
+                android:layout_marginBottom="6dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/outline_location_on_24"
+                    android:contentDescription="地址图标"
+                    app:tint="@color/gray" android:layout_marginEnd="8dp"/>
                 <TextView
-                    android:id="@+id/teacherName"
+                    android:id="@+id/teacherAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="教师姓名"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/teacherTaughtSubjects"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="教授科目"
-                    android:textColor="@color/gray"
+                    android:text="地址"
                     android:textSize="14sp" />
-
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                android:layout_marginBottom="6dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/outline_school_24"
+                    android:contentDescription="学历图标"
+                    app:tint="@color/gray" android:layout_marginEnd="8dp"/>
                 <TextView
-                    android:id="@+id/teacherPhone"
+                    android:id="@+id/teacherEducation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="电话"
-                    android:textColor="@color/gray"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/teacherGender"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="性别"
-                    android:textColor="@color/gray"
+                    android:text="学历"
                     android:textSize="14sp" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/outline_group_24"
+                    android:contentDescription="年级图标"
+                    app:tint="@color/gray" android:layout_marginEnd="8dp"/>
+                <TextView
+                    android:id="@+id/teacherGrades"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="授课年级"
+                    android:textSize="14sp" />
+            </LinearLayout>
 
         </LinearLayout>
 
-        <!-- 分隔线 -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
-            android:background="@color/gray" />
-
-        <!-- 教师详细信息 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!-- 地址 -->
-            <TextView
-                android:id="@+id/teacherAddress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:text="地址"
-                android:textSize="14sp" />
-
-            <!-- 学历 -->
-            <TextView
-                android:id="@+id/teacherEducation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:text="学历"
-                android:textSize="14sp" />
-
-            <!-- 授课年级 -->
-            <TextView
-                android:id="@+id/teacherGrades"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="授课年级"
-                android:textSize="14sp" />
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

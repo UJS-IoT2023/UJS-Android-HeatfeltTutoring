@@ -81,7 +81,8 @@ class AIChatViewModel : ViewModel() {
 
                 val requestBody = json.toRequestBody("application/json".toMediaType())
                 val request = Request.Builder()
-                    .url("http://192.168.0.158:8080/api/ai/chat")
+                    .url("http://172.20.10.4:8080/api/ai/chat")
+//                    .url("http://192.168.0.158:8080/api/ai/chat")
                     .post(requestBody)
                     .addHeader("Content-Type", "application/json")
                     .apply {

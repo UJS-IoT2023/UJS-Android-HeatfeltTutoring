@@ -158,7 +158,7 @@ class UserFragment : Fragment() {
             // Show appointment button only for students viewing teachers
             val currentUserRole = AuthManager.getUser()?.role ?: "STUDENT"
             val isViewingTeacher = viewModel.user.value?.role == "TEACHER"
-            binding.bookAppointmentButton.visibility = if (currentUserRole == "STUDENT" && isViewingTeacher) View.VISIBLE else View.GONE
+            binding.bookAppointmentButton.visibility = if (isViewingTeacher) View.VISIBLE else View.GONE
             binding.chatButton.visibility = View.VISIBLE
             binding.addCommentButton.visibility = View.VISIBLE
             binding.commentInputSection.visibility = View.GONE
