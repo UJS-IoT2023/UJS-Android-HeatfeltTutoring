@@ -6,15 +6,15 @@ import java.time.LocalDateTime
 
 data class AppointmentDto @JsonCreator constructor(
     var id: Long? = null,
-    
-    var userId: Long,
+
+    var userId: Long? = null,
     var userName: String? = null,
-    
-    var teacherUserId: Long,
+
+    var teacherUserId: Long? = null,
     var teacherUsername: String? = null,
-    
-    var subject: String,
-    var appointmentDate: LocalDateTime,
+
+    var subject: String? = null,
+    var appointmentDate: LocalDateTime = LocalDateTime.now(),
 ) {
     constructor(appointmentEntity: Appointment): this(
         id = appointmentEntity.id,

@@ -13,12 +13,12 @@ class AppointmentService @Autowired constructor(
     private val userService: UserService
 ) {
     fun projection(appointmentDto: AppointmentDto): Appointment {
-        val user = userService.getReferenceById(appointmentDto.userId)
-        val teacherUser = userService.getReferenceById(appointmentDto.teacherUserId)
+        val user = userService.getReferenceById(appointmentDto.userId!!)
+        val teacherUser = userService.getReferenceById(appointmentDto.teacherUserId!!)
         return Appointment(
             user = user,
             teacherUser = teacherUser,
-            subject = appointmentDto.subject,
+            subject = appointmentDto.subject!!,
             appointmentDate = appointmentDto.appointmentDate,
         )
     }
