@@ -1,128 +1,141 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../AuthContext';
-import { userApi } from '../api';
-import type { User } from '../types';
+import UserManagement from './UserManagement';
+import AppointmentManagement from './AppointmentManagement';
+import OrderManagement from './OrderManagement';
+import PlanManagement from './PlanManagement';
+import CommentManagement from './CommentManagement';
+import RewardManagement from './RewardManagement';
+import ChatMonitoring from './ChatMonitoring';
+import StatisticsDashboard from './StatisticsDashboard';
+
+type PanelType = 'users' | 'appointments' | 'orders' | 'plans' | 'comments' | 'rewards' | 'chat' | 'statistics';
 
 const Dashboard: React.FC = () => {
-  const [users, setUsers] = useState<User[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string>('');
+  const [activePanel, setActivePanel] = useState<PanelType>('users');
   const { user, logout } = useAuth();
-
-  useEffect(() => {
-    loadUsers();
-  }, []);
-
-  const loadUsers = async () => {
-    try {
-      setLoading(true);
-      const userList = await userApi.getUsers();
-      setUsers(userList);
-    } catch (err) {
-      console.error('Failed to load users:', err);
-      setError('Failed to load users');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleLogout = () => {
     logout();
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-lg">加载中...</div>
-      </div>
-    );
-  }
+  const menuItems = [
+    { id: 'users' as PanelType, name: '用户管理', icon: '👥' },
+    { id: 'appointments' as PanelType, name: '预约管理', icon: '📅' },
+    { id: 'orders' as PanelType, name: '订单管理', icon: '💰' },
+    { id: 'plans' as PanelType, name: '学习计划', icon: '📚' },
+    { id: 'comments' as PanelType, name: '评价管理', icon: '⭐' },
+    { id: 'rewards' as PanelType, name: '奖励系统', icon: '🎁' },
+    { id: 'chat' as PanelType, name: '聊天监控', icon: '💬' },
+    { id: 'statistics' as PanelType, name: '数据统计', icon: '📊' },
+  ];
+
+  const renderPanel = () => {
+    switch (activePanel) {
+      case 'users':
+        return <UserManagement />;
+      case 'appointments':
+        return <AppointmentManagement />;
+      case 'orders':
+        return <OrderManagement />;
+      case 'plans':
+        return <PlanManagement />;
+      case 'comments':
+        return <CommentManagement />;
+      case 'rewards':
+        return <RewardManagement />;
+      case 'chat':
+        return <ChatMonitoring />;
+      case 'statistics':
+        return <StatisticsDashboard />;
+      default:
+        return <UserManagement />;
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
+    <div className="flex h-screen bg-gray-100">
+      {/* Sidebar */}
+      <div className="w-64 bg-white shadow-lg">
+        <div className="flex flex-col h-full">
+          {/* Header */}
+          <div className="p-6 border-b">
+            <h1 className="text-xl font-bold text-gray-900">管理面板</h1>
+            <p className="mt-1 text-sm text-gray-600">Heartfelt Tutoring</p>
+          </div>
+
+          {/* User Info */}
+          <div className="px-6 py-4 border-b bg-gray-50">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900">管理员面板</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <span className="text-sm text-gray-700">欢迎, {user?.username}</span>
-              <button
-                onClick={handleLogout}
-                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium"
-              >
-                登出
-              </button>
+              <div className="flex-shrink-0">
+                {user?.avatarUrl ? (
+                  <img
+                    className="h-8 w-8 rounded-full"
+                    src={`http://localhost:8080${user.avatarUrl}`}
+                    alt={user.username}
+                  />
+                ) : (
+                  <div className="h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
+                    <span className="text-sm font-medium text-gray-700">
+                      {user?.username?.charAt(0).toUpperCase()}
+                    </span>
+                  </div>
+                )}
+              </div>
+              <div className="ml-3">
+                <p className="text-sm font-medium text-gray-900">{user?.username}</p>
+                <p className="text-xs text-gray-500">{user?.email}</p>
+              </div>
             </div>
           </div>
+
+          {/* Navigation Menu */}
+          <nav className="flex-1 px-4 py-6 space-y-2">
+            {menuItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => setActivePanel(item.id)}
+                className={`w-full flex items-center px-4 py-2 text-left text-sm font-medium rounded-md transition-colors ${
+                  activePanel === item.id
+                    ? 'bg-blue-100 text-blue-700 border-r-2 border-blue-700'
+                    : 'text-gray-700 hover:bg-gray-100'
+                }`}
+              >
+                <span className="mr-3">{item.icon}</span>
+                {item.name}
+              </button>
+            ))}
+          </nav>
+
+          {/* Logout Button */}
+          <div className="p-4 border-t">
+            <button
+              onClick={handleLogout}
+              className="w-full flex items-center justify-center px-4 py-2 text-sm font-medium text-red-600 bg-red-50 hover:bg-red-100 rounded-md transition-colors"
+            >
+              <span className="mr-2">🚪</span>
+              登出
+            </button>
+          </div>
         </div>
-      </header>
+      </div>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div className="px-4 py-6 sm:px-0">
-          <div className="bg-white shadow overflow-hidden sm:rounded-md">
-            <div className="px-4 py-5 sm:px-6">
-              <h2 className="text-lg leading-6 font-medium text-gray-900">
-                用户管理
-              </h2>
-              <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                管理系统中的所有用户
-              </p>
-            </div>
-
-            {error && (
-              <div className="px-4 py-3 bg-red-50 border-l-4 border-red-400">
-                <div className="text-red-700">{error}</div>
-              </div>
-            )}
-
-            <ul className="divide-y divide-gray-200">
-              {users.map((user) => (
-                <li key={user.id} className="px-4 py-4 sm:px-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      {user.avatarUrl && (
-                        <img
-                          className="h-10 w-10 rounded-full mr-4"
-                          src={`http://localhost:8080${user.avatarUrl}`}
-                          alt={user.username}
-                        />
-                      )}
-                      <div>
-                        <div className="text-sm font-medium text-gray-900">
-                          {user.username}
-                        </div>
-                        <div className="text-sm text-gray-500">
-                          {user.email}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-4">
-                      <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                        user.role === 'ADMIN'
-                          ? 'bg-red-100 text-red-800'
-                          : user.role === 'TEACHER'
-                          ? 'bg-blue-100 text-blue-800'
-                          : user.role === 'STUDENT'
-                          ? 'bg-green-100 text-green-800'
-                          : 'bg-gray-100 text-gray-800'
-                      }`}>
-                        {user.role}
-                      </span>
-                      <div className="text-sm text-gray-500">
-                        {new Date(user.createdAt).toLocaleDateString()}
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+      <div className="flex-1 flex flex-col">
+        {/* Header */}
+        <header className="bg-white shadow-sm">
+          <div className="px-8 py-4">
+            <h2 className="text-2xl font-bold text-gray-900">
+              {menuItems.find(item => item.id === activePanel)?.name}
+            </h2>
           </div>
-        </div>
-      </main>
+        </header>
+
+        {/* Content Area */}
+        <main className="flex-1 overflow-auto p-6">
+          {renderPanel()}
+        </main>
+      </div>
     </div>
   );
 };

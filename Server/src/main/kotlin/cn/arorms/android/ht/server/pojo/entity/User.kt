@@ -53,7 +53,7 @@ data class User(
 
 
     // ===== Profile info =====
-    @Column(name = "phone_number", unique = true, length = 20)
+    @Column(name = "phone_number", unique = true, length = 20, nullable = true)
     var phoneNumber: String? = null,
 
     @Column(name = "avatar_url")
