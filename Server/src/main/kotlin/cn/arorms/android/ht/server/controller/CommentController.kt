@@ -42,10 +42,10 @@ class CommentController @Autowired constructor(
 
     // Create new comment
     @PostMapping
-    fun createComment(@RequestBody commentDto: CommentDto): ResponseEntity<Comment> {
+    fun createComment(@RequestBody commentDto: CommentDto): ResponseEntity<CommentDto> {
         var createdComment = commentService.projection(commentDto)
         createdComment = commentService.createComment(createdComment)
-        return ResponseEntity(createdComment, HttpStatus.CREATED)
+        return ResponseEntity(commentDto, HttpStatus.CREATED)
     }
 
     // Update comment

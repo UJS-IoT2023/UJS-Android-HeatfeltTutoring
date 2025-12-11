@@ -25,17 +25,18 @@ class WalletService @Autowired constructor(
 
     // Get wallet by user ID
     fun getWalletByUserId(userId: Long): Wallet? {
-        val user = userRepository.findById(userId).orElse(null) ?: return null
-        if (user.wallet == null) {
-            user.wallet = createWallet()
-            userRepository.save(user)
+        var wallet = walletRepository.findByUserId(userId)
+        if (wallet == null) {
+            wallet = createWallet(userId)
+            walletRepository.save(wallet)
         }
-        return user.wallet
+        return wallet
     }
 
     // Create new wallet
-    fun createWallet(): Wallet {
+    fun createWallet(userId: Long): Wallet {
         val wallet = Wallet(
+            userId = userId,
             balance = 0.0,
             points = 0.0
         )
