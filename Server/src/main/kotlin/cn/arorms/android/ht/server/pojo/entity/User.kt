@@ -47,10 +47,6 @@ data class User(
     @JoinColumn(name = "teacher_profile_id")
     var teacherProfile: TeacherProfile? = null,
 
-    @OneToOne
-    @JoinColumn(name = "wallet_id")
-    var wallet: Wallet? = null,
-
 
     // ===== Profile info =====
     @Column(name = "phone_number", unique = true, length = 20)

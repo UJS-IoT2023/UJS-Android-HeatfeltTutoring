@@ -1,5 +1,6 @@
 package cn.arorms.android.ht.server.controller
 
+import cn.arorms.android.ht.server.pojo.dto.WalletDto
 import cn.arorms.android.ht.server.pojo.entity.Wallet
 import cn.arorms.android.ht.server.service.WalletService
 import org.springframework.beans.factory.annotation.Autowired
@@ -14,13 +15,14 @@ class WalletController @Autowired constructor(
 ) {
     // Get wallet by user ID
     @GetMapping("/user/{userId}")
-    fun getWalletByUserId(@PathVariable userId: Long): ResponseEntity<Wallet> {
+    fun getWalletByUserId(@PathVariable userId: Long): ResponseEntity<WalletDto> {
         val wallet = walletService.getWalletByUserId(userId)
-        return if (wallet != null) {
-            ResponseEntity(wallet, HttpStatus.OK)
-        } else {
-            ResponseEntity(HttpStatus.NOT_FOUND)
+        if (wallet == null) {
+            return ResponseEntity(HttpStatus.NOT_FOUND)
         }
+        val walletDto = WalletDto(wallet)
+        return ResponseEntity(walletDto, HttpStatus.OK)
+        
     }
 
     // Update wallet
