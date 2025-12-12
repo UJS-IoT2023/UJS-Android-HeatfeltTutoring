@@ -9,7 +9,9 @@ import cn.arorms.android.ht.client.R
 import cn.arorms.android.ht.client.databinding.ItemChatMessageBinding
 import cn.arorms.android.ht.client.network.AuthManager
 import cn.arorms.android.ht.client.pojo.models.ChatMessage
-import java.time.format.DateTimeFormatter
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.ZoneOffset
 
 class PrivateChatAdapter : ListAdapter<ChatMessage, PrivateChatAdapter.ChatMessageViewHolder>(ChatMessageDiffCallback) {
 
@@ -28,9 +30,9 @@ class PrivateChatAdapter : ListAdapter<ChatMessage, PrivateChatAdapter.ChatMessa
 
         fun bind(message: ChatMessage) {
             android.util.Log.d("ChatDebug", "Adapter: Binding message: ${message.content}")
-            binding.apply { 
+            binding.apply {
                 messageText.text = message.content
-                messageTime.text = message.createdAt?.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")) ?: "Unknown time"
+                messageTime.text = formatTimestamp(message.createdAt)
 
                 val currentUserId = AuthManager.getUserId()
                 val isCurrentUser = message.senderId == currentUserId
@@ -48,6 +50,21 @@ class PrivateChatAdapter : ListAdapter<ChatMessage, PrivateChatAdapter.ChatMessa
                     (messageContainer.layoutParams as android.widget.LinearLayout.LayoutParams).gravity = android.view.Gravity.START
                     (messageTime.layoutParams as android.widget.LinearLayout.LayoutParams).gravity = android.view.Gravity.START
                 }
+            }
+        }
+
+        private fun formatTimestamp(createdAt: LocalDateTime?): String {
+            if (createdAt == null) return "Unknown time"
+
+            val timestamp = createdAt.atZone(ZoneId.systemDefault()).toEpochSecond() * 1000
+            val now = System.currentTimeMillis()
+            val diff = now - timestamp
+
+            return when {
+                diff < 60 * 1000 -> "刚刚"
+                diff < 60 * 60 * 1000 -> "${diff / (60 * 1000)}分钟前"
+                diff < 24 * 60 * 60 * 1000 -> "${diff / (60 * 60 * 1000)}小时前"
+                else -> "${diff / (24 * 60 * 60 * 1000)}天前"
             }
         }
     }

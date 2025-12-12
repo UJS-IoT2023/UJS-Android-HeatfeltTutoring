@@ -90,12 +90,12 @@
                 android:gravity="center_vertical"
                 android:layout_marginBottom="6dp"
                 android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/outline_location_on_24"
-                    android:contentDescription="地址图标"
-                    app:tint="@color/gray" android:layout_marginEnd="8dp"/>
+<!--                <ImageView-->
+<!--                    android:layout_width="20dp"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    android:src="@drawable/outline_location_on_24"-->
+<!--                    android:contentDescription="地址图标"-->
+<!--                    app:tint="@color/gray" android:layout_marginEnd="8dp"/>-->
                 <TextView
                     android:id="@+id/teacherAddress"
                     android:layout_width="wrap_content"
@@ -110,12 +110,12 @@
                 android:gravity="center_vertical"
                 android:layout_marginBottom="6dp"
                 android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/outline_school_24"
-                    android:contentDescription="学历图标"
-                    app:tint="@color/gray" android:layout_marginEnd="8dp"/>
+<!--                <ImageView-->
+<!--                    android:layout_width="20dp"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    android:src="@drawable/outline_school_24"-->
+<!--                    android:contentDescription="学历图标"-->
+<!--                    app:tint="@color/gray" android:layout_marginEnd="8dp"/>-->
                 <TextView
                     android:id="@+id/teacherEducation"
                     android:layout_width="wrap_content"
@@ -129,12 +129,12 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/outline_group_24"
-                    android:contentDescription="年级图标"
-                    app:tint="@color/gray" android:layout_marginEnd="8dp"/>
+<!--                <ImageView-->
+<!--                    android:layout_width="20dp"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    android:src="@drawable/outline_group_24"-->
+<!--                    android:contentDescription="年级图标"-->
+<!--                    app:tint="@color/gray" android:layout_marginEnd="8dp"/>-->
                 <TextView
                     android:id="@+id/teacherGrades"
                     android:layout_width="wrap_content"

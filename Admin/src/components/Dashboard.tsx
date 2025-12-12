@@ -20,14 +20,14 @@ const Dashboard: React.FC = () => {
   };
 
   const menuItems = [
-    { id: 'users' as PanelType, name: '用户管理', icon: '👥' },
-    { id: 'appointments' as PanelType, name: '预约管理', icon: '📅' },
-    { id: 'orders' as PanelType, name: '订单管理', icon: '💰' },
-    { id: 'plans' as PanelType, name: '学习计划', icon: '📚' },
-    { id: 'comments' as PanelType, name: '评价管理', icon: '⭐' },
-    { id: 'rewards' as PanelType, name: '奖励系统', icon: '🎁' },
-    { id: 'chat' as PanelType, name: '聊天监控', icon: '💬' },
-    { id: 'statistics' as PanelType, name: '数据统计', icon: '📊' },
+    { id: 'users' as PanelType, name: '用户管理' },
+    { id: 'appointments' as PanelType, name: '预约管理' },
+    { id: 'orders' as PanelType, name: '订单管理' },
+    { id: 'plans' as PanelType, name: '学习计划' },
+    { id: 'comments' as PanelType, name: '评价管理' },
+    { id: 'rewards' as PanelType, name: '奖励系统' },
+    { id: 'chat' as PanelType, name: '聊天监控' },
+    { id: 'statistics' as PanelType, name: '数据统计' },
   ];
 
   const renderPanel = () => {
@@ -101,7 +101,6 @@ const Dashboard: React.FC = () => {
                     : 'text-gray-700 hover:bg-gray-100'
                 }`}
               >
-                <span className="mr-3">{item.icon}</span>
                 {item.name}
               </button>
             ))}
@@ -113,7 +112,6 @@ const Dashboard: React.FC = () => {
               onClick={handleLogout}
               className="w-full flex items-center justify-center px-4 py-2 text-sm font-medium text-red-600 bg-red-50 hover:bg-red-100 rounded-md transition-colors"
             >
-              <span className="mr-2">🚪</span>
               登出
             </button>
           </div>

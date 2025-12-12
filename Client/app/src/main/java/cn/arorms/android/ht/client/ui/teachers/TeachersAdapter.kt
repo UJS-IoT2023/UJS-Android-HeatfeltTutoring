@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import cn.arorms.android.ht.client.R
 import cn.arorms.android.ht.client.databinding.ItemTeacherBinding
 import cn.arorms.android.ht.client.pojo.models.User
+import cn.arorms.android.ht.client.utils.toChineseGender
+import cn.arorms.android.ht.client.utils.toChineseSubject
 
 class TeachersAdapter(private val onTeacherClick: (User) -> Unit) : ListAdapter<User, TeachersAdapter.TeacherViewHolder>(TeacherDiffCallback) {
 
@@ -28,11 +30,11 @@ class TeachersAdapter(private val onTeacherClick: (User) -> Unit) : ListAdapter<
             binding.apply {
                 teacherName.text = teacher.realName ?: teacher.username
                 teacherPhone.text = "电话: ${teacher.phoneNumber ?: "未填写"}"
-                teacherGender.text = "性别: ${teacher.gender ?: "未填写"}"
+                teacherGender.text = "性别: ${teacher.gender.toChineseGender()}"
                 teacherAddress.text = "地址: ${teacher.address ?: "未填写"}"
                 teacherEducation.text = "学历: ${teacher.teacherProfile?.educationalBackground ?: "未填写"}"
                 teacherGrades.text = "授课年级: ${teacher.teacherProfile?.taughtGrades ?: "未填写"}"
-                teacherTaughtSubjects.text = "教授科目: ${teacher.teacherProfile?.taughtSubjects ?: "未填写"}"
+                teacherTaughtSubjects.text = "教授科目: ${teacher.teacherProfile?.taughtSubject.toChineseSubject()}"
 
                 if (teacher.avatarUrl.isNullOrEmpty()) {
                     teacherIcon.setImageResource(R.drawable.baseline_person_24)

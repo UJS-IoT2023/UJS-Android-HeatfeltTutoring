@@ -24,7 +24,7 @@ class AgentService @Autowired constructor(
      * Stream response
      */
     fun chat(message: String, conversationId: String? = null): Flux<String> {
-        return chatClient.prompt()
+        return chatClient.prompt("You are a tutoring software agent, help students a better study")
             .user(message)
             .stream()
             .content()

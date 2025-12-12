@@ -101,3 +101,68 @@ INSERT INTO users (id, created_at, email, password, phone_number, real_name, rol
 (39, NOW(), 'cs_t_3@edu.cn', '$2a$10$HASHED_PASS_TEACHER', '13900000039', '魏老师', 'TEACHER', 'wei_cs_master', 39, 39, '男', '昆明市五华区', NULL);
 
 -- COMMIT;
+
+-- 确保在正确的数据库中执行
+-- \c heartfelt_tutoring ;
+
+-- 批量插入 20 位教师用户 (ID 20 到 39 的资料)
+INSERT INTO users (
+    username,
+    email,
+    password, 
+    role,
+    real_name,
+    phone_number,
+    address,
+    sex,
+    gender,
+    created_at,
+    teacher_profile_id,
+    avatar_url,
+    qq_id,
+    qq_openid,
+    wechat_id,
+    wechat_openid,
+    google_id,
+    wallet_id 
+) VALUES 
+-- Profile ID 20 (数学)
+('teacher_20', 'teacher_20@example.com', NULL, 'TEACHER', '陈老师', '13800000020', '江苏省南京市玄武区中山路', 'm', 'MALE', NOW(), 20, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 21 (英语)
+('teacher_21', 'teacher_21@example.com', NULL, 'TEACHER', '林老师', '13800000021', '江苏省南京市鼓楼区汉中路', 'f', 'FEMALE', NOW(), 21, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 22 (化学)
+('teacher_22', 'teacher_22@example.com', NULL, 'TEACHER', '张老师', '13800000022', '江苏省苏州市工业园区星湖街', 'm', 'MALE', NOW(), 22, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 23 (物理)
+('teacher_23', 'teacher_23@example.com', NULL, 'TEACHER', '王老师', '13800000023', '江苏省苏州市姑苏区景德路', 'f', 'FEMALE', NOW(), 23, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 24 (历史)
+('teacher_24', 'teacher_24@example.com', NULL, 'TEACHER', '刘老师', '13800000024', '江苏省无锡市滨湖区太湖大道', 'm', 'MALE', NOW(), 24, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 25 (计算机)
+('teacher_25', 'teacher_25@example.com', NULL, 'TEACHER', '杨老师', '13800000025', '江苏省无锡市锡山区东亭街道', 'f', 'FEMALE', NOW(), 25, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 26 (语文)
+('teacher_26', 'teacher_26@example.com', NULL, 'TEACHER', '黄老师', '13800000026', '江苏省常州市天宁区延陵中路', 'm', 'MALE', NOW(), 26, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 27 (数学)
+('teacher_27', 'teacher_27@example.com', NULL, 'TEACHER', '周老师', '13800000027', '江苏省常州市钟楼区怀德中路', 'f', 'FEMALE', NOW(), 27, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 28 (英语)
+('teacher_28', 'teacher_28@example.com', NULL, 'TEACHER', '吴老师', '13800000028', '江苏省镇江市京口区解放路', 'm', 'MALE', NOW(), 28, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 29 (化学)
+('teacher_29', 'teacher_29@example.com', NULL, 'TEACHER', '许老师', '13800000029', '江苏省镇江市润州区南徐大道', 'f', 'FEMALE', NOW(), 29, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 30 (物理)
+('teacher_30', 'teacher_30@example.com', NULL, 'TEACHER', '孙老师', '13800000030', '江苏省扬州市邗江区文昌中路', 'm', 'MALE', NOW(), 30, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 31 (历史)
+('teacher_31', 'teacher_31@example.com', NULL, 'TEACHER', '侯老师', '13800000031', '江苏省扬州市广陵区文汇西路', 'f', 'FEMALE', NOW(), 31, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 32 (计算机)
+('teacher_32', 'teacher_32@example.com', NULL, 'TEACHER', '朱老师', '13800000032', '江苏省泰州市海陵区鼓楼南路', 'm', 'MALE', NOW(), 32, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 33 (语文)
+('teacher_33', 'teacher_33@example.com', NULL, 'TEACHER', '郭老师', '13800000033', '江苏省泰州市高港区永安洲镇', 'f', 'FEMALE', NOW(), 33, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 34 (数学)
+('teacher_34', 'teacher_34@example.com', NULL, 'TEACHER', '高老师', '13800000034', '江苏省淮安市清江浦区淮海东路', 'm', 'MALE', NOW(), 34, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 35 (英语)
+('teacher_35', 'teacher_35@example.com', NULL, 'TEACHER', '魏老师', '13800000035', '江苏省淮安市淮阴区长江东路', 'f', 'FEMALE', NOW(), 35, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 36 (化学)
+('teacher_36', 'teacher_36@example.com', NULL, 'TEACHER', '郑老师', '13800000036', '江苏省盐城市亭湖区青年路', 'm', 'MALE', NOW(), 36, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 37 (物理)
+('teacher_37', 'teacher_37@example.com', NULL, 'TEACHER', '谢老师', '13800000037', '江苏省盐城市盐都区新都路', 'f', 'FEMALE', NOW(), 37, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 38 (历史)
+('teacher_38', 'teacher_38@example.com', NULL, 'TEACHER', '韩老师', '13800000038', '江苏省连云港市海州区通灌路', 'm', 'MALE', NOW(), 38, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+-- Profile ID 39 (计算机)
+('teacher_39', 'teacher_39@example.com', NULL, 'TEACHER', '方老师', '13800000039', '江苏省连云港市连云区连云街道', 'f', 'FEMALE', NOW(), 39, NULL, NULL, NULL, NULL, NULL, NULL, NULL);

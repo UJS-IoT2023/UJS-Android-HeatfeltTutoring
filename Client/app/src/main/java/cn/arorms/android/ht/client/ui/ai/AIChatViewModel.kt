@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cn.arorms.android.ht.client.network.AuthManager
 import cn.arorms.android.ht.client.network.RetrofitClient
+import cn.arorms.android.ht.client.network.ServerConfig
 import cn.arorms.android.ht.client.pojo.dto.AgentRequest
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -81,8 +82,7 @@ class AIChatViewModel : ViewModel() {
 
                 val requestBody = json.toRequestBody("application/json".toMediaType())
                 val request = Request.Builder()
-                    .url("http://172.20.10.4:8080/api/ai/chat")
-//                    .url("http://192.168.0.158:8080/api/ai/chat")
+                    .url(ServerConfig.AI_CHAT_URL)
                     .post(requestBody)
                     .addHeader("Content-Type", "application/json")
                     .apply {

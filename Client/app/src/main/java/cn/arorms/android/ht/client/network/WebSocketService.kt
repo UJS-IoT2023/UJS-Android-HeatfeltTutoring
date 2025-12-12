@@ -23,9 +23,7 @@ object WebSocketService {
         }
 
         // WebSocket endpoint should match HTTP API base URL
-//        val stompUrl = "ws://172.20.10.2:8080/ws"
-//        val stompUrl = "ws://192.168.0.158:8080/ws"
-        val stompUrl = "ws://172.20.10.4:8080/ws"
+        val stompUrl = ServerConfig.WEBSOCKET_URL
 
         stompClient = Stomp.over(Stomp.ConnectionProvider.OKHTTP, stompUrl).apply {
             // Add authentication header if needed

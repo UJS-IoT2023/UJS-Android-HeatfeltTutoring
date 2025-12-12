@@ -35,18 +35,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="搜索教师姓名或关键词">
-                    app:hintEnabled="false"  app:boxBackgroundMode="none" > <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/searchEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:hint="搜索教师姓名或关键词" android:background="@drawable/edit_text_background" android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="12dp"
-                    android:minHeight="48dp" /> </com.google.android.material.textfield.TextInputLayout>
 
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/searchEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
 
+                </com.google.android.material.textfield.TextInputLayout>
+                
                 <!-- 科目选择 -->
                 <HorizontalScrollView
                     android:layout_width="match_parent"

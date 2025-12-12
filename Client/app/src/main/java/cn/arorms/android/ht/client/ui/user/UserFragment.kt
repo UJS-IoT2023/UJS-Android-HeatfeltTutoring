@@ -26,6 +26,7 @@ import cn.arorms.android.ht.client.pojo.models.CreateDialogueRequest
 import cn.arorms.android.ht.client.pojo.models.Dialogue
 import cn.arorms.android.ht.client.pojo.models.TeacherSummary
 import cn.arorms.android.ht.client.pojo.models.User
+import cn.arorms.android.ht.client.utils.toChineseSubject
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.time.LocalDateTime
@@ -177,7 +178,7 @@ class UserFragment : Fragment() {
                 user.teacherProfile?.let { profile ->
                     educationalBackgroundTextView.text = "学历背景: ${profile.educationalBackground ?: "未填写"}"
                     taughtGradesTextView.text = "教授年级: ${profile.taughtGrades ?: "未填写"}"
-                    taughtSubjectsTextView.text = "教授科目: ${profile.taughtSubjects ?: "未填写"}"
+                    taughtSubjectsTextView.text = "教授科目: ${profile.taughtSubject.toChineseSubject()}"
                     taughtCoursesTextView.text = "教授课程: ${profile.taughtCourses ?: "未填写"}"
                 }
             } else {
